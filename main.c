@@ -18,17 +18,27 @@
  *
  */
 
+
 struct Rdv {
     int annee;
     int mois;
-    int date;
+    int jour;
     int heure;
     int minute;
     int duree;
 };
 
-int nRdvs;
-struct Rdv rdvs[1000];
+struct User {
+    int nRdvs;
+    char nom[40];
+    struct Rdv rdvs[1000];
+};
+
+int currentUser;
+int *nRdvs;
+struct Rdv *rdvs;
+
+struct User users[20];
 
 
 void ajouterUnRdv();
@@ -49,11 +59,17 @@ void sauvegarderRdv(struct Rdv *rdv) ;
  */
 int main() {
 
+    users[0].nRdvs = 0;
+    strcpy(users[0].nom, "Thomas");
+
+    currentUser = 0;
+    nRdvs = &users[currentUser].nRdvs;
+    rdvs = &users[currentUser].rdvs[0];
+
+
+    printf("Agenda de %s\n", users[currentUser].nom);
+
     int choice = 0;
-    nRdvs = 0;
-
-
-
 
     while (choice != 9) {
 
@@ -93,8 +109,8 @@ void listerRdvParJour() {
     int i = 0;
     int j = 0;
 
-    for (i = 0; i < nRdvs; i++) {
-        if(rdvs[i].date == jour && rdvs[i].mois == mois && rdvs[i].annee == annee) {
+    for (i = 0; i < *nRdvs; i++) {
+        if(rdvs[i].jour == jour && rdvs[i].mois == mois && rdvs[i].annee == annee) {
             rdvDuJour[j] = &rdvs[i];
             afficherRdv(j + 1, *rdvDuJour[j]);
             j++;
@@ -129,8 +145,8 @@ void listerRdvParJour() {
 
                 else if (choix == 2) {
                     printf("Suppression du rendez-vous...\n");
-                    *rdvDuJour[id - 1] = rdvs[nRdvs - 1];
-                    nRdvs--;
+                    *rdvDuJour[id - 1] = rdvs[*nRdvs - 1];
+                    (*nRdvs)--;
                 }
 
                 else if (choix == 3) {
@@ -145,8 +161,8 @@ void listerRdvParJour() {
 
 
 void ajouterUnRdv() {
-    rdvs[nRdvs] = nouveauRdv();
-    nRdvs++;
+    rdvs[*nRdvs] = nouveauRdv();
+    (*nRdvs)++;
 }
 
 struct Rdv nouveauRdv() {
@@ -154,7 +170,7 @@ struct Rdv nouveauRdv() {
     char tmp;
     struct Rdv newRdv;
 
-    promptDate(&newRdv.date, &newRdv.mois, &newRdv.annee);
+    promptDate(&newRdv.jour, &newRdv.mois, &newRdv.annee);
 
     printf("Heure du rendez-vous ? (Format hh:mm)\n");
     scanf("%d%c%d", &newRdv.heure, &tmp, &newRdv.minute);
@@ -174,7 +190,7 @@ void afficherRdv(int id, struct Rdv rdv) {
            "Date de rendez-vous: %02d/%02d/%04d\n"
            "   Heure de debut: %02d:%02d\n"
            "   Heure de fin: %02d:%02d\n",
-           id, rdv.date, rdv.mois, rdv.annee, rdv.heure, rdv.minute, heureFin, minuteFin);
+           id, rdv.jour, rdv.mois, rdv.annee, rdv.heure, rdv.minute, heureFin, minuteFin);
 }
 
 void sauvegarderRdv(struct Rdv *rdv) {
@@ -194,7 +210,7 @@ void sauvegarderRdv(struct Rdv *rdv) {
     fprintf(file, "Date de rendez-vous: %02d/%02d/%04d\n"
                   "Heure de debut: %02d:%02d\n"
                   "Heure de fin: %02d:%02d\n",
-            rdv->date, rdv->mois, rdv->annee, rdv->heure, rdv->minute, heureFin, minuteFin);
+            rdv->jour, rdv->mois, rdv->annee, rdv->heure, rdv->minute, heureFin, minuteFin);
 
     fclose(file);
 
