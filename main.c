@@ -37,6 +37,7 @@ int *nRdvs;
 struct Rdv *rdvs;
 
 struct Rdv specialDays[1000];
+int specialDaysNbr;
 
 int usrNbr;
 int i;
@@ -63,6 +64,8 @@ void listUsers() ;
  * \return Code d'erreur de l'application
  */
 int main() {
+
+    specialDaysNbr = 0;
 
     users[0].nRdvs = 0;
     strcpy(users[0].nom, "Thomas");
@@ -115,6 +118,29 @@ void administrator() {
             case 1:
                 listUsers();
                 break;
+        }
+
+        if(choix == 0)
+            newUser();
+
+        else if(choix == 1)
+            listUsers();
+
+        else if(choix == 2) {
+
+            int day, month, year;
+
+            promptDate(&day, &month, &year);
+
+            struct Rdv newRdv;
+
+            newRdv.jour = day;
+            newRdv.mois = month;
+            newRdv.annee = year;
+
+            specialDays[specialDaysNbr] = newRdv;
+            specialDaysNbr++;
+
         }
     }
 }
@@ -198,6 +224,7 @@ void normalUser(int userId) {
                 break;
 
         }
+
 
     }
 }
