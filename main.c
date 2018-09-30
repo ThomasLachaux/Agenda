@@ -1,6 +1,4 @@
-#pragma clang diagnostic push
 #pragma ide diagnostic ignored "cert-err34-c"
-#pragma clang diagnostic push
 #pragma ide diagnostic ignored "missing_default_case"
 
 #include <stdio.h>
@@ -38,19 +36,24 @@ int currentUser;
 int *nRdvs;
 struct Rdv *rdvs;
 
-struct User users[20];
+int usrNbr;
+int i;
+
+struct User users[9];
 
 
 void ajouterUnRdv();
 void listerRdvParJour();
 void afficherRdv(int id, struct Rdv rdv);
 struct Rdv nouveauRdv();
-
-
 void promptDate(int *jour, int *mois, int *annee) ;
-
 void sauvegarderRdv(struct Rdv *rdv) ;
+void normalUser(int userId) ;
+void administrator() ;
 
+void newUser() ;
+
+void listUsers() ;
 
 /**
  * \fn int main()
@@ -62,7 +65,107 @@ int main() {
     users[0].nRdvs = 0;
     strcpy(users[0].nom, "Thomas");
 
-    currentUser = 0;
+    usrNbr = 1;
+
+    int choix = 0;
+
+    while (choix != 9) {
+
+        printf("Bienvenue sur votre agenda. Qui etes-vous ?\n0) Administrateur\n");
+
+        for (i = 0; i < usrNbr; i++) {
+            printf("%d) %s\n", i + 1, users[i].nom);
+        }
+
+        printf("9) Quitter\n");
+        scanf("%d", &choix);
+
+        if(choix == 0) {
+            administrator();
+        }
+
+        else if (choix < 9 && choix <= usrNbr) {
+            normalUser(choix - 1);
+        }
+    }
+
+    printf("A bientot !");
+    return 0;
+}
+
+void administrator() {
+    int choix = 0;
+
+    while (choix != 9) {
+        printf("Bienvenue sur l'interface d'administration\n"
+               "0) Ajouter un utilisateur\n"
+               "1) Lister les utilisateurs\n"
+               "9) Se deconnecter");
+        scanf("%d", &choix);
+
+        switch (choix) {
+            case 0:
+                newUser();
+                break;
+
+            case 1:
+                listUsers();
+                break;
+        }
+    }
+}
+
+void newUser() {
+    struct User user;
+
+    user.nRdvs = 0;
+
+    printf("Nom de l'utilisateur ?\n");
+    scanf("%s", user.nom);
+
+    users[usrNbr] = user;
+    usrNbr++;
+}
+
+void listUsers() {
+
+    for (i = 0; i < usrNbr; i++) {
+        printf("%d) %s\n", i + 1, users[i].nom);
+    }
+
+    int choix = 0;
+
+    while(choix != 9) {
+        printf("\n1) Renommer un utilisateur\n2) Supprimer un utilisateur\n9) Retour a l'interface d'administration");
+        scanf("%d", &choix);
+
+        if(choix == 1 || choix == 2) {
+
+            int usrId;
+
+            printf("Identifiant de l'utilisateur ? (Entre 1 et %d)\n", usrNbr);
+            scanf("%d", &usrId);
+
+            usrId--;
+
+            if(choix == 1) {
+                printf("Nouveau nom de l'utilisateur ?\n");
+                scanf("%s", users[usrId].nom);
+                printf("Le nouveau nom de l'utilisateur est %s\n", users[usrId].nom);
+            }
+
+            else if(choix == 2) {
+                printf("Suppression de l'utilisateur %s...\n", users[usrId].nom);
+                users[usrId] = users[usrNbr];
+                usrNbr--;
+            }
+        }
+    }
+
+}
+
+void normalUser(int userId) {
+    currentUser = userId;
     nRdvs = &users[currentUser].nRdvs;
     rdvs = &users[currentUser].rdvs[0];
 
@@ -76,7 +179,7 @@ int main() {
         printf("\nQuelle action voulez-vous effectuer ?\n"
                "0) Ajouter un rendez-vous\n"
                "1) Lister les rendez-vous d'un jour\n"
-               "9) Quitter\n");
+               "9) Se deconnecter\n");
         scanf("%d", &choice);
 
 
@@ -93,9 +196,6 @@ int main() {
         }
 
     }
-
-    printf("A bientot !");
-    return 0;
 }
 
 
@@ -109,6 +209,7 @@ void listerRdvParJour() {
     int i = 0;
     int j = 0;
 
+    // Filtrage des rendez-vous
     for (i = 0; i < *nRdvs; i++) {
         if(rdvs[i].jour == jour && rdvs[i].mois == mois && rdvs[i].annee == annee) {
             rdvDuJour[j] = &rdvs[i];
@@ -135,7 +236,7 @@ void listerRdvParJour() {
 
             if(choix == 1 || choix == 2 || choix == 3) {
                 int id;
-                printf("Identifiant du rendez-vous ? (De 1 a %d)\n", j);
+                printf("Identifiant du rendez-vous ? (Etre 1 et %d)\n", j);
                 scanf("%d", &id);
 
                 if(choix == 1) {
