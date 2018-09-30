@@ -36,6 +36,8 @@ int currentUser;
 int *nRdvs;
 struct Rdv *rdvs;
 
+struct Rdv specialDays[1000];
+
 int usrNbr;
 int i;
 
@@ -100,7 +102,9 @@ void administrator() {
         printf("Bienvenue sur l'interface d'administration\n"
                "0) Ajouter un utilisateur\n"
                "1) Lister les utilisateurs\n"
-               "9) Se deconnecter");
+               "2) Ajouter un jour special\n"
+               "3) Lister les jours speciaux\n"
+               "9) Se deconnecter\n");
         scanf("%d", &choix);
 
         switch (choix) {
