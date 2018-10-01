@@ -7,6 +7,9 @@
 #include "administration.h"
 #include "tools.h"
 
+// Bug propre à CLion pour afficher printf dans le debugger
+#define printf setbuf(stdout, 0);printf
+
 void administrator() {
     int choix = 0;
 
@@ -27,29 +30,15 @@ void administrator() {
             case 1:
                 listUsers();
                 break;
-        }
 
-        if(choix == 0)
-            newUser();
+            case 2:
+                specialDays[specialDaysNbr] = addSpecialDay();
+                specialDaysNbr++;
+                break;
 
-        else if(choix == 1)
-            listUsers();
-
-        else if(choix == 2) {
-
-            int day, month, year;
-
-            promptDate(&day, &month, &year);
-
-            struct Rdv newRdv;
-
-            newRdv.jour = day;
-            newRdv.mois = month;
-            newRdv.annee = year;
-
-            specialDays[specialDaysNbr] = newRdv;
-            specialDaysNbr++;
-
+            case 3:
+                listSpecialDays();
+                break;
         }
     }
 }
@@ -100,5 +89,53 @@ void listUsers() {
             }
         }
     }
+}
 
+struct Rdv addSpecialDay() {
+    struct Rdv specialDay;
+    int day, month, year;
+
+    printf("Nom du jour special ?\n");
+    scanf("%s", specialDay.label);
+
+    promptDate(&day, &month, &year);
+
+
+    specialDay.jour = day;
+    specialDay.mois = month;
+    specialDay.annee = year;
+
+    return specialDay;
+}
+
+void listSpecialDays() {
+
+    int choice = 0;
+    int specialDayId;
+
+    for(i = 0; i < specialDaysNbr; i++) {
+        printf("%d) %02d/%02d/%04d: %s\n", i + 1, specialDays[i].jour, specialDays[i].mois, specialDays[i].annee, specialDays[i].label);
+    }
+
+    while (choice != 9) {
+        printf("1) Modifier un jour special\n2) Supprimer un jour special\n9) Retour au menu\n");
+        scanf("%d", &choice);
+
+        if(choice == 1 || choice == 2) {
+
+            printf("Identifiant du jour special ? (De 1 a %d)\n", specialDaysNbr);
+            scanf("%d", &specialDayId);
+
+            specialDayId--;
+
+            if(choice == 1)
+                specialDays[specialDayId] = addSpecialDay();
+
+            else if(choice == 2) {
+                printf("Suppression du jour special %s\n", specialDays[specialDayId].label);
+                specialDays[specialDayId] = specialDays[specialDaysNbr - 1];
+                specialDaysNbr--;
+            }
+        }
+    }
 }

@@ -8,6 +8,7 @@
 int i;
 
 struct Rdv {
+    char label[40];
     int annee;
     int mois;
     int jour;

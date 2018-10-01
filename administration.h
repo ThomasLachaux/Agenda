@@ -16,4 +16,6 @@ int specialDaysNbr;
 void administrator();
 void newUser();
 void listUsers();
+struct Rdv addSpecialDay();
+void listSpecialDays();
 #endif //AGENDA_ADMINISTRATION_H

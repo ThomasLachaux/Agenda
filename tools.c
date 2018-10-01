@@ -6,6 +6,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "tools.h"
+
+// Bug propre à CLion pour afficher printf dans le debugger
+#define printf setbuf(stdout, 0);printf
+
 void promptDate(int *jour, int *mois, int *annee) {
 
     // todo: source: http://www.cplusplus.com/reference/ctime/localtime, http://www.cplusplus.com/reference/ctime/tm/
