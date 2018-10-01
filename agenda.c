@@ -7,6 +7,7 @@
 #include <string.h>
 
 #include "agenda.h"
+#include "administration.h"
 #include "tools.h"
 
 // Bug propre à CLion pour afficher printf dans le debugger
@@ -21,15 +22,28 @@ void listerRdvParJour() {
 
     int i = 0;
     int j = 0;
+    int k = 0;
 
     // Filtrage des rendez-vous
     for (i = 0; i < *nRdvs; i++) {
         if(rdvs[i].jour == jour && rdvs[i].mois == mois && rdvs[i].annee == annee) {
             rdvDuJour[j] = &rdvs[i];
-            afficherRdv(j + 1, *rdvDuJour[j]);
+            afficherRdv(j + 1, rdvDuJour[j]);
             j++;
         }
+    }
 
+    printf("\nJournees speciales:\n");
+    // Filtrage des journées spéciales
+    for (i = 0; i < *nRdvs; i++) {
+        if(specialDays[i].jour == jour && specialDays[i].mois == mois && specialDays[i].annee == annee) {
+            displaySpecialDay(k + 1, &specialDays[i]);
+            k++;
+        }
+    }
+
+    if(k == 0) {
+        printf("Aucune journee speciale aujourd'hui");
     }
 
     if(j == 0) {
@@ -95,16 +109,16 @@ Rdv nouveauRdv() {
     return newRdv;
 }
 
-void afficherRdv(int id, Rdv rdv) {
+void afficherRdv(int id, Rdv *rdv) {
 
-    int minuteFin = (rdv.minute + rdv.duree) % 60;
-    int heureFin = (rdv.heure * 60 + rdv.minute + rdv.duree) / 60;
+    int minuteFin = (rdv->minute + rdv->duree) % 60;
+    int heureFin = (rdv->heure * 60 + rdv->minute + rdv->duree) / 60;
 
     printf("\n%d) "
            "Date de rendez-vous: %02d/%02d/%04d\n"
            "   Heure de debut: %02d:%02d\n"
            "   Heure de fin: %02d:%02d\n",
-           id, rdv.jour, rdv.mois, rdv.annee, rdv.heure, rdv.minute, heureFin, minuteFin);
+           id, rdv->jour, rdv->mois, rdv->annee, rdv->heure, rdv->minute, heureFin, minuteFin);
 }
 
 void sauvegarderRdv(Rdv *rdv) {

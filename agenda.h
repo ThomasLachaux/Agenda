@@ -13,7 +13,7 @@ Rdv *rdvs;
 
 void ajouterUnRdv();
 void listerRdvParJour();
-void afficherRdv(int id, Rdv rdv);
+void afficherRdv(int id, Rdv *rdv);
 Rdv nouveauRdv();
 void sauvegarderRdv(Rdv *rdv);
 #endif //AGENDA_AGENDA_H

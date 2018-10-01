@@ -18,4 +18,5 @@ void newUser();
 void listUsers();
 Rdv addSpecialDay();
 void listSpecialDays();
+void displaySpecialDay(int id, Rdv *specialDay);
 #endif //AGENDA_ADMINISTRATION_H

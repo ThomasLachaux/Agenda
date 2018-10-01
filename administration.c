@@ -114,7 +114,7 @@ void listSpecialDays() {
     int specialDayId;
 
     for(i = 0; i < specialDaysNbr; i++) {
-        printf("%d) %02d/%02d/%04d: %s\n", i + 1, specialDays[i].jour, specialDays[i].mois, specialDays[i].annee, specialDays[i].label);
+        displaySpecialDay(i + 1, &specialDays[i]);
     }
 
     while (choice != 9) {
@@ -138,4 +138,8 @@ void listSpecialDays() {
             }
         }
     }
+}
+
+void displaySpecialDay(int id, Rdv *specialDay) {
+    printf("%d) %02d/%02d/%04d: %s\n", id, specialDay->jour, specialDay->mois, specialDay->annee, specialDay->label);
 }
