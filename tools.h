@@ -7,6 +7,7 @@
 
 int i;
 
+typedef struct Rdv Rdv;
 struct Rdv {
     char label[40];
     int annee;
@@ -17,10 +18,11 @@ struct Rdv {
     int duree;
 };
 
+typedef struct User User;
 struct User {
     int nRdvs;
     char nom[40];
-    struct Rdv rdvs[1000];
+    Rdv rdvs[1000];
 };
 
 void promptDate(int *jour, int *mois, int *annee);

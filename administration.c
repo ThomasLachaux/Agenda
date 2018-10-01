@@ -44,7 +44,7 @@ void administrator() {
 }
 
 void newUser() {
-    struct User user;
+    User user;
 
     user.nRdvs = 0;
 
@@ -91,8 +91,8 @@ void listUsers() {
     }
 }
 
-struct Rdv addSpecialDay() {
-    struct Rdv specialDay;
+Rdv addSpecialDay() {
+    Rdv specialDay;
     int day, month, year;
 
     printf("Nom du jour special ?\n");

@@ -9,11 +9,11 @@
 
 int currentUser;
 int *nRdvs;
-struct Rdv *rdvs;
+Rdv *rdvs;
 
 void ajouterUnRdv();
 void listerRdvParJour();
-void afficherRdv(int id, struct Rdv rdv);
-struct Rdv nouveauRdv();
-void sauvegarderRdv(struct Rdv *rdv);
+void afficherRdv(int id, Rdv rdv);
+Rdv nouveauRdv();
+void sauvegarderRdv(Rdv *rdv);
 #endif //AGENDA_AGENDA_H

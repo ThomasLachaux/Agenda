@@ -17,7 +17,7 @@ void listerRdvParJour() {
     int jour, mois, annee;
     promptDate(&jour, &mois, &annee);
 
-    struct Rdv *rdvDuJour[1000];
+    Rdv *rdvDuJour[1000];
 
     int i = 0;
     int j = 0;
@@ -79,10 +79,10 @@ void ajouterUnRdv() {
     (*nRdvs)++;
 }
 
-struct Rdv nouveauRdv() {
+Rdv nouveauRdv() {
 
     char tmp;
-    struct Rdv newRdv;
+    Rdv newRdv;
 
     promptDate(&newRdv.jour, &newRdv.mois, &newRdv.annee);
 
@@ -95,7 +95,7 @@ struct Rdv nouveauRdv() {
     return newRdv;
 }
 
-void afficherRdv(int id, struct Rdv rdv) {
+void afficherRdv(int id, Rdv rdv) {
 
     int minuteFin = (rdv.minute + rdv.duree) % 60;
     int heureFin = (rdv.heure * 60 + rdv.minute + rdv.duree) / 60;
@@ -107,7 +107,7 @@ void afficherRdv(int id, struct Rdv rdv) {
            id, rdv.jour, rdv.mois, rdv.annee, rdv.heure, rdv.minute, heureFin, minuteFin);
 }
 
-void sauvegarderRdv(struct Rdv *rdv) {
+void sauvegarderRdv(Rdv *rdv) {
 
     FILE *file = NULL;
     char filename[250];

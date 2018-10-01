@@ -7,15 +7,15 @@
 
 #include "tools.h"
 
-struct User users[9];
+User users[9];
 int usrNbr;
 
-struct Rdv specialDays[1000];
+Rdv specialDays[1000];
 int specialDaysNbr;
 
 void administrator();
 void newUser();
 void listUsers();
-struct Rdv addSpecialDay();
+Rdv addSpecialDay();
 void listSpecialDays();
 #endif //AGENDA_ADMINISTRATION_H
