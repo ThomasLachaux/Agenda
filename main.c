@@ -63,6 +63,8 @@ int main() {
 
 void normalUser(int userId) {
     currentUser = userId;
+
+    // Par soucis de lisibilité
     nRdvs = &users[currentUser].nRdvs;
     rdvs = &users[currentUser].rdvs[0];
 

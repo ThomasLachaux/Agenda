@@ -9,7 +9,7 @@ int i;
 
 typedef struct Rdv Rdv;
 struct Rdv {
-    char label[40];
+    char label[100];
     int annee;
     int mois;
     int jour;
@@ -26,4 +26,5 @@ struct User {
 };
 
 void promptDate(int *jour, int *mois, int *annee);
+int weekNumber(Rdv *rdv);
 #endif //AGENDA_TOOLS_H

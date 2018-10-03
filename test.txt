@@ -1,0 +1,10 @@
+Jour
+rdvs[i].jour == jour && rdvs[i].mois == mois && rdvs[i].annee == annee
+
+Semaine
+abs(jour1DepuisJanvier - jour2DepuisJanvier) < 7
+
+rdvs[i].mois == mois && rdvs[i].annee == annee
+
+Mois
+rdvs[i].mois == mois && rdvs[i].annee == annee

@@ -48,3 +48,21 @@ void promptDate(int *jour, int *mois, int *annee) {
 
     }
 }
+
+int weekNumber(Rdv *rdv) {
+
+    struct tm date = {0};
+
+    date.tm_year = rdv->annee + 1900;
+    date.tm_mon = rdv->mois - 1;
+    date.tm_mday = rdv->jour;
+
+    // todo: source https://www.codeproject.com/Questions/592534/HelpplustoplusfindoutplusWeekplusnumberplusofplusy
+    // todo: autheur Ian A Davidson 14-May-13 22:40pm
+
+    int monToSun = (date.tm_wday == 0) ? 7 : date.tm_wday; // Passe le lundi en premier jour de la semaine
+    int week = ((date.tm_yday + 8 - monToSun) / 7);
+
+    return week;
+
+}

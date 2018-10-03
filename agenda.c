@@ -13,6 +13,7 @@
 // Bug propre à CLion pour afficher printf dans le debugger
 #define printf setbuf(stdout, 0);printf
 
+
 void listerRdvParJour() {
 
     int jour, mois, annee;
@@ -35,7 +36,7 @@ void listerRdvParJour() {
 
     printf("\nJournees speciales:\n");
     // Filtrage des journées spéciales
-    for (i = 0; i < *nRdvs; i++) {
+    for (i = 0; i < specialDaysNbr; i++) {
         if(specialDays[i].jour == jour && specialDays[i].mois == mois && specialDays[i].annee == annee) {
             displaySpecialDay(k + 1, &specialDays[i]);
             k++;
@@ -103,7 +104,7 @@ Rdv nouveauRdv() {
     printf("Heure du rendez-vous ? (Format hh:mm)\n");
     scanf("%d%c%d", &newRdv.heure, &tmp, &newRdv.minute);
 
-    printf("Duree du rendez-vous ?\n");
+    printf("Duree du rendez-vous ? (En minutes)\n");
     scanf("%d", &newRdv.duree);
 
     return newRdv;
