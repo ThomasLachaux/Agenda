@@ -49,13 +49,13 @@ void promptDate(int *jour, int *mois, int *annee) {
     }
 }
 
-int weekNumber(Rdv *rdv) {
+int weekNumber(int day, int month, int year) {
 
     struct tm date = {0};
 
-    date.tm_year = rdv->annee + 1900;
-    date.tm_mon = rdv->mois - 1;
-    date.tm_mday = rdv->jour;
+    date.tm_year = year + 1900;
+    date.tm_mon = month - 1;
+    date.tm_mday = day;
 
     // todo: source https://www.codeproject.com/Questions/592534/HelpplustoplusfindoutplusWeekplusnumberplusofplusy
     // todo: autheur Ian A Davidson 14-May-13 22:40pm

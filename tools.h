@@ -26,5 +26,5 @@ struct User {
 };
 
 void promptDate(int *jour, int *mois, int *annee);
-int weekNumber(Rdv *rdv);
+int weekNumber(int day, int month, int year);
 #endif //AGENDA_TOOLS_H

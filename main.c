@@ -29,7 +29,7 @@ void normalUser(int userId) ;
 int main() {
 
     specialDaysNbr = 0;
-
+    filterMode = 1;
     users[0].nRdvs = 0;
     strcpy(users[0].nom, "Thomas");
 

@@ -27,7 +27,7 @@ void listerRdvParJour() {
 
     // Filtrage des rendez-vous
     for (i = 0; i < *nRdvs; i++) {
-        if(rdvs[i].jour == jour && rdvs[i].mois == mois && rdvs[i].annee == annee) {
+        if(filterRdv(rdvs[i], jour, mois, annee)) {
             rdvDuJour[j] = &rdvs[i];
             afficherRdv(j + 1, rdvDuJour[j]);
             j++;
@@ -64,7 +64,7 @@ void listerRdvParJour() {
 
             if(choix == 1 || choix == 2 || choix == 3) {
                 int id;
-                printf("Identifiant du rendez-vous ? (Etre 1 et %d)\n", j);
+                printf("Identifiant du rendez-vous ? (Entre 1 et %d)\n", j);
                 scanf("%d", &id);
 
                 if(choix == 1) {
@@ -110,6 +110,7 @@ Rdv nouveauRdv() {
     return newRdv;
 }
 
+// todo: faire téléscopation rdv
 void afficherRdv(int id, Rdv *rdv) {
 
     int minuteFin = (rdv->minute + rdv->duree) % 60;
@@ -142,5 +143,24 @@ void sauvegarderRdv(Rdv *rdv) {
             rdv->jour, rdv->mois, rdv->annee, rdv->heure, rdv->minute, heureFin, minuteFin);
 
     fclose(file);
+}
 
+// todo: tout passer en anglais
+int filterRdv(Rdv rdv, int day, int month, int year) {
+
+    switch (filterMode) {
+
+        // Filtrage par jour
+        case 1:
+            return rdv.jour == day && rdv.mois == month && rdv.annee == year;
+
+        // Filtrage par semaine
+        // Le test de l'année est utilisé dans le cas la semaine se chevauche avec une annee
+        case 2:
+            return weekNumber(rdv.jour, rdv.mois, rdv.annee) == weekNumber(day, month, year) && abs(rdv.annee - year) <= 1;
+
+        // Filtrage par mois
+        default:
+            return rdv.mois == month && rdv.annee == year;
+    }
 }

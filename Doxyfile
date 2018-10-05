@@ -252,7 +252,7 @@ TCL_SUBST              =
 # members will be omitted, etc.
 # The default value is: NO.
 
-OPTIMIZE_OUTPUT_FOR_C  = NO
+OPTIMIZE_OUTPUT_FOR_C  = YES
 
 # Set the OPTIMIZE_OUTPUT_JAVA tag to YES if your project consists of Java or
 # Python sources only. Doxygen will then generate output that is more tailored
@@ -531,7 +531,7 @@ CASE_SENSE_NAMES       = NO
 # scope will be hidden.
 # The default value is: NO.
 
-HIDE_SCOPE_NAMES       = NO
+HIDE_SCOPE_NAMES       = YES
 
 # If the HIDE_COMPOUND_REFERENCE tag is set to NO (default) then doxygen will
 # append additional text to a page's title, such as Class Reference. If set to
@@ -1246,9 +1246,9 @@ HTML_COLORSTYLE_SAT    = 100
 HTML_COLORSTYLE_GAMMA  = 80
 
 # If the HTML_TIMESTAMP tag is set to YES then the footer of each generated HTML
-# page will contain the jour and time when the page was generated. Setting this
+# page will contain the date and time when the page was generated. Setting this
 # to YES can help to show when doxygen was last run and thus if the
-# documentation is up to jour.
+# documentation is up to date.
 # The default value is: NO.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
@@ -1685,7 +1685,7 @@ EXTRA_SEARCH_MAPPINGS  =
 # If the GENERATE_LATEX tag is set to YES, doxygen will generate LaTeX output.
 # The default value is: YES.
 
-GENERATE_LATEX         = YES
+GENERATE_LATEX         = NO
 
 # The LATEX_OUTPUT tag is used to specify where the LaTeX docs will be put. If a
 # relative path is entered the value of OUTPUT_DIRECTORY will be put in front of
@@ -1750,7 +1750,7 @@ EXTRA_PACKAGES         =
 #
 # Note: Only use a user-defined header if you know what you are doing! The
 # following commands have a special meaning inside the header: $title,
-# $datetime, $jour, $doxygenversion, $projectname, $projectnumber,
+# $datetime, $date, $doxygenversion, $projectname, $projectnumber,
 # $projectbrief, $projectlogo. Doxygen will replace $title with the empty
 # string, for the replacement values of the other commands the user is referred
 # to HTML_HEADER.
@@ -1840,7 +1840,7 @@ LATEX_SOURCE_CODE      = NO
 LATEX_BIB_STYLE        = plain
 
 # If the LATEX_TIMESTAMP tag is set to YES then the footer of each generated
-# page will contain the jour and time when the page was generated. Setting this
+# page will contain the date and time when the page was generated. Setting this
 # to NO can help when comparing the output of multiple runs.
 # The default value is: NO.
 # This tag requires that the tag GENERATE_LATEX is set to YES.

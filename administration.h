@@ -13,6 +13,9 @@ int usrNbr;
 Rdv specialDays[1000];
 int specialDaysNbr;
 
+// todo: passer en enumeration
+int filterMode;
+
 void administrator();
 void newUser();
 void listUsers();
