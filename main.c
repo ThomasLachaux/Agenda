@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <fcntl.h>
 
 #include "administration.h"
 #include "agenda.h"
 #include "tools.h"
 
 // Bug propre à CLion pour afficher printf dans le debugger
-#define printf setbuf(stdout, 0);printf
+//#define printf setbuf(stdout, 0);printf
 
 /**
  * \file main.c
@@ -27,6 +28,8 @@ void normalUser(int userId) ;
  * \return Code d'erreur de l'application
  */
 int main() {
+    // Passage de l'encodage de la console en UTF-8
+    _setmode(_fileno(stdout), _O_U8TEXT);
 
     specialDaysNbr = 0;
     filterMode = 1;
@@ -36,16 +39,17 @@ int main() {
     usrNbr = 1;
 
     int choix = 0;
+    int i;
 
     while (choix != 9) {
 
-        printf("Bienvenue sur votre agenda. Qui etes-vous ?\n0) Administrateur\n");
+        wprintf(L"Bienvenue sur votre agenda. Qui êtes-vous ?\n0) Administrateur\n");
 
         for (i = 0; i < usrNbr; i++) {
-            printf("%d) %s\n", i + 1, users[i].nom);
+            wprintf(L"%d) %s\n", i + 1, users[i].nom);
         }
 
-        printf("9) Quitter\n");
+        wprintf(L"9) Quitter\n");
         scanf("%d", &choix);
 
         if(choix == 0) {
@@ -57,7 +61,7 @@ int main() {
         }
     }
 
-    printf("A bientot !");
+    wprintf(L"À bientôt !");
     return 0;
 }
 
@@ -69,16 +73,16 @@ void normalUser(int userId) {
     rdvs = &users[currentUser].rdvs[0];
 
 
-    printf("Agenda de %s\n", users[currentUser].nom);
+    wprintf(L"Agenda de %s\n", users[currentUser].nom);
 
     int choice = 0;
 
     while (choice != 9) {
 
-        printf("\nQuelle action voulez-vous effectuer ?\n"
+        wprintf(L"\nQuelle action voulez-vous effectuer ?\n"
                "0) Ajouter un rendez-vous\n"
                "1) Lister les rendez-vous d'un jour\n"
-               "9) Se deconnecter\n");
+               "9) Se déconnecter\n");
         scanf("%d", &choice);
 
 

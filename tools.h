@@ -5,8 +5,6 @@
 #ifndef AGENDA_TOOLS_H
 #define AGENDA_TOOLS_H
 
-int i;
-
 typedef struct Rdv Rdv;
 struct Rdv {
     char label[100];
