@@ -23,27 +23,24 @@
  */
 
 /**
- * \file main.c
- * \author Thomas de Lachaux
- * \version 1.0
+ * @file main.c
+ * @authors Thomas de Lachaux
+ * @authors Louis Bichet
+ * @version 1.0
+ * @copyright GNU Public License
  *
  */
 void normalUser(int userId) ;
-
+void initGlobals() ;
 
 /**
- * \fn int main()
- * \brief Lancement de l'application
- * \return Code d'erreur de l'application
+ * @fn int main()
+ * @brief Lancement de l'application
+ * @return Code d'erreur de l'application
  */
 int main() {
 
-    specialDaysNbr = 0;
-    filterMode = 1;
-    users[0].nRdvs = 0;
-    strcpy(users[0].nom, "Thomas");
-
-    usrNbr = 1;
+    initGlobals();
 
     int choix = 0;
     int i;
@@ -70,6 +67,15 @@ int main() {
 
     printf("\267 bient\147t !");
     return 0;
+}
+
+void initGlobals() {
+    specialDaysNbr = 0;
+    filterMode = 1;
+    users[0].nRdvs = 0;
+    strcpy(users[0].nom, "Thomas");
+
+    usrNbr = 1;
 }
 
 void normalUser(int userId) {
