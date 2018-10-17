@@ -1,6 +1,9 @@
-//
-// Created by Thomas on 30-Sep-18.
-//
+/**
+ * @file tools.c
+ * @authors Thomas de Lachaux
+ * @authors Louis Bichet
+ * @copyright GNU Public License
+ */
 
 #include <time.h>
 #include <stdlib.h>

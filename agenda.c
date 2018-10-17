@@ -1,6 +1,9 @@
-//
-// Created by Thomas on 30-Sep-18.
-//
+/**
+ * @file agenda.c
+ * @authors Thomas de Lachaux
+ * @authors Louis Bichet
+ * @copyright GNU Public License
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,6 +12,8 @@
 #include "agenda.h"
 #include "administration.h"
 #include "tools.h"
+
+
 
 // Bug propre à CLion pour afficher printf dans le debugger
 #define printf setbuf(stdout, 0);printf
@@ -34,7 +39,7 @@ void listerRdvParJour() {
         }
     }
 
-    printf("\nJourn\202es sp\202ciales:\n");
+    printf("\nJournées spéciales:\n");
     // Filtrage des journées spéciales
     for (i = 0; i < specialDaysNbr; i++) {
         if(specialDays[i].jour == jour && specialDays[i].mois == mois && specialDays[i].annee == annee) {
@@ -44,7 +49,7 @@ void listerRdvParJour() {
     }
 
     if(k == 0) {
-        printf("Aucune journ\202e sp\202ciale aujourd'hui");
+        printf("Aucune journée spéciale aujourd'hui");
     }
 
     if(j == 0) {
@@ -104,8 +109,17 @@ Rdv nouveauRdv() {
     printf("Heure du rendez-vous ? (Format hh:mm)\n");
     scanf("%d%c%d", &newRdv.heure, &tmp, &newRdv.minute);
 
-    printf("Dur\202e du rendez-vous ? (En minutes)\n");
+    printf("Durée du rendez-vous ? (En minutes)\n");
     scanf("%d", &newRdv.duree);
+
+    printf("Nom du rendez-vous ?\n");
+    scanf("%s", newRdv.label);
+
+    printf("Lieu du rendez-vous ?\n");
+    scanf("%s", newRdv.place);
+
+    printf("Personnes présentes lors du rendez-vous ?\n");
+    scanf("%s", newRdv.with);
 
     return newRdv;
 }
@@ -116,10 +130,14 @@ void afficherRdv(int id, Rdv *rdv) {
     int minuteFin = (rdv->minute + rdv->duree) % 60;
     int heureFin = (rdv->heure * 60 + rdv->minute + rdv->duree) / 60;
 
+    // todo: terminer ça
     printf("\n%d) "
-           "Date de rendez-vous: %02d/%02d/%04d\n"
+           "Nom: %s\n"
+           "Date: %02d/%02d/%04d\n"
            "   Heure de debut: %02d:%02d\n"
-           "   Heure de fin: %02d:%02d\n",
+           "   Heure de fin: %02d:%02d\n"
+           "Lieu: %s\n"
+           "Personnes présentes",
            id, rdv->jour, rdv->mois, rdv->annee, rdv->heure, rdv->minute, heureFin, minuteFin);
 }
 

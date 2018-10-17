@@ -1,6 +1,9 @@
-//
-// Created by Thomas on 30-Sep-18.
-//
+/**
+ * @file tools.h
+ * @authors Thomas de Lachaux
+ * @authors Louis Bichet
+ * @copyright GNU Public License
+ */
 
 #ifndef AGENDA_TOOLS_H
 #define AGENDA_TOOLS_H
@@ -14,6 +17,8 @@ struct Rdv {
     int heure;
     int minute;
     int duree;
+    char place[100];
+    char with[100];
 };
 
 typedef struct User User;

@@ -1,6 +1,9 @@
-//
-// Created by Thomas on 30-Sep-18.
-//
+/**
+ * @file administration.c
+ * @authors Thomas de Lachaux
+ * @authors Louis Bichet
+ * @copyright GNU Public License
+ */
 
 #include <stdio.h>
 
@@ -17,8 +20,8 @@ void administrator() {
         printf("Bienvenue sur l'interface d'administration\n"
                "0) Ajouter un utilisateur\n"
                "1) Lister les utilisateurs\n"
-               "2) Ajouter un jour sp\202cial\n"
-               "3) Lister les jours sp\202ciaux\n"
+               "2) Ajouter un jour spécial\n"
+               "3) Lister les jours spéciaux\n"
                "9) Se déconnecter\n");
         scanf("%d", &choix);
 
@@ -96,7 +99,7 @@ Rdv addSpecialDay() {
     Rdv specialDay;
     int day, month, year;
 
-    printf("Nom du jour sp\202cial ?\n");
+    printf("Nom du jour spécial ?\n");
     scanf("%s", specialDay.label);
 
     promptDate(&day, &month, &year);
@@ -120,12 +123,12 @@ void listSpecialDays() {
     }
 
     while (choice != 9) {
-        printf("1) Modifier un jour sp\202cial\n2) Supprimer un jour sp\202cial\n9) Retour au menu\n");
+        printf("1) Modifier un jour spécial\n2) Supprimer un jour spécial\n9) Retour au menu\n");
         scanf("%d", &choice);
 
         if(choice == 1 || choice == 2) {
 
-            printf("Identifiant du jour sp\202cial ? (De 1 a %d)\n", specialDaysNbr);
+            printf("Identifiant du jour spécial ? (De 1 a %d)\n", specialDaysNbr);
             scanf("%d", &specialDayId);
 
             specialDayId--;
@@ -134,7 +137,7 @@ void listSpecialDays() {
                 specialDays[specialDayId] = addSpecialDay();
 
             else if(choice == 2) {
-                printf("Suppression du jour sp\202cial %s\n", specialDays[specialDayId].label);
+                printf("Suppression du jour spécial %s\n", specialDays[specialDayId].label);
                 specialDays[specialDayId] = specialDays[specialDaysNbr - 1];
                 specialDaysNbr--;
             }

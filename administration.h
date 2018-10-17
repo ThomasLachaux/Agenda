@@ -1,6 +1,9 @@
-//
-// Created by Thomas on 30-Sep-18.
-//
+/**
+ * @file administration.h
+ * @authors Thomas de Lachaux
+ * @authors Louis Bichet
+ * @copyright GNU Public License
+ */
 
 #ifndef AGENDA_ADMINISTRATION_H
 #define AGENDA_ADMINISTRATION_H

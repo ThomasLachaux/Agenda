@@ -8,3 +8,12 @@ rdvs[i].mois == mois && rdvs[i].annee == annee
 
 Mois
 rdvs[i].mois == mois && rdvs[i].annee == annee
+
+
+"""
+    @fn find_and_replace
+    @brief Ouvre un fichier, remplace des caractères par d'autres et l'écrit dans le fichier
+    @param filename nom du ficher
+    @param mapping table des correspondances entre l'UTF et l'ASCII Etendu
+    @param reverse si false: l'UTF remplace l'ASCII. Sinon inverse le résultat
+    """""

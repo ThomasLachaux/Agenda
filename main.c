@@ -1,3 +1,11 @@
+/**
+ * @file main.c
+ * @brief Point d'entrée de l'application. L'utilisateur choisit entre le mode admin et utilisateur
+ * @authors Thomas de Lachaux
+ * @authors Louis Bichet
+ * @copyright GNU Public License
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,27 +17,17 @@
 // Bug propre à CLion pour afficher printf dans le debugger
 #define printf setbuf(stdout, 0);printf
 
+
+
 /*
- * Table des correspondances:
- * Correspond à la table ASCII étendue en octal (https://bit.ly/2pZ9gYG)
- * é: \202
- * à: \205
- * ç: \207
- * ê: \210
- * è: \212
- * À: \267
- * ô: \147
- *
+ * todo: anglissisez les variables
+ * todo: gerer les conflits
+ * todo: gerer les heures +24
+ * todo: ajouter un lieu, personnes
+ * todo: gerer pb scanf espace
  */
 
-/**
- * @file main.c
- * @authors Thomas de Lachaux
- * @authors Louis Bichet
- * @version 1.0
- * @copyright GNU Public License
- *
- */
+
 void normalUser(int userId) ;
 void initGlobals() ;
 
@@ -47,7 +45,7 @@ int main() {
 
     while (choix != 9) {
 
-        printf("Bienvenue sur votre agenda. Qui \210tes-vous ?\n0) Administrateur\n");
+        printf("Bienvenue sur votre agenda. Qui êtes-vous ?\n0) Administrateur\n");
 
         for (i = 0; i < usrNbr; i++) {
             printf("%d) %s\n", i + 1, users[i].nom);
@@ -65,7 +63,7 @@ int main() {
         }
     }
 
-    printf("\267 bient\147t !");
+    printf("À bientôt !");
     return 0;
 }
 
@@ -74,8 +72,9 @@ void initGlobals() {
     filterMode = 1;
     users[0].nRdvs = 0;
     strcpy(users[0].nom, "Thomas");
+    strcpy(users[1].nom, "Louis");
 
-    usrNbr = 1;
+    usrNbr = 2;
 }
 
 void normalUser(int userId) {
