@@ -24,7 +24,7 @@ void promptDate(int *jour, int *mois, int *annee) {
 
     int choix = 1;
 
-    wprintf(L"1) Aujourd'hui\n2) Demain\n3) Autre chose\n");
+    printf("1) Aujourd'hui\n2) Demain\n3) Autre chose\n");
     scanf("%d", &choix);
 
 
@@ -43,7 +43,7 @@ void promptDate(int *jour, int *mois, int *annee) {
             break;
 
         default:
-            wprintf(L"Date ? (Format : jj/mm/aaaa)\n");
+            printf("Date ? (Format : jj/mm/aaaa)\n");
             scanf("%d%c%d%c%d", jour, &tmp, mois, &tmp, annee);
 
     }

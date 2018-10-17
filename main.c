@@ -1,14 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <fcntl.h>
 
 #include "administration.h"
 #include "agenda.h"
 #include "tools.h"
 
 // Bug propre à CLion pour afficher printf dans le debugger
-//#define printf setbuf(stdout, 0);printf
+#define printf setbuf(stdout, 0);printf
+
+/*
+ * Table des correspondances:
+ * Correspond à la table ASCII étendue en octal (https://bit.ly/2pZ9gYG)
+ * é: \202
+ * à: \205
+ * ç: \207
+ * ê: \210
+ * è: \212
+ * À: \267
+ * ô: \147
+ *
+ */
 
 /**
  * \file main.c
@@ -16,9 +28,6 @@
  * \version 1.0
  *
  */
-
-
-
 void normalUser(int userId) ;
 
 
@@ -28,8 +37,6 @@ void normalUser(int userId) ;
  * \return Code d'erreur de l'application
  */
 int main() {
-    // Passage de l'encodage de la console en UTF-8
-    _setmode(_fileno(stdout), _O_U8TEXT);
 
     specialDaysNbr = 0;
     filterMode = 1;
@@ -43,13 +50,13 @@ int main() {
 
     while (choix != 9) {
 
-        wprintf(L"Bienvenue sur votre agenda. Qui êtes-vous ?\n0) Administrateur\n");
+        printf("Bienvenue sur votre agenda. Qui \210tes-vous ?\n0) Administrateur\n");
 
         for (i = 0; i < usrNbr; i++) {
-            wprintf(L"%d) %s\n", i + 1, users[i].nom);
+            printf("%d) %s\n", i + 1, users[i].nom);
         }
 
-        wprintf(L"9) Quitter\n");
+        printf("9) Quitter\n");
         scanf("%d", &choix);
 
         if(choix == 0) {
@@ -61,7 +68,7 @@ int main() {
         }
     }
 
-    wprintf(L"À bientôt !");
+    printf("\267 bient\147t !");
     return 0;
 }
 
@@ -73,13 +80,13 @@ void normalUser(int userId) {
     rdvs = &users[currentUser].rdvs[0];
 
 
-    wprintf(L"Agenda de %s\n", users[currentUser].nom);
+    printf("Agenda de %s\n", users[currentUser].nom);
 
     int choice = 0;
 
     while (choice != 9) {
 
-        wprintf(L"\nQuelle action voulez-vous effectuer ?\n"
+        printf("\nQuelle action voulez-vous effectuer ?\n"
                "0) Ajouter un rendez-vous\n"
                "1) Lister les rendez-vous d'un jour\n"
                "9) Se déconnecter\n");
