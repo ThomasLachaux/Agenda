@@ -2,5 +2,5 @@ cmake-build-debug/
 .idea
 documentation/
 doxygen.bat
-dist/
-build/
+utils/dist/
+utils/build/
