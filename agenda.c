@@ -130,15 +130,17 @@ void afficherRdv(int id, Rdv *rdv) {
     int minuteFin = (rdv->minute + rdv->duree) % 60;
     int heureFin = (rdv->heure * 60 + rdv->minute + rdv->duree) / 60;
 
-    // todo: terminer ça
     printf("\n%d) "
            "Nom: %s\n"
            "Date: %02d/%02d/%04d\n"
            "   Heure de debut: %02d:%02d\n"
            "   Heure de fin: %02d:%02d\n"
            "Lieu: %s\n"
-           "Personnes présentes",
-           id, rdv->jour, rdv->mois, rdv->annee, rdv->heure, rdv->minute, heureFin, minuteFin);
+           "Personnes présentes: %s",
+           id, rdv->label,
+           rdv->jour, rdv->mois, rdv->annee,
+           rdv->heure, rdv->minute, heureFin, minuteFin,
+           rdv->place, rdv->with);
 }
 
 void sauvegarderRdv(Rdv *rdv) {
