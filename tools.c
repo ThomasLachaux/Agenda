@@ -13,6 +13,13 @@
 // Bug propre à CLion pour afficher printf dans le debugger
 #define printf setbuf(stdout, 0);printf
 
+/**
+ * @brief Propose date de rendez-vous et éventuellement récupère la date d'aujourd'hui ou de demain
+ * @param day jour
+ * @param month mois
+ * @param year année
+ */
+
 void promptDate(int *day, int *month, int *year) {
 
     // todo: source: http://www.cplusplus.com/reference/ctime/localtime, http://www.cplusplus.com/reference/ctime/tm/
@@ -51,6 +58,14 @@ void promptDate(int *day, int *month, int *year) {
 
     }
 }
+
+/**
+ * @brief Conversion données horaires en numéro de semaine
+ * @param day jour
+ * @param month mois
+ * @param year année
+ * @return le numéro de semaine
+ */
 
 int weekNumber(int day, int month, int year) {
 

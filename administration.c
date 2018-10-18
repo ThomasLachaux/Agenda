@@ -162,8 +162,8 @@ void listSpecialDays() {
 
 /**
  * @brief fonction d'affichage
- * @param id : identifiant
- * @param specialDay : structure jour spécial
+ * @param id  identifiant
+ * @param specialDay  structure jour spécial
  */
 
 

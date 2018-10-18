@@ -12,7 +12,23 @@
  * @struct Rdv
  * @brief Structure rendez-vous
  * @var Rdv::label
- * Nom du rdv
+ * Nom du rendez-vous
+ * @var Rdv::year
+ * Année du rendez-vous
+ * @var Rdv::month
+ * Mois du rendez-vous
+ * @var Rdv::day
+ * Jour du rendez-vous
+ * @var Rdv::hour
+ * Heure du rendez-vous
+ * @var Rdv::minute
+ * Minute du rendez-vous
+ * @var Rdv::duration
+ * Durée du rendez-vous
+ * @var Rdv::place
+ * Lieu du rendez-vous
+ * @var Rdv::with
+ * Personnes présentes au rendez-vous
  */
 
 typedef struct Rdv Rdv;
@@ -27,6 +43,17 @@ struct Rdv {
     char place[100];
     char with[100];
 };
+
+/**
+ * @struct User
+ * @brief Structure utilisateur
+ * @var User::nRdvs
+ * Nombre de rendez-vous
+ * @var User::name
+ * Nom de l'utilisateur
+ * @var User::rdvs
+ * Rendez-vous de l'utilisateur
+ */
 
 typedef struct User User;
 struct User {
