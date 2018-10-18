@@ -48,7 +48,7 @@ int main() {
         printf("Bienvenue sur votre agenda. Qui êtes-vous ?\n0) Administrateur\n");
 
         for (i = 0; i < usrNbr; i++) {
-            printf("%d) %s\n", i + 1, users[i].nom);
+            printf("%d) %s\n", i + 1, users[i].name);
         }
 
         printf("9) Quitter\n");
@@ -74,8 +74,8 @@ void initGlobals() {
     specialDaysNbr = 0;
     filterMode = 1;
     users[0].nRdvs = 0;
-    strcpy(users[0].nom, "Thomas");
-    strcpy(users[1].nom, "Louis");
+    strcpy(users[0].name, "Thomas");
+    strcpy(users[1].name, "Louis");
 
     usrNbr = 2;
 }
@@ -92,7 +92,7 @@ void normalUser(int userId) {
     rdvs = &users[currentUser].rdvs[0];
 
 
-    printf("Agenda de %s\n", users[currentUser].nom);
+    printf("Agenda de %s\n", users[currentUser].name);
 
     int choice = 0;
 

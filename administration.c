@@ -59,7 +59,7 @@ void newUser() {
     user.nRdvs = 0;
 
     printf("Nom de l'utilisateur ?\n");
-    scanf("%s", user.nom);
+    scanf("%s", user.name);
 
     users[usrNbr] = user;
     usrNbr++;
@@ -73,7 +73,7 @@ void listUsers() {
 
     int i;
     for (i = 0; i < usrNbr; i++) {
-        printf("%d) %s\n", i + 1, users[i].nom);
+        printf("%d) %s\n", i + 1, users[i].name);
     }
 
     int choix = 0;
@@ -93,12 +93,12 @@ void listUsers() {
 
             if(choix == 1) {
                 printf("Nouveau nom de l'utilisateur ?\n");
-                scanf("%s", users[usrId].nom);
-                printf("Le nouveau nom de l'utilisateur est %s\n", users[usrId].nom);
+                scanf("%s", users[usrId].name);
+                printf("Le nouveau nom de l'utilisateur est %s\n", users[usrId].name);
             }
 
             else if(choix == 2) {
-                printf("Suppression de l'utilisateur %s...\n", users[usrId].nom);
+                printf("Suppression de l'utilisateur %s...\n", users[usrId].name);
                 users[usrId] = users[usrNbr];
                 usrNbr--;
             }
@@ -116,9 +116,9 @@ Rdv addSpecialDay() {
     promptDate(&day, &month, &year);
 
 
-    specialDay.jour = day;
-    specialDay.mois = month;
-    specialDay.annee = year;
+    specialDay.day = day;
+    specialDay.month = month;
+    specialDay.year = year;
 
     return specialDay;
 }
@@ -168,5 +168,5 @@ void listSpecialDays() {
 
 
 void displaySpecialDay(int id, Rdv *specialDay) {
-    printf("%d) %02d/%02d/%04d: %s\n", id, specialDay->jour, specialDay->mois, specialDay->annee, specialDay->label);
+    printf("%d) %02d/%02d/%04d: %s\n", id, specialDay->day, specialDay->month, specialDay->year, specialDay->label);
 }

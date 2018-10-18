@@ -42,7 +42,7 @@ void listerRdvParJour() {
     printf("\nJournées spéciales:\n");
     // Filtrage des journées spéciales
     for (i = 0; i < specialDaysNbr; i++) {
-        if(specialDays[i].jour == jour && specialDays[i].mois == mois && specialDays[i].annee == annee) {
+        if(specialDays[i].day == jour && specialDays[i].month == mois && specialDays[i].year == annee) {
             displaySpecialDay(k + 1, &specialDays[i]);
             k++;
         }
@@ -104,13 +104,13 @@ Rdv nouveauRdv() {
     char tmp;
     Rdv newRdv;
 
-    promptDate(&newRdv.jour, &newRdv.mois, &newRdv.annee);
+    promptDate(&newRdv.day, &newRdv.month, &newRdv.year);
 
     printf("Heure du rendez-vous ? (Format hh:mm)\n");
-    scanf("%d%c%d", &newRdv.heure, &tmp, &newRdv.minute);
+    scanf("%d%c%d", &newRdv.hour, &tmp, &newRdv.minute);
 
     printf("Durée du rendez-vous ? (En minutes)\n");
-    scanf("%d", &newRdv.duree);
+    scanf("%d", &newRdv.duration);
 
     printf("Nom du rendez-vous ?\n");
     scanf("%s", newRdv.label);
@@ -127,8 +127,8 @@ Rdv nouveauRdv() {
 // todo: faire téléscopation rdv
 void afficherRdv(int id, Rdv *rdv) {
 
-    int minuteFin = (rdv->minute + rdv->duree) % 60;
-    int heureFin = (rdv->heure * 60 + rdv->minute + rdv->duree) / 60;
+    int minuteFin = (rdv->minute + rdv->duration) % 60;
+    int heureFin = (rdv->hour * 60 + rdv->minute + rdv->duration) / 60;
 
     printf("\n%d) "
            "Nom: %s\n"
@@ -138,8 +138,8 @@ void afficherRdv(int id, Rdv *rdv) {
            "Lieu: %s\n"
            "Personnes présentes: %s",
            id, rdv->label,
-           rdv->jour, rdv->mois, rdv->annee,
-           rdv->heure, rdv->minute, heureFin, minuteFin,
+           rdv->day, rdv->month, rdv->year,
+           rdv->hour, rdv->minute, heureFin, minuteFin,
            rdv->place, rdv->with);
 }
 
@@ -154,13 +154,13 @@ void sauvegarderRdv(Rdv *rdv) {
 
     file = fopen(filename, "w");
 
-    int minuteFin = (rdv->minute + rdv->duree) % 60;
-    int heureFin = (rdv->heure * 60 + rdv->minute + rdv->duree) / 60;
+    int minuteFin = (rdv->minute + rdv->duration) % 60;
+    int heureFin = (rdv->hour * 60 + rdv->minute + rdv->duration) / 60;
 
     fwprintf(file, L"Date de rendez-vous: %02d/%02d/%04d\n"
                   "Heure de debut: %02d:%02d\n"
                   "Heure de fin: %02d:%02d\n",
-            rdv->jour, rdv->mois, rdv->annee, rdv->heure, rdv->minute, heureFin, minuteFin);
+            rdv->day, rdv->month, rdv->year, rdv->hour, rdv->minute, heureFin, minuteFin);
 
     fclose(file);
 }
@@ -172,15 +172,15 @@ int filterRdv(Rdv rdv, int day, int month, int year) {
 
         // Filtrage par jour
         case 1:
-            return rdv.jour == day && rdv.mois == month && rdv.annee == year;
+            return rdv.day == day && rdv.month == month && rdv.year == year;
 
         // Filtrage par semaine
         // Le test de l'année est utilisé dans le cas la semaine se chevauche avec une annee
         case 2:
-            return weekNumber(rdv.jour, rdv.mois, rdv.annee) == weekNumber(day, month, year) && abs(rdv.annee - year) <= 1;
+            return weekNumber(rdv.day, rdv.month, rdv.year) == weekNumber(day, month, year) && abs(rdv.year - year) <= 1;
 
         // Filtrage par mois
         default:
-            return rdv.mois == month && rdv.annee == year;
+            return rdv.month == month && rdv.year == year;
     }
 }

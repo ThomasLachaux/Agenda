@@ -13,7 +13,7 @@
 // Bug propre à CLion pour afficher printf dans le debugger
 #define printf setbuf(stdout, 0);printf
 
-void promptDate(int *jour, int *mois, int *annee) {
+void promptDate(int *day, int *month, int *year) {
 
     // todo: source: http://www.cplusplus.com/reference/ctime/localtime, http://www.cplusplus.com/reference/ctime/tm/
     time_t rawtime;
@@ -34,20 +34,20 @@ void promptDate(int *jour, int *mois, int *annee) {
     switch (choix) {
 
         case 1:
-            *jour = timeinfo->tm_mday;
-            *mois = timeinfo->tm_mon + 1;
-            *annee = timeinfo->tm_year + 1900;
+            *day = timeinfo->tm_mday;
+            *month = timeinfo->tm_mon + 1;
+            *year = timeinfo->tm_year + 1900;
             break;
 
         case 2:
-            *jour = timeinfo->tm_mday + 1;
-            *mois = timeinfo->tm_mon + 1;
-            *annee = timeinfo->tm_year + 1900;
+            *day = timeinfo->tm_mday + 1;
+            *month = timeinfo->tm_mon + 1;
+            *year = timeinfo->tm_year + 1900;
             break;
 
         default:
             printf("Date ? (Format : jj/mm/aaaa)\n");
-            scanf("%d%c%d%c%d", jour, &tmp, mois, &tmp, annee);
+            scanf("%d%c%d%c%d", day, &tmp, month, &tmp, year);
 
     }
 }
