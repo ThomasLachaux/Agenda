@@ -68,7 +68,7 @@ void listUsers() {
     int choix = 0;
 
     while(choix != 9) {
-        printf("\n1) Renommer un utilisateur\n2) Supprimer un utilisateur\n9) Retour \205 l'interface d'administration");
+        printf("\n1) Renommer un utilisateur\n2) Supprimer un utilisateur\n9) Retour à l'interface d'administration");
         scanf("%d", &choix);
 
         if(choix == 1 || choix == 2) {
