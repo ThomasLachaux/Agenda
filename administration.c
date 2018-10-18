@@ -13,6 +13,9 @@
 // Bug propre à CLion pour afficher printf dans le debugger
 #define printf setbuf(stdout, 0);printf
 
+/**
+ * @brief Menu admnistrateur
+ */
 void administrator() {
     int choix = 0;
 
@@ -46,6 +49,10 @@ void administrator() {
     }
 }
 
+/**
+ * @brief Saisie nouvel utilisateur
+ */
+
 void newUser() {
     User user;
 
@@ -57,6 +64,10 @@ void newUser() {
     users[usrNbr] = user;
     usrNbr++;
 }
+
+/**
+ * @brief liste les utilisateurs et affiche les options de gestion des utilisateurs
+ */
 
 void listUsers() {
 
@@ -112,6 +123,10 @@ Rdv addSpecialDay() {
     return specialDay;
 }
 
+/**
+ * @brief affiches les jours  spéciaux et les options de ceux-ci
+ */
+
 void listSpecialDays() {
 
     int i;
@@ -144,6 +159,13 @@ void listSpecialDays() {
         }
     }
 }
+
+/**
+ * @brief fonction d'affichage
+ * @param id : identifiant
+ * @param specialDay : structure jour spécial
+ */
+
 
 void displaySpecialDay(int id, Rdv *specialDay) {
     printf("%d) %02d/%02d/%04d: %s\n", id, specialDay->jour, specialDay->mois, specialDay->annee, specialDay->label);

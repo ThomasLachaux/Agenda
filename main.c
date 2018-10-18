@@ -66,7 +66,10 @@ int main() {
     printf("À bientôt !");
     return 0;
 }
-
+/**
+ * @fn void initGlobals()
+ * @brief Initialisation variables globales
+ */
 void initGlobals() {
     specialDaysNbr = 0;
     filterMode = 1;
@@ -77,6 +80,10 @@ void initGlobals() {
     usrNbr = 2;
 }
 
+/**
+ * @brief Menu agenda
+ * @param userId : identité utilisateur
+ */
 void normalUser(int userId) {
     currentUser = userId;
 
