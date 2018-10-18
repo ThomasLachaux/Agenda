@@ -38,7 +38,7 @@ void administrator() {
                 break;
 
             case 2:
-                specialDays[specialDaysNbr] = addSpecialDay();
+                specialDays[specialDaysNbr] = promptSpecialDay();
                 specialDaysNbr++;
                 break;
 
@@ -106,7 +106,11 @@ void listUsers() {
     }
 }
 
-Rdv addSpecialDay() {
+/**
+ * @brief Propose d'ajouter/modifier un jour spécial
+ * @return Jour spécial
+ */
+Rdv promptSpecialDay () {
     Rdv specialDay;
     int day, month, year;
 
@@ -149,7 +153,7 @@ void listSpecialDays() {
             specialDayId--;
 
             if(choice == 1)
-                specialDays[specialDayId] = addSpecialDay();
+                specialDays[specialDayId] = promptSpecialDay();
 
             else if(choice == 2) {
                 printf("Suppression du jour spécial %s\n", specialDays[specialDayId].label);

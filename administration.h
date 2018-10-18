@@ -22,7 +22,7 @@ int filterMode;
 void administrator();
 void newUser();
 void listUsers();
-Rdv addSpecialDay();
+Rdv promptSpecialDay();
 void listSpecialDays();
 void displaySpecialDay(int id, Rdv *specialDay);
 #endif //AGENDA_ADMINISTRATION_H

@@ -15,7 +15,7 @@
 
 
 
-// Bug propre à CLion pour afficher printf dans le debugger
+// Bug propre \205 CLion pour afficher printf dans le debugger
 #define printf setbuf(stdout, 0);printf
 
 
@@ -39,8 +39,9 @@ void listerRdvParJour() {
         }
     }
 
-    printf("\nJournées spéciales:\n");
-    // Filtrage des journées spéciales
+    printf("=============================");
+    printf("\nJourn\202es sp\202ciales:\n");
+    // Filtrage des journ\202es sp\202ciales
     for (i = 0; i < specialDaysNbr; i++) {
         if(specialDays[i].day == jour && specialDays[i].month == mois && specialDays[i].year == annee) {
             displaySpecialDay(k + 1, &specialDays[i]);
@@ -49,7 +50,7 @@ void listerRdvParJour() {
     }
 
     if(k == 0) {
-        printf("Aucune journée spéciale aujourd'hui");
+        printf("Aucune journ\202e sp\202ciale aujourd'hui");
     }
 
     if(j == 0) {
@@ -109,7 +110,7 @@ Rdv nouveauRdv() {
     printf("Heure du rendez-vous ? (Format hh:mm)\n");
     scanf("%d%c%d", &newRdv.hour, &tmp, &newRdv.minute);
 
-    printf("Durée du rendez-vous ? (En minutes)\n");
+    printf("Dur\202e du rendez-vous ? (En minutes)\n");
     scanf("%d", &newRdv.duration);
 
     printf("Nom du rendez-vous ?\n");
@@ -118,25 +119,25 @@ Rdv nouveauRdv() {
     printf("Lieu du rendez-vous ?\n");
     scanf("%s", newRdv.place);
 
-    printf("Personnes présentes lors du rendez-vous ?\n");
+    printf("Personnes pr\202sentes lors du rendez-vous ?\n");
     scanf("%s", newRdv.with);
 
     return newRdv;
 }
 
-// todo: faire téléscopation rdv
+// todo: faire t\202l\202scopation rdv
 void afficherRdv(int id, Rdv *rdv) {
 
     int minuteFin = (rdv->minute + rdv->duration) % 60;
     int heureFin = (rdv->hour * 60 + rdv->minute + rdv->duration) / 60;
 
     printf("\n%d) "
-           "Nom: %s\n"
-           "Date: %02d/%02d/%04d\n"
-           "   Heure de debut: %02d:%02d\n"
-           "   Heure de fin: %02d:%02d\n"
-           "Lieu: %s\n"
-           "Personnes présentes: %s",
+           " Nom: %s\n"
+           "    Date: %02d/%02d/%04d\n"
+           "        Heure de debut: %02d:%02d\n"
+           "        Heure de fin:   %02d:%02d\n"
+           "    Lieu: %s\n"
+           "    Personnes pr\202sentes: %s\n",
            id, rdv->label,
            rdv->day, rdv->month, rdv->year,
            rdv->hour, rdv->minute, heureFin, minuteFin,
@@ -147,6 +148,7 @@ void sauvegarderRdv(Rdv *rdv) {
 
     FILE *file = NULL;
     char filename[250];
+    
 
     printf("Nom du ficher ?");
     scanf("%s", filename);
@@ -175,7 +177,7 @@ int filterRdv(Rdv rdv, int day, int month, int year) {
             return rdv.day == day && rdv.month == month && rdv.year == year;
 
         // Filtrage par semaine
-        // Le test de l'année est utilisé dans le cas la semaine se chevauche avec une annee
+        // Le test de l'ann\202e est utilis\202 dans le cas la semaine se chevauche avec une annee
         case 2:
             return weekNumber(rdv.day, rdv.month, rdv.year) == weekNumber(day, month, year) && abs(rdv.year - year) <= 1;
 
