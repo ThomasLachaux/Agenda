@@ -1,7 +1,7 @@
 cmake-build-debug/
 .idea
 documentation/
-doxygen.bat
+compile.bat
 build/
 dist/
 __pychache__/

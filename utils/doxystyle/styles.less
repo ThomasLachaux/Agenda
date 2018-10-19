@@ -1,0 +1,203 @@
+/*
+Modification des headers
+*/
+#titlearea {
+    background: #222831 !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding-bottom: 20px !important;
+}
+
+div.header {
+    background: #00adb5 !important;
+}
+
+div.header a {
+    color: #eeeeee !important;
+}
+
+#main-menu {
+    background: #393e46 !important;
+    border: none !important;
+}
+
+#nav-path ul {
+    background: #393e46 !important;
+    border: none !important;
+    padding-left: 12px !important;
+}
+
+/**
+Couleurs de texte en blanc, suppressions des séparateurs. Flatification
+ */
+#main-menu li a, #nav-path ul li a {
+    color: #FFF !important;
+    text-shadow: none !important;
+    border: none !important;
+    background-image: none !important;
+}
+
+/**
+Passage des texte des sous menus en blanc
+ */
+#main-menu li ul li a {
+    color: #000000 !important;
+}
+
+/**
+Correction couleur des fleches
+ */
+#main-menu li a span {
+    border-color: #ffffff transparent transparent transparent !important;
+}
+
+#main-menu li ul li a span {
+    border-color: #000000 transparent transparent transparent !important;
+}
+
+/**
+Gestion des survols de la souris
+ */
+#main-menu a:hover, #main-menu li ul li a:hover {
+    background: #555e67 !important;
+    color: #ffffff !important;
+}
+
+#nav-path li {
+    background-image: none !important;
+}
+
+/**
+Changement couleur des liens
+ */
+.contents a {
+    color: #0366d6 !important;
+}
+
+/**
+Desactivation de la visite des liens
+ */
+.contents a:visited {
+    color: #0366d6 !important;
+}
+
+
+/**
+cf Boostrap danger
+ */
+.paramname {
+    color: #dc3545 !important;
+}
+
+/**
+Card primary color
+ */
+.memproto, .memtitle {
+    color: #004085 !important;
+    background: #b8daff !important;
+}
+
+/**
+Suppression des ◆
+ */
+.memtitle span a {
+    display: none;
+}
+
+/**
+Changement des icones
+ */
+.icondoc, .iconfclosed, .iconfopen {
+    background-position-y: 0 !important;
+}
+
+.icondoc {
+    background-image: url("file.png") !important;
+}
+
+.iconfclosed {
+    background-image: url("folder.png") !important;
+}
+
+.iconfopen {
+    background-image: url("folder_open.png") !important;
+}
+
+/**
+Search bar
+ */
+#main-menu li:last-child {
+    /*background: red !important;*/
+}
+
+#MSearchSelect, #MSearchBox .right {
+    display: none !important;
+}
+
+#MSearchBox .left {
+    background: none !important;
+}
+
+#MSearchBox {
+    width: 325px !important;
+}
+
+#MSearchField {
+    background: #575f6a !important;
+    color: #a9bbcb !important;
+    width: 300px !important;
+    border-radius: 3px !important;
+}
+
+.MSearchBoxActive #MSearchField {
+    background: #575f6a !important;
+    color: #ffffff !important;
+}
+
+
+/**
+Tables directories
+
+Les bordures exterieurs du tableaux sont mises sur une div que jQuery wrap sur le tableau (<table>)
+
+
+ */
+
+.table-border {
+    border: 1px solid #dcdcdc !important;
+    overflow: hidden !important;
+    border-collapse: collapse !important;
+    border-radius: 5px !important;
+}
+
+/**
+Ajoute une bordure en bas de l'element sauf pour le dernier
+ */
+table.directory tr {
+    background: #ffffff !important;
+    border-bottom: 1px solid #dcdcdc !important;
+}
+
+table.directory tr:last-child {
+    border-bottom: none;
+}
+
+div.contents div.directory {
+    border-top-color: #b8daff;
+    border-bottom: none;
+}
+
+/**
+Retour aptique
+ */
+table.directory tr:hover {
+    background: #f0f0f0 !important;
+}
+
+/**
+Augmente les marges intérieurs
+ */
+table.directory tr td {
+    padding-top: 9px !important;
+    padding-bottom: 3px !important;
+}
