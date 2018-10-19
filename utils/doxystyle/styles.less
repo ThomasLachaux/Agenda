@@ -2,199 +2,365 @@
 Modification des headers
 */
 
+// Couleurs de Twitter Bootstrap
+
+@primary: #007bff;
+@primary-background: #b8daff;
+@secondary: #6c757d;
+// Custom colors
+@secondary-light: #b5c0c9;
+@success: #28a745;
+@info: #17a2b8;
+@warning: #ffc107;
+@danger: #dc3545;
+@light: #f8f9fa;
+@dark: #343a40;
+
+
+
 // Couleurs tirées de https://colorhunt.co/palette/2763
-@primary-dark: #222831;
-@primary: #393e46;
-@accent: #00adb5;
+@primary-darker: #222831; // 216°, 31%, 19%
+@primary-dark: #393e46; // 	217°, 19%, 27%
+@primary-light: #636871; // 219°, 12%, 44%
+//@accent: #00adb5;
+@accent: @primary;
 @background: #eeeeee;
 
-@danger: #dc3545;
 
-#titlearea {
-  background: @primary-dark !important;
-  color: #ffffff !important;
-  border: none !important;
-  padding-bottom: 20px !important;
-}
 
-div.header {
-  background: @accent !important;
 
-  a {
-    color: @background !important;
-  }
-}
 
-#main-menu {
-  background: #393e46 !important;
-  border: none !important;
-}
+@icon: {
+  doc: 'file.png';
+  fclosed: 'folder.png';
+  fopen: 'folder_open.png';
+};
 
-#nav-path ul {
-  background: #393e46 !important;
-  border: none !important;
-  padding-left: 12px !important;
-}
+// Imoortance du retour hatpique.
+@hover: 10%;
+@max-width: 980px;
 
-/**
-Couleurs de texte en blanc, suppressions des séparateurs. Flatification
- */
-#main-menu li a, #nav-path ul li a {
-  color: #ffffff !important;
-  text-shadow: none !important;
-  border: none !important;
-  background-image: none !important;
-}
+// Tout ce qui est inclus dans ce namespace sera marqué de !important
 
-/**
-Passage des texte des sous menus en blanc
- */
-#main-menu li ul li a {
-  color: #000000 !important;
-}
+#make-important {
 
-/**
-Correction couleur des fleches
- */
-#main-menu li  {
-
-  // Correction couleurs des fleches dans les menus
-  a span {
-    border-color: #ffffff transparent transparent transparent !important;
+  // Mixins
+  // Couleurs de texte en blanc, suppressions des séparateurs. Flatification
+  .flatification {
+    color: #ffffff;
+    text-shadow: none;
+    border: none;
+    background-image: none;
   }
 
-  ul li a span {
-    border-color: #000000 transparent transparent transparent !important;
+  .hover-lighten(@color: #000000) {
+    &:hover {
+      background: lighten(@color, @hover);
+    }
   }
-}
 
-/**
-Gestion des survols de la souris
- */
-#main-menu a:hover, #main-menu li ul li a:hover {
-  background: #555e67 !important;
-  color: #ffffff !important;
-}
-
-#nav-path li {
-  background-image: none !important;
-}
-
-// Changement couleur des liens et désactivation des liens visités
-.contents a {
-  color: #0366d6 !important;
-
-  &:visited {
-    color: #0366d6 !important;
+  .hover-darken(@color: #ffffff) {
+    &:hover {
+      background: darken(@color, @hover);
+    }
   }
-}
 
-.paramname {
-  color: @danger !important;
-}
-
-/**
-Card primary color
- */
-.memproto, .memtitle {
-  color: #004085 !important;
-  background: #b8daff !important;
-}
-
-/**
-Suppression des ◆
- */
-.memtitle span a {
-  display: none;
-}
-
-/**
-Changement des icones
- */
-.icondoc, .iconfclosed, .iconfopen {
-  background-position-y: 0 !important;
-}
-
-.icondoc {
-  background-image: url("file.png") !important;
-}
-
-.iconfclosed {
-  background-image: url("folder.png") !important;
-}
-
-.iconfopen {
-  background-image: url("folder_open.png") !important;
-}
-
-/**
-Bar de recherche
- */
-
-#MSearchSelect, #MSearchBox .right {
-  display: none !important;
-}
-
-#MSearchBox {
-  width: 325px !important;
-
-  .left {
-    background: none !important;
+  .max-width {
+    max-width: @max-width;
+    margin-left: auto;
+    margin-right: auto;
   }
-}
 
-#MSearchField {
-  background: #575f6a !important;
-  color: #a9bbcb !important;
-  width: 300px !important;
-  border-radius: 3px !important;
-}
+  body {
+    color: #212529;
+  }
 
-// Lorsque que le curseur est dans le champ
-.MSearchBoxActive #MSearchField {
-  background: #575f6a !important;
-  color: #ffffff !important;
-}
+  #titlearea {
+    background: @primary-darker;
+    color: #ffffff;
+    border: none;
+    padding-bottom: 20px;
+  }
+
+  // Barre de navigation
+  #main-menu {
+    background: @primary-dark;
+    border: none;
+
+    li {
+
+      a {
+        .flatification();
+
+        // Au survol du menu/sous-menu
+        .hover-lighten(@primary-dark);
+
+        // Correction couleurs des fleches
+        span {
+          border-color: #ffffff transparent transparent transparent;
+        }
+      }
+
+      // Sous-menu
+      ul li a {
+        color: inherit;
+        .hover-darken();
+
+        // Correction couleurs des fleches
+        span {
+          border-color: #000000 transparent transparent transparent;
+        }
+      }
+    }
+  }
+
+  #nav-path ul {
+    background: @primary-dark;
+    border: none;
+    padding-left: 12px;
+
+    li {
+      background-image: none;
+
+      // Au survol du menu/sous-menu
+      .hover-lighten(@primary-dark);
+
+      a {
+        .flatification();
+      }
+    }
+  }
+
+  // Titre
+  div.header {
+
+    .headertitle {
+      .max-width();
+    }
+
+    background: @accent;
+    color: #ffffff;
+
+    a {
+      color: #ffffff;
+    }
+  }
+
+  // Changement couleur des liens et désactivation des liens visités
+  .contents {
+    .max-width();
+    a {
+      color: @primary;
+
+      &:visited {
+        color: @primary;
+      }
+    }
+  }
+
+  .paramname {
+    color: @danger;
+  }
+
+  dl.warning {
+    border-color: @danger;
+  }
+
+  .memtitle, .memproto, .memdoc {
+    border-color: @primary;
+  }
 
 
-/**
-Tableaux de fichiers
- */
+  .memtitle {
+    color: #ffffff;
+    background: @primary;
 
-// Bordure globale. La classe est ajoutée dynamiquement en jQuery autour du tableau
-.table-border {
-  border: 1px solid #dcdcdc !important;
-  overflow: hidden !important;
-  border-collapse: collapse !important;
-  border-radius: 5px !important;
-}
+    // Suppression des ◆
+    span a {
+      display: none;
+    }
+  }
 
-div.contents div.directory {
-  border-top-color: #b8daff;
-  border-bottom: none;
-}
+  .memproto {
+    background: #ffffff;
+    border-bottom: 1px solid @primary;
+  }
 
-table.directory tr {
+  .memdoc {
+    background-image: none;
+  }
 
-  // Ajout d'une bordure en bas...
-  background: #ffffff !important;
-  border-bottom: 1px solid #dcdcdc !important;
+  // Passage des titres en noir
+  h2.groupheader {
+    color: inherit;
+  }
 
-  // ...sauf pour le dernier element
-  &:last-child {
+  // Ajout d'une bordure sur les tableaux
+  table.memberdecls {
+    overflow: hidden;
+    border: 1px solid @secondary-light;
+    border-radius: 3px;
+
+    // Titre
+    .groupheader {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      margin-left: 5px;
+      padding-top: inherit;
+      padding-bottom: 10px;
+      border-bottom: 1px solid @secondary-light;
+    }
+
+    .memItemLeft, .memItemRight, .mdescLeft, .mdescRight {
+      background-color: inherit;
+    }
+
+
+
+    // Séparation des tableaux
+    &:first-of-type {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+  }
+
+
+  // Ajout des icones
+  each(@icon, {
+    .icon@{key} {
+      background-position-y: 0;
+      background-image: url(@value);
+    }
+  });
+
+  /**
+  Barre de recherche
+   */
+
+  // Input
+  #MSearchField {
+    //background: #575f6a;
+    // todo: mettre en variable
+    background: @primary-light;
+    color: @secondary-light;
+    width: 300px;
+    border-radius: 3px;
+
+    // Lorsque que le curseur est dans le champ
+    .MSearchBoxActive & {
+      color: #ffffff;
+    }
+  }
+
+  #MSearchSelect, #MSearchBox .right {
+    display: none;
+  }
+
+  // Augmentation de la taille de la recherche
+  #MSearchBox {
+    width: 325px;
+
+    .left {
+      background: none;
+    }
+  }
+
+  /**
+  Tableaux de fichiers
+   */
+
+  // Bordure globale. La classe est ajoutée dynamiquement en jQuery autour du tableau
+  .table-border {
+    border: 1px solid #dcdcdc;
+    overflow: hidden;
+    border-collapse: collapse;
+    border-radius: 5px;
+  }
+
+  div.contents div.directory {
+    border-top-color: #b8daff;
     border-bottom: none;
   }
 
-  // todo: utiliser darken/lighten
-  // Retour haptique
-  &:hover {
-    background: #f0f0f0 !important;
+  table.directory tr {
+
+    // todo: passer en variable
+    // Ajout d'une bordure en bas...
+    background: #ffffff;
+    border-bottom: 1px solid #dcdcdc;
+
+    .hover-darken();
+
+    // ...sauf pour le dernier element
+    &:last-child {
+      border-bottom: none;
+    }
+
+    // Augmente les marges intérieurs
+    td {
+      padding-top: 9px;
+      padding-bottom: 3px;
+    }
+
   }
 
-  // Augmente les marges intérieurs
-  td {
-    padding-top: 9px !important;
-    padding-bottom: 3px !important;
+
+
+
+  // Blocs de code
+  // todo relier avec .fragment plus bas
+  .fragment {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: transparent;
+    border-radius: 3px;
+    border-color: @secondary-light;
+
+    span.lineno {
+      border-right: none;
+      background-color: transparent;
+      color: @secondary;
+    }
   }
 
+
+  .textblock {
+    .max-width();
+
+    h1, h2 {
+      border-bottom: 1px solid hsla(0,0%,50%,.33);
+      padding-bottom: 0.33em;
+    }
+
+    code {
+      background: #f2f2f2;
+      border-radius: 3px;
+      padding: 2px 4px;
+    }
+
+    .fragment {
+      background: #f2f2f2;
+      padding: 8px;
+      display: block;
+      border-radius: 3px;
+      border: none;
+    }
+  }
+
+  // Center footer
+  .footer {
+    .max-width();
+
+    // Change border
+    hr& {
+      border-top: 1px solid @secondary-light;
+    }
+  }
+
+}
+
+// Passage de tout les attributs en !important
+& {
+  #make-important !important;
 }

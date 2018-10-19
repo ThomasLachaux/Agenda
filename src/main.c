@@ -37,7 +37,6 @@ void initGlobals() ;
  * @return Code d'erreur de l'application
  */
 int main() {
-    printf("J'ai un super téléphone");
     initGlobals();
 
     int choix = 0;
