@@ -96,14 +96,6 @@ Suppression des ◆
     display: none;
 }
 
-.footer small {
-    display: none;
-}
-
-.footer::after {
-    content: "Générée par Doxygen 1.8.14. Modifié par Thomas de Lachaux"
-}
-
 /**
 Changement des icones
  */
