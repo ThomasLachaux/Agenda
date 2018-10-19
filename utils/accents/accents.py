@@ -6,6 +6,8 @@
 # @authors Thomas de Lachaux
 # @authors Louis Bichet
 # @copyright GNU Public License
+# @warning Le dossier courant du terminal doit être celui du script python.
+# @warning Il faut pouvoir executer dans le terminal python accents.py
 
 from sys import argv
 
@@ -27,13 +29,14 @@ files = ['main.c', 'agenda.c', 'agenda.h', 'administration.c', 'administration.h
 
 ##
 # @var srcDirectory
-# @brief Source des fichiers
+# @brief Source des fichiers (en chemin absolu)
 
 srcDirectory = "../../src/"
 
 ##
 # @var mapping
 # @brief Liste à 2 dimensions décrivant les correspondances UTF-8 et ASCII Etendu
+
 
 mapping = [
     ['é', '\\202'],
