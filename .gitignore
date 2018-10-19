@@ -2,5 +2,7 @@ cmake-build-debug/
 .idea
 documentation/
 doxygen.bat
-utils/dist/
-utils/build/
+build/
+dist/
+__pychache__/
+utils/accents/__pycache__/

@@ -1,0 +1,114 @@
+/**
+Ajout des icones
+ */
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('icons.ttf');
+}
+
+
+#titlearea {
+    background: #222831 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    padding-bottom: 20px;
+}
+
+/**
+Passage du header en noir
+ */
+#main-menu {
+    background: #393e46 !important;
+    border: none !important;
+}
+
+#nav-path ul {
+    background: #393e46 !important;
+    border: none !important;
+    padding-left: 12px !important;
+}
+
+/**
+Couleurs de texte en blanc, suppressions des séparateurs. Flatification
+ */
+#main-menu li a, #nav-path ul li a {
+    color: #FFF !important;
+    text-shadow: none !important;
+    border: none !important;
+    background-image: none !important;
+}
+
+/**
+Passage des texte des sous menus en blanc
+ */
+#main-menu li ul li a {
+    color: #000000 !important;
+}
+
+/**
+Correction couleur des fleches
+ */
+#main-menu li a span {
+    border-color: #FFFFFF transparent transparent transparent !important;
+}
+
+#main-menu li ul li a span {
+    border-color: #000000 transparent transparent transparent !important;
+}
+
+/**
+Gestion des survols de la souris
+ */
+#main-menu a:hover, #main-menu li ul li a:hover {
+    background: #555e67; !important;
+    color: #FFFFFF !important;
+}
+
+#nav-path li {
+    background-image: none !important;
+}
+
+/**
+Changement couleur des liens
+ */
+.contents a {
+    color: #0366d6 !important;
+}
+
+/**
+Desactivation de la visite des liens
+ */
+.contents a {
+    color: #0366d6 !important;
+}
+
+
+/**
+cf Boostrap danger
+ */
+.paramname {
+    color: #dc3545 !important;
+}
+
+/**
+Card primary color
+ */
+.memproto, .memtitle {
+    color: #004085 !important;
+    background: #b8daff !important;
+}
+
+/**
+Suppression des ◆
+ */
+.memtitle span a {
+    display: none;
+}
+
+.footer small {
+    display: none;
+}
+
+.footer::after {
+    content: "Générée par Doxygen 1.8.14. Modifié par Thomas de Lachaux"
+}
