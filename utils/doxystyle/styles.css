@@ -27,7 +27,7 @@ Couleurs de texte en blanc, suppressions des séparateurs. Flatification
  */
 #main-menu li a,
 #nav-path ul li a {
-  color: #FFF !important;
+  color: #ffffff !important;
   text-shadow: none !important;
   border: none !important;
   background-image: none !important;
@@ -58,21 +58,12 @@ Gestion des survols de la souris
 #nav-path li {
   background-image: none !important;
 }
-/**
-Changement couleur des liens
- */
 .contents a {
   color: #0366d6 !important;
 }
-/**
-Desactivation de la visite des liens
- */
 .contents a:visited {
   color: #0366d6 !important;
 }
-/**
-cf Boostrap danger
- */
 .paramname {
   color: #dc3545 !important;
 }
@@ -108,20 +99,17 @@ Changement des icones
   background-image: url("folder_open.png") !important;
 }
 /**
-Search bar
+Bar de recherche
  */
-#main-menu li:last-child {
-  /*background: red !important;*/
-}
 #MSearchSelect,
 #MSearchBox .right {
   display: none !important;
 }
-#MSearchBox .left {
-  background: none !important;
-}
 #MSearchBox {
   width: 325px !important;
+}
+#MSearchBox .left {
+  background: none !important;
 }
 #MSearchField {
   background: #575f6a !important;
@@ -134,11 +122,7 @@ Search bar
   color: #ffffff !important;
 }
 /**
-Tables directories
-
-Les bordures exterieurs du tableaux sont mises sur une div que jQuery wrap sur le tableau (<table>)
-
-
+Tableaux de fichiers
  */
 .table-border {
   border: 1px solid #dcdcdc !important;
@@ -146,9 +130,10 @@ Les bordures exterieurs du tableaux sont mises sur une div que jQuery wrap sur l
   border-collapse: collapse !important;
   border-radius: 5px !important;
 }
-/**
-Ajoute une bordure en bas de l'element sauf pour le dernier
- */
+div.contents div.directory {
+  border-top-color: #b8daff;
+  border-bottom: none;
+}
 table.directory tr {
   background: #ffffff !important;
   border-bottom: 1px solid #dcdcdc !important;
@@ -156,19 +141,9 @@ table.directory tr {
 table.directory tr:last-child {
   border-bottom: none;
 }
-div.contents div.directory {
-  border-top-color: #b8daff;
-  border-bottom: none;
-}
-/**
-Retour aptique
- */
 table.directory tr:hover {
   background: #f0f0f0 !important;
 }
-/**
-Augmente les marges intérieurs
- */
 table.directory tr td {
   padding-top: 9px !important;
   padding-bottom: 3px !important;
