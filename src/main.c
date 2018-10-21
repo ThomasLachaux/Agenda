@@ -13,6 +13,7 @@
 #include "administration.h"
 #include "agenda.h"
 #include "tools.h"
+#include "arrays.h"
 
 // Bug propre à CLion pour afficher printf dans le debugger
 #define printf setbuf(stdout, 0);printf
@@ -39,6 +40,16 @@ void initGlobals() ;
 int main() {
     initGlobals();
 
+    IntArray *array = init(0);
+
+    setFirst(array, 7);
+    add(array, 5);
+    add(array, 2);
+    add(array, 3);
+
+    displayArray(array);
+
+    return 0;
     int choix = 0;
     int i;
 
