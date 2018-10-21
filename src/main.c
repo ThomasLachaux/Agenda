@@ -57,7 +57,7 @@ int main() {
         nRdvs++;
 
     }
-    displayDailyRdv(rdvs, 3);
+    displayWeeklyRdv(rdvs, 3);
     return 0;
     //normalUser(0);
 

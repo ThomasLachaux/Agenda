@@ -174,7 +174,53 @@ void displayDailyRdv(Rdv *rdv, int size) {
     println((char) '\356');
 }
 
-void displayWeeklyRdv(Rdv *rdv) {
+void displayWeeklyRdv(Rdv *rdv, int size) {
+
+    int hour;
+    int day;
+    int width = 11;
+    int i = 0;
+    char daysLabel[7] = {'L', 'M', 'M', 'J', 'V', 'S', 'D'};
+
+    println('_');
+    for(day = 0; day < 7 * (width + 3); day++) {
+
+        if (day % (width + 3) == 13) {
+            printf("%c", daysLabel[i]);
+            i++;
+        }
+        else
+            printf(" ");
+    }
+
+    printf("\n");
+
+
+    for (hour = 0; hour < 24; hour++) {
+        println('-');
+
+
+        if (hour < 10) {
+            printf("|  %dh | ", hour);
+        } else {
+            printf("| %dh | ", hour);
+        }
+
+        for (day = 0; day < 7 * width; day++) {
+
+
+
+            if (day % width == 0 && day != 0) {
+                printf(" | ");
+            }
+
+            printf("*");
+
+        }
+
+        printf(" |\n");
+    }
+    println((char) '\356');
 
 }
 
