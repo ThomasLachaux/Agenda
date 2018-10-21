@@ -39,8 +39,29 @@ void initGlobals() ;
 int main() {
     initGlobals();
 
+
     int choix = 0;
     int i;
+
+    // DEMARRAGE AUTOMATIQUE PLUS RAPIDE
+    Rdv rdvs[3];
+
+    for(i = 0; i < 3; i++) {
+        strcpy(rdvs[i].label, "Bonjour");
+        rdvs[i].hour = 8 + i;
+        rdvs[i].minute = 30;
+        rdvs[i].duration = 40;
+        rdvs[i].day = 21;
+        rdvs[i].month = 10;
+        rdvs[i].year = 2018;
+        nRdvs++;
+
+    }
+    displayDailyRdv(rdvs, 3);
+    return 0;
+    //normalUser(0);
+
+    // FIN DU DERMMARAGE
 
     while (choix != 9) {
 

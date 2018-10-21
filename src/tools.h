@@ -64,4 +64,5 @@ struct User {
 
 void promptDate(int *day, int *month, int *year);
 int weekNumber(int day, int month, int year);
+void displayDailyRdv(Rdv *rdv, int size);
 #endif //AGENDA_TOOLS_H
