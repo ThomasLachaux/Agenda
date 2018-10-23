@@ -62,7 +62,7 @@ Cependant nous avons pu résoudre ce problème car Doxygen nous offre la possibi
 
 Le développement est principalement basé sur le fichier `styles.css`. Pour nous aider dans la modification du design, nous somme inspiré de celui proposé par Twitter Bootstrap et Google Material Design.
 
-Nous avons modifiés les propriétés de nombreuses classes du code. A chaque modification, il fallait suffixer la ligne par `!important` pour être sûr que notre propriété soit prioritaire par rapport à celle par défaut.
+Nous avons modifiés les propriétés de nombreuses classes du code. A chaque modification, il fallait suffixer la ligne par `!important` pour être sûr que notre propriété soit prioritaire par rapport à celle par défaut. Au lieu de le faire manuellement, nous avons utilisé le language LESS qui compile ensuite le code en CSS.
 
 Quand il était impossible de styliser ou sélectionner un élément avec des règles précises en CSS, nous avons utilisé du javascript avec le framework jQuery (déjà inclus par Doxygen).
 
