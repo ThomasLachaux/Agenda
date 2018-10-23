@@ -33,6 +33,7 @@ Element *getElement(Array *array, int index);
 Element* getLastElement(Array *array);
 int getSize(Array *array);
 void add(Array *array, Type new_value);
+void pop(Array *array, int index);
 void displayArray(Array *liste);
 
 

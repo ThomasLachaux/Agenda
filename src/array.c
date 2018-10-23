@@ -78,11 +78,24 @@ void add(Array *array, Type new_value) {
     array->size++;
 }
 
-// todo:terminer pop
 void pop(Array *array, int index) {
     Element *to_delete = getElement(array, index);
+    Element *previous = to_delete->previous;
+    Element *next = to_delete->next;
 
+    // Si il n'est pas premier de la liste
+    if(previous != NULL) {
+        previous->next = next;
+        next->previous = previous;
+    }
 
+    // Si il est premier de la liste
+    else {
+        array->first = next;
+        next->previous = NULL;
+    }
+
+    free(to_delete);
 }
 
 void displayArray (Array *liste) {

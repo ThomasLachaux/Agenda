@@ -52,7 +52,9 @@ int main() {
     add(array, type2);
     add(array, type3);
 
-    printf("%d", getSize(array));
+    pop(array, 1);
+
+    displayArray(array);
 
     return 0;
     int choix = 0;
