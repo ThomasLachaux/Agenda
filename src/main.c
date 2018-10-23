@@ -43,12 +43,13 @@ int main() {
     int choix = 0;
     int i;
 
+    // todo: PASSER à DES DO WHILE
     while (choix != 9) {
 
         printf("Bienvenue sur votre agenda. Qui êtes-vous ?\n0) Administrateur\n");
 
-        for (i = 0; i < usrNbr; i++) {
-            printf("%d) %s\n", i + 1, users[i].name);
+        for (i = 0; i < getSize(newUsers); i++) {
+            printf("%d) %s\n", i + 1, get(newUsers, i).user.name);
         }
 
         printf("9) Quitter\n");
@@ -58,7 +59,7 @@ int main() {
             administrator();
         }
 
-        else if (choix < 9 && choix <= usrNbr) {
+        else if (choix < 9 && choix <= getSize(newUsers)) {
             normalUser(choix - 1);
         }
     }
@@ -74,13 +75,20 @@ void initGlobals() {
     specialDaysNbr = 0;
     filterMode = 1;
 
-    strcpy(users[0].name, "Thomas");
-    strcpy(users[1].name, "Louis");
+    newUsers = initArray();
 
-    users[0].rdvs = initArray();
-    users[1].rdvs = initArray();
+    Type type1, type2;
 
-    usrNbr = 2;
+    strcpy(type1.user.name, "Thomas");
+    strcpy(type2.user.name, "Louis");
+
+    // todo: creer une fonction generateUser, generateRdv, generateNumber
+    type1.user.rdvs = initArray();
+    type2.user.rdvs = initArray();
+
+    add(newUsers, type1);
+    add(newUsers, type2);
+
 }
 
 /**
@@ -91,11 +99,9 @@ void normalUser(int userId) {
     currentUser = userId;
 
     // Par soucis de lisibilité
+    rdvs = get(newUsers, currentUser).user.rdvs;
 
-    rdvs = users[currentUser].rdvs;
-
-
-    printf("Agenda de %s\n", users[currentUser].name);
+    printf("Agenda de %s\n", get(newUsers, currentUser).user.name);
 
     int choice = 0;
 

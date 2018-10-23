@@ -9,9 +9,9 @@
 #define AGENDA_ADMINISTRATION_H
 
 #include "tools.h"
+#include "array.h"
 
-User users[9];
-int usrNbr;
+Array *newUsers;
 
 Rdv specialDays[1000];
 int specialDaysNbr;

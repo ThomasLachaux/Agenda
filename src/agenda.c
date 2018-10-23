@@ -24,6 +24,7 @@ void listerRdvParJour() {
     int jour, mois, annee;
     promptDate(&jour, &mois, &annee);
 
+    // todo: passer en dynamique
     int corresps[1000];
     int ncorr = 0;
     
