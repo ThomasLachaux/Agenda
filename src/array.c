@@ -19,7 +19,10 @@ Array *initArray() {
 // ===== GETTERS =====
 
 Type get(Array *array, int index) {
+    return getElement(array, index)->value;
+}
 
+Element *getElement(Array *array, int index) {
     Element *elt = array->first;
     int i = 0;
 
@@ -33,7 +36,7 @@ Type get(Array *array, int index) {
         elt = elt->next;
     }
 
-    return elt->value;
+    return elt;
 }
 
 Element *getLastElement(Array *array) {
@@ -71,6 +74,13 @@ void add(Array *array, Type new_value) {
     }
 
     array->size++;
+}
+
+// todo:terminer pop
+void pop(Array *array, int index) {
+    Element *to_delete = getElement(array, index);
+
+
 }
 
 void displayArray (Array *liste) {

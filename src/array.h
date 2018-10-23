@@ -28,6 +28,7 @@ struct Array {
 
 Array *initArray();
 Type get(Array *array, int index);
+Element *getElement(Array *array, int index);
 Element* getLastElement(Array *array);
 int getSize(Array *array);
 void add(Array *array, Type new_value);
