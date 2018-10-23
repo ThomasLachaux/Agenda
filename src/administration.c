@@ -56,8 +56,6 @@ void administrator() {
 void newUser() {
     User user;
 
-    user.nRdvs = 0;
-
     printf("Nom de l'utilisateur ?\n");
     scanf("%s", user.name);
 

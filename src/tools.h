@@ -64,10 +64,8 @@ struct Rdv {
 
 
 struct User {
-    int nRdvs;
     char name[40];
-    Rdv rdvs[1000];
-    Array *newRdvs;
+    Array *rdvs;
 };
 
 

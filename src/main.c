@@ -73,14 +73,12 @@ int main() {
 void initGlobals() {
     specialDaysNbr = 0;
     filterMode = 1;
-    users[0].nRdvs = 0;
-    users[1].nRdvs = 0;
 
     strcpy(users[0].name, "Thomas");
     strcpy(users[1].name, "Louis");
 
-    users[0].newRdvs = initArray();
-    users[1].newRdvs = initArray();
+    users[0].rdvs = initArray();
+    users[1].rdvs = initArray();
 
     usrNbr = 2;
 }
@@ -93,10 +91,8 @@ void normalUser(int userId) {
     currentUser = userId;
 
     // Par soucis de lisibilité
-    nRdvs = &users[currentUser].nRdvs;
-    rdvs = &users[currentUser].rdvs[0];
 
-    newRdvs = users[currentUser].newRdvs;
+    rdvs = users[currentUser].rdvs;
 
 
     printf("Agenda de %s\n", users[currentUser].name);
