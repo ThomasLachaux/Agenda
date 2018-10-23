@@ -79,6 +79,7 @@ struct Type {
 
 struct Element {
     Type value;
+    Element *previous;
     Element *next;
 };
 

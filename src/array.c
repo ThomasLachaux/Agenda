@@ -56,6 +56,11 @@ int getSize(Array *array) {
 
 // ===== SETTERS =====
 
+void set(Array *array, int index, Type new_value) {
+    Element *element = getElement(array, index);
+    element->value = new_value;
+}
+
 void add(Array *array, Type new_value) {
 
     Element *new_elt = malloc(sizeof(*new_elt));

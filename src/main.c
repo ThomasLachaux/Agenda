@@ -96,6 +96,8 @@ void normalUser(int userId) {
     nRdvs = &users[currentUser].nRdvs;
     rdvs = &users[currentUser].rdvs[0];
 
+    newRdvs = users[currentUser].newRdvs;
+
 
     printf("Agenda de %s\n", users[currentUser].name);
 

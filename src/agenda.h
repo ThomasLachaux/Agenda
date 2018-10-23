@@ -19,7 +19,7 @@ Array *newRdvs;
 
 void ajouterUnRdv();
 void listerRdvParJour();
-void afficherRdv(int id, Rdv *rdv);
+void afficherRdv(int id, Rdv rdv);
 Rdv nouveauRdv();
 void sauvegarderRdv(Rdv *rdv);
 int filterRdv(Rdv rdv, int day, int month, int year);

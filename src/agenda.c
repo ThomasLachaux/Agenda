@@ -25,16 +25,27 @@ void listerRdvParJour() {
     promptDate(&jour, &mois, &annee);
 
     Rdv *rdvDuJour[1000];
+    Array *newRdvDuJour = initArray();
 
     int i = 0;
     int j = 0;
     int k = 0;
 
     // Filtrage des rendez-vous
-    for (i = 0; i < *nRdvs; i++) {
+    /*for (i = 0; i < *nRdvs; i++) {
         if(filterRdv(rdvs[i], jour, mois, annee)) {
             rdvDuJour[j] = &rdvs[i];
             afficherRdv(j + 1, rdvDuJour[j]);
+            j++;
+        }
+    }*/
+
+    // Nouveaux rdvs
+    // todo: archi moche !!!!!!! modifier ça
+    for (i = 0; i < newRdvs->size; i++) {
+        if(filterRdv(get(newRdvs, i).rdv, jour, mois, annee)) {
+            add(newRdvDuJour, get(newRdvs, i));
+            afficherRdv(j + 1, get(newRdvDuJour, j).rdv);
             j++;
         }
     }
@@ -76,6 +87,9 @@ void listerRdvParJour() {
                 if(choix == 1) {
                     printf("Modification du rendez-vous...\n");
                     *rdvDuJour[id - 1] = nouveauRdv();
+                    Type newType;
+                    newType.rdv = nouveauRdv();
+                    
                 }
 
                 else if (choix == 2) {
@@ -126,10 +140,10 @@ Rdv nouveauRdv() {
 }
 
 // todo: faire téléscopation rdv
-void afficherRdv(int id, Rdv *rdv) {
+void afficherRdv(int id, Rdv rdv) {
 
-    int minuteFin = (rdv->minute + rdv->duration) % 60;
-    int heureFin = (rdv->hour * 60 + rdv->minute + rdv->duration) / 60;
+    int minuteFin = (rdv.minute + rdv.duration) % 60;
+    int heureFin = (rdv.hour * 60 + rdv.minute + rdv.duration) / 60;
 
     printf("\n%d) "
            " Nom: %s\n"
@@ -138,10 +152,10 @@ void afficherRdv(int id, Rdv *rdv) {
            "        Heure de fin:   %02d:%02d\n"
            "    Lieu: %s\n"
            "    Personnes présentes: %s\n",
-           id, rdv->label,
-           rdv->day, rdv->month, rdv->year,
-           rdv->hour, rdv->minute, heureFin, minuteFin,
-           rdv->place, rdv->with);
+           id, rdv.label,
+           rdv.day, rdv.month, rdv.year,
+           rdv.hour, rdv.minute, heureFin, minuteFin,
+           rdv.place, rdv.with);
 }
 
 void sauvegarderRdv(Rdv *rdv) {
