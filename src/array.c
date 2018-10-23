@@ -61,6 +61,7 @@ void add(Array *array, Type new_value) {
     Element *new_elt = malloc(sizeof(*new_elt));
     new_elt->value = new_value;
     new_elt->next = NULL;
+    new_elt->previous = NULL;
 
     // Si il n'y a aucun element dans le tableau
     if (array->first == NULL) {
@@ -71,6 +72,7 @@ void add(Array *array, Type new_value) {
     else {
         Element *lastElt = getLastElement(array);
         lastElt->next = new_elt;
+        new_elt->previous = lastElt;
     }
 
     array->size++;

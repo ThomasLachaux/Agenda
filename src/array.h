@@ -17,6 +17,7 @@ struct Type {
 typedef struct Element Element;
 struct Element {
     Type value;
+    Element *previous;
     Element *next;
 };
 
