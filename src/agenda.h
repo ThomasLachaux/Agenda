@@ -9,10 +9,13 @@
 #define AGENDA_AGENDA_H
 
 #include "tools.h"
+#include "array.h"
 
 int currentUser;
 int *nRdvs;
 Rdv *rdvs;
+
+Array *newRdvs;
 
 void ajouterUnRdv();
 void listerRdvParJour();

@@ -7,25 +7,6 @@
 
 #include "tools.h"
 
-typedef struct Type Type;
-struct Type {
-    Rdv rdv;
-    User user;
-    int number;
-};
-
-typedef struct Element Element;
-struct Element {
-    Type value;
-    Element *next;
-};
-
-typedef struct Array Array;
-struct Array {
-    Element *first;
-    int size;
-};
-
 Array *initArray();
 Type get(Array *array, int index);
 Element* getLastElement(Array *array);

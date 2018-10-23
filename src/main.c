@@ -40,21 +40,6 @@ void initGlobals() ;
 int main() {
     initGlobals();
 
-    Type type1, type2, type3;
-
-    type1.number = 5;
-    type2.number = 3;
-    type3.number = 80;
-
-    Array *array = initArray();
-
-    add(array, type1);
-    add(array, type2);
-    add(array, type3);
-
-    printf("%d", getSize(array));
-
-    return 0;
     int choix = 0;
     int i;
 
@@ -89,8 +74,13 @@ void initGlobals() {
     specialDaysNbr = 0;
     filterMode = 1;
     users[0].nRdvs = 0;
+    users[1].nRdvs = 0;
+
     strcpy(users[0].name, "Thomas");
     strcpy(users[1].name, "Louis");
+
+    users[0].newRdvs = initArray();
+    users[1].newRdvs = initArray();
 
     usrNbr = 2;
 }
