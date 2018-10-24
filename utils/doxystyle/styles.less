@@ -277,9 +277,21 @@ Modification des headers
     border-radius: 5px;
   }
 
-  div.contents div.directory {
-    border-top-color: #b8daff;
-    border-bottom: none;
+  div.contents {
+
+    .classindex .ah {
+      border: none;
+      background: @primary-dark none;
+    }
+
+    .directory {
+      border-top-color: #b8daff;
+      border-bottom: none;
+
+      .icon {
+        background-color: @primary-dark;
+      }
+    }
   }
 
   table.directory tr {

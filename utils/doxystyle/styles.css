@@ -182,9 +182,16 @@ Modification des headers
   border-collapse: collapse;
   border-radius: 5px;
 }
-#make-important div.contents div.directory {
+#make-important div.contents .classindex .ah {
+  border: none;
+  background: #004a99 none;
+}
+#make-important div.contents .directory {
   border-top-color: #b8daff;
   border-bottom: none;
+}
+#make-important div.contents .directory .icon {
+  background-color: #004a99;
 }
 #make-important table.directory tr {
   background: #ffffff;
@@ -433,9 +440,16 @@ table.memberdecls:first-of-type {
   border-collapse: collapse !important;
   border-radius: 5px !important;
 }
-div.contents div.directory {
+div.contents .classindex .ah {
+  border: none !important;
+  background: #004a99 none !important;
+}
+div.contents .directory {
   border-top-color: #b8daff !important;
   border-bottom: none !important;
+}
+div.contents .directory .icon {
+  background-color: #004a99 !important;
 }
 table.directory tr {
   background: #ffffff !important;
