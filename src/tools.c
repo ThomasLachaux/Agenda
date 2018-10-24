@@ -223,4 +223,3 @@ void displayWeeklyRdv(Rdv *rdv, int size) {
     println((char) '\356');
 
 }
-

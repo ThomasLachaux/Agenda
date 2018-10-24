@@ -5,7 +5,8 @@ Modification des headers
 // Couleurs de Twitter Bootstrap
 
 @primary: #007bff;
-@primary-background: #b8daff;
+@primary-dark: shade(@primary, 40%);
+@primary-light: #b8daff;
 @secondary: #6c757d;
 // Custom colors
 @secondary-light: #b5c0c9;
@@ -17,13 +18,10 @@ Modification des headers
 @dark: #343a40;
 
 
-
 // Couleurs tirées de https://colorhunt.co/palette/2763
-@primary-darker: #222831; // 216°, 31%, 19%
-@primary-dark: #393e46; // 	217°, 19%, 27%
-@primary-light: #636871; // 219°, 12%, 44%
-//@accent: #00adb5;
-@accent: @primary;
+@grey-darker: #222831; // 216°, 31%, 19%
+@grey-dark: #393e46; // 	217°, 19%, 27%
+@grey-light: #636871; // 219°, 12%, 44%
 @background: #eeeeee;
 
 
@@ -65,6 +63,7 @@ Modification des headers
     }
   }
 
+  // Sets a max width and center the element
   .max-width {
     max-width: @max-width;
     margin-left: auto;
@@ -76,7 +75,7 @@ Modification des headers
   }
 
   #titlearea {
-    background: @primary-darker;
+    background: @grey-darker;
     color: #ffffff;
     border: none;
     padding-bottom: 20px;
@@ -84,7 +83,7 @@ Modification des headers
 
   // Barre de navigation
   #main-menu {
-    background: @primary-dark;
+    background: @grey-dark;
     border: none;
 
     li {
@@ -93,7 +92,7 @@ Modification des headers
         .flatification();
 
         // Au survol du menu/sous-menu
-        .hover-lighten(@primary-dark);
+        .hover-lighten(@grey-dark);
 
         // Correction couleurs des fleches
         span {
@@ -115,7 +114,7 @@ Modification des headers
   }
 
   #nav-path ul {
-    background: @primary-dark;
+    background: @grey-dark;
     border: none;
     padding-left: 12px;
 
@@ -123,7 +122,7 @@ Modification des headers
       background-image: none;
 
       // Au survol du menu/sous-menu
-      .hover-lighten(@primary-dark);
+      .hover-lighten(@grey-dark);
 
       a {
         .flatification();
@@ -138,7 +137,7 @@ Modification des headers
       .max-width();
     }
 
-    background: @accent;
+    background: @primary-dark;
     color: #ffffff;
 
     a {
@@ -173,7 +172,7 @@ Modification des headers
 
   .memtitle {
     color: #ffffff;
-    background: @primary;
+    background: @primary-dark;
 
     // Suppression des ◆
     span a {
@@ -242,7 +241,7 @@ Modification des headers
   #MSearchField {
     //background: #575f6a;
     // todo: mettre en variable
-    background: @primary-light;
+    background: @grey-light;
     color: @secondary-light;
     width: 300px;
     border-radius: 3px;
@@ -346,6 +345,23 @@ Modification des headers
       border-radius: 3px;
       border: none;
     }
+
+    .mermaid {
+      svg{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+
+        .node {
+          circle, ellipse, polygon, rect {
+            fill: @primary-light;
+            stroke: transparent;
+          }
+        }
+
+      }
+    }
+
   }
 
   // Center footer
