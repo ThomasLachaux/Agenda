@@ -33,14 +33,18 @@ Pour résoudre ce problème nous avons développé un script en Python. Cet algo
   
 Ainsi, quand nous lançons la compilation, l'ordinateur exécute d'abord le script en mode d'encodage, puis compile le programme, puis exécute le script de décodage.  
   
-```  mermaid  
-graph LR;  
-A("printf(&quot;À bientôt !&quot;);");  
-B["<strong>Compilation</strong>.....</br>printf(&quot;\267 bient\223t !&quot;);"];  
-C("printf(&quot;À bientôt !&quot;);")  
-A-- Encode -->B  
-B-- Décode -->C  
-```  
+
+
+```
+mermaid
+graph LR;
+A("printf(&quot;À bientôt !&quot;);");
+B["<strong>Compilation</strong>.....</br>printf(&quot;\267 bient\223t !&quot;);"];
+C("printf(&quot;À bientôt !&quot;);");
+A-- Encode -->B;
+B-- Décode -->C;
+```
+
   
 ### Exécuter le script  
 Le script est situé dans le dossier *utils/accents*. Il est disponible au format `.py` et `.exe`.  

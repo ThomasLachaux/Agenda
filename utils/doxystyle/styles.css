@@ -72,7 +72,7 @@ Modification des headers
   background-image: none;
 }
 #make-important div.header {
-  background: #007bff;
+  background: #004a99;
   color: #ffffff;
 }
 #make-important div.header .headertitle {
@@ -107,7 +107,7 @@ Modification des headers
 }
 #make-important .memtitle {
   color: #ffffff;
-  background: #007bff;
+  background: #004a99;
 }
 #make-important .memtitle span a {
   display: none;
@@ -234,6 +234,18 @@ Modification des headers
   border-radius: 3px;
   border: none;
 }
+#make-important .textblock .mermaid svg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#make-important .textblock .mermaid svg .node circle,
+#make-important .textblock .mermaid svg .node ellipse,
+#make-important .textblock .mermaid svg .node polygon,
+#make-important .textblock .mermaid svg .node rect {
+  fill: #b8daff;
+  stroke: transparent;
+}
 #make-important .footer {
   max-width: 980px;
   margin-left: auto;
@@ -305,7 +317,7 @@ body {
   background-image: none !important;
 }
 div.header {
-  background: #007bff !important;
+  background: #004a99 !important;
   color: #ffffff !important;
 }
 div.header .headertitle {
@@ -340,7 +352,7 @@ dl.warning {
 }
 .memtitle {
   color: #ffffff !important;
-  background: #007bff !important;
+  background: #004a99 !important;
 }
 .memtitle span a {
   display: none !important;
@@ -472,6 +484,18 @@ table.directory tr td {
   display: block !important;
   border-radius: 3px !important;
   border: none !important;
+}
+.textblock .mermaid svg {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.textblock .mermaid svg .node circle,
+.textblock .mermaid svg .node ellipse,
+.textblock .mermaid svg .node polygon,
+.textblock .mermaid svg .node rect {
+  fill: #b8daff !important;
+  stroke: transparent !important;
 }
 .footer {
   max-width: 980px !important;
