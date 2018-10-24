@@ -72,7 +72,7 @@ struct User {
 struct Type {
     Rdv rdv;
     User user;
-    int number;
+    int integer;
 };
 
 struct Element {

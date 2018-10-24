@@ -77,17 +77,17 @@ void initGlobals() {
 
     newUsers = initArray();
 
-    Type type1, type2;
+    User thomas, louis;
 
-    strcpy(type1.user.name, "Thomas");
-    strcpy(type2.user.name, "Louis");
+    strcpy(thomas.name, "Thomas");
+    strcpy(louis.name, "Louis");
 
-    // todo: creer une fonction generateUser, generateRdv, generateNumber
-    type1.user.rdvs = initArray();
-    type2.user.rdvs = initArray();
+    // todo: creer un fonction createUser
+    thomas.rdvs = initArray();
+    louis.rdvs = initArray();
 
-    add(newUsers, type1);
-    add(newUsers, type2);
+    add(newUsers, fromUser(thomas));
+    add(newUsers, fromUser(louis));
 
 }
 

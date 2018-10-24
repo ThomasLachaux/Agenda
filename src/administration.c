@@ -55,13 +55,14 @@ void administrator() {
 
 void newUser() {
 
-    Type type;
+    User user;
 
     printf("Nom de l'utilisateur ?\n");
-    scanf("%s", type.user.name);
+    scanf("%s", user.name);
 
-    type.user.rdvs = initArray();
-    add(newUsers, type);
+    user.rdvs = initArray();
+
+    add(newUsers, fromUser(user));
 }
 
 /**

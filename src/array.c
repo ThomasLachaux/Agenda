@@ -4,9 +4,7 @@
 
 // todo: passer du camel case a f_f_ pour vars
 
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "OCDFAInspection"
-
+// ===== INIT =======
 Array *initArray() {
 
     Array *array = malloc(sizeof(*array));
@@ -14,6 +12,24 @@ Array *initArray() {
     array->size = 0;
 
     return array;
+}
+
+Type fromInt(int integer) {
+    Type type;
+    type.integer = integer;
+    return type;
+}
+
+Type fromRdv(Rdv rdv) {
+    Type type;
+    type.rdv = rdv;
+    return type;
+}
+
+Type fromUser(User user) {
+    Type type;
+    type.user = user;
+    return type;
 }
 
 // ===== GETTERS =====
@@ -103,15 +119,14 @@ void pop(Array *array, int index) {
     free(to_delete);
 }
 
-void displayArray (Array *liste) {
+void debugArray(Array *liste) {
 
     Element *elt = liste->first;
 
     while (elt != NULL)
     {
-        printf("%d -> ", elt->value.number);
+        printf("%d -> ", elt->value.integer);
         elt = elt->next;
     }
     printf("NULL\n");
 }
-#pragma clang diagnostic pop

@@ -84,10 +84,7 @@ void listerRdvParJour() {
                 if(choix == 1) {
                     printf("Modification du rendez-vous...\n");
                     //newRdvDuJour[id - 1]->value.rdv = nouveauRdv();
-                    
-                    Type type;
-                    type.rdv = nouveauRdv();
-                    set(rdvs, corresps[id - 1], type);
+                    set(rdvs, corresps[id - 1], fromRdv(nouveauRdv()));
 
                 }
 
@@ -111,9 +108,7 @@ void listerRdvParJour() {
 
 
 void ajouterUnRdv() {
-    Type type;
-    type.rdv = nouveauRdv();
-    add(rdvs, type);
+    add(rdvs, fromRdv(nouveauRdv()));
 }
 
 Rdv nouveauRdv() {
