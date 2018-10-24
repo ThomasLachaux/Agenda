@@ -71,6 +71,7 @@ Quand il était impossible de styliser ou sélectionner un élément avec des r�
 Le code principal est développé en C99. Pour le compiler, il vous faudra télécharger CMake ainsi qu'un compilateur C.
 
 ## Structure du projet
+
 ```
 |   .gitignore
 |   CMakeLists.txt
@@ -112,9 +113,7 @@ Le code principal est développé en C99. Pour le compiler, il vous faudra tél�
 ```
 mermaid
 graph TD
-A[Christmas] -->|Get money| B(Go shopping)
-B --> C{Let me think}
-C -->|One| D[Laptop]
-C -->|Two| E[iPhone]
-C -->|Three| F[fa:fa-car Car]
+A(Start)-->B(Do some stuff);
+B(Take some rest)-->C(do more)
+click B "http://www.github.com" "This is a link"
 ```

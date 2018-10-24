@@ -1218,7 +1218,8 @@ HTML_EXTRA_STYLESHEET  = utils/doxystyle/styles.css
 HTML_EXTRA_FILES       = utils/doxystyle/script.js \
                          utils/doxystyle/file.png \
                          utils/doxystyle/folder.png \
-                         utils/doxystyle/folder_open.png
+                         utils/doxystyle/folder_open.png \
+                         utils/doxystyle/mermaid.min.js
 
 # The HTML_COLORSTYLE_HUE tag controls the color of the HTML output. Doxygen
 # will adjust the colors in the style sheet and background images according to
