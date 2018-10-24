@@ -13,6 +13,7 @@
 #include "administration.h"
 #include "agenda.h"
 #include "tools.h"
+#include "array.h"
 
 // Bug propre à CLion pour afficher printf dans le debugger
 #define printf setbuf(stdout, 0);printf
@@ -42,12 +43,13 @@ int main() {
     int choix = 0;
     int i;
 
+    // todo: PASSER à DES DO WHILE
     while (choix != 9) {
 
         printf("Bienvenue sur votre agenda. Qui êtes-vous ?\n0) Administrateur\n");
 
-        for (i = 0; i < usrNbr; i++) {
-            printf("%d) %s\n", i + 1, users[i].name);
+        for (i = 0; i < getSize(newUsers); i++) {
+            printf("%d) %s\n", i + 1, get(newUsers, i).user.name);
         }
 
         printf("9) Quitter\n");
@@ -57,7 +59,7 @@ int main() {
             administrator();
         }
 
-        else if (choix < 9 && choix <= usrNbr) {
+        else if (choix < 9 && choix <= getSize(newUsers)) {
             normalUser(choix - 1);
         }
     }
@@ -72,11 +74,21 @@ int main() {
 void initGlobals() {
     specialDaysNbr = 0;
     filterMode = 1;
-    users[0].nRdvs = 0;
-    strcpy(users[0].name, "Thomas");
-    strcpy(users[1].name, "Louis");
 
-    usrNbr = 2;
+    newUsers = initArray();
+
+    User thomas, louis;
+
+    strcpy(thomas.name, "Thomas");
+    strcpy(louis.name, "Louis");
+
+    // todo: creer un fonction createUser
+    thomas.rdvs = initArray();
+    louis.rdvs = initArray();
+
+    add(newUsers, fromUser(thomas));
+    add(newUsers, fromUser(louis));
+
 }
 
 /**
@@ -87,11 +99,9 @@ void normalUser(int userId) {
     currentUser = userId;
 
     // Par soucis de lisibilité
-    nRdvs = &users[currentUser].nRdvs;
-    rdvs = &users[currentUser].rdvs[0];
+    rdvs = get(newUsers, currentUser).user.rdvs;
 
-
-    printf("Agenda de %s\n", users[currentUser].name);
+    printf("Agenda de %s\n", get(newUsers, currentUser).user.name);
 
     int choice = 0;
 

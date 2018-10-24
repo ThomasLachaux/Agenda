@@ -24,20 +24,28 @@ void listerRdvParJour() {
     int jour, mois, annee;
     promptDate(&jour, &mois, &annee);
 
-    Rdv *rdvDuJour[1000];
-
+    // todo: passer en dynamique
+    int corresps[1000];
+    int ncorr = 0;
+    
     int i = 0;
     int j = 0;
     int k = 0;
 
-    // Filtrage des rendez-vous
-    for (i = 0; i < *nRdvs; i++) {
-        if(filterRdv(rdvs[i], jour, mois, annee)) {
-            rdvDuJour[j] = &rdvs[i];
-            afficherRdv(j + 1, rdvDuJour[j]);
+    for (i = 0; i < getSize(rdvs); i++) {
+        if(filterRdv(get(rdvs, i).rdv, jour, mois, annee)) {
+            
+            corresps[ncorr] = i;
+            ncorr++;
+            
+            Rdv rdv = get(rdvs, i).rdv;
+            afficherRdv(j + 1, rdv);
+            
             j++;
         }
     }
+
+    // Nouveaux rdvs
 
     printf("=============================");
     printf("\nJournées spéciales:\n");
@@ -75,18 +83,22 @@ void listerRdvParJour() {
 
                 if(choix == 1) {
                     printf("Modification du rendez-vous...\n");
-                    *rdvDuJour[id - 1] = nouveauRdv();
+                    //newRdvDuJour[id - 1]->value.rdv = nouveauRdv();
+                    set(rdvs, corresps[id - 1], fromRdv(nouveauRdv()));
+
                 }
 
                 else if (choix == 2) {
                     printf("Suppression du rendez-vous...\n");
-                    *rdvDuJour[id - 1] = rdvs[*nRdvs - 1];
-                    (*nRdvs)--;
+                    //*rdvDuJour[id - 1] = rdvs[*nRdvs - 1];
+                    //(*nRdvs)--;
+                    pop(rdvs, corresps[id - 1]);
                 }
 
                 else if (choix == 3) {
                     printf("Sauvegarde du rendez-vous...\n");
-                    sauvegarderRdv(rdvDuJour[id - 1]);
+                    Rdv save = get(rdvs, corresps[id - 1]).rdv;
+                    sauvegarderRdv(save);
                 }
             }
 
@@ -96,8 +108,7 @@ void listerRdvParJour() {
 
 
 void ajouterUnRdv() {
-    rdvs[*nRdvs] = nouveauRdv();
-    (*nRdvs)++;
+    add(rdvs, fromRdv(nouveauRdv()));
 }
 
 Rdv nouveauRdv() {
@@ -126,10 +137,10 @@ Rdv nouveauRdv() {
 }
 
 // todo: faire téléscopation rdv
-void afficherRdv(int id, Rdv *rdv) {
+void afficherRdv(int id, Rdv rdv) {
 
-    int minuteFin = (rdv->minute + rdv->duration) % 60;
-    int heureFin = (rdv->hour * 60 + rdv->minute + rdv->duration) / 60;
+    int minuteFin = (rdv.minute + rdv.duration) % 60;
+    int heureFin = (rdv.hour * 60 + rdv.minute + rdv.duration) / 60;
 
     printf("\n%d) "
            " Nom: %s\n"
@@ -138,17 +149,17 @@ void afficherRdv(int id, Rdv *rdv) {
            "        Heure de fin:   %02d:%02d\n"
            "    Lieu: %s\n"
            "    Personnes présentes: %s\n",
-           id, rdv->label,
-           rdv->day, rdv->month, rdv->year,
-           rdv->hour, rdv->minute, heureFin, minuteFin,
-           rdv->place, rdv->with);
+           id, rdv.label,
+           rdv.day, rdv.month, rdv.year,
+           rdv.hour, rdv.minute, heureFin, minuteFin,
+           rdv.place, rdv.with);
 }
 
-void sauvegarderRdv(Rdv *rdv) {
+void sauvegarderRdv(Rdv rdv) {
 
     FILE *file = NULL;
     char filename[250];
-    
+
 
     printf("Nom du ficher ?");
     scanf("%s", filename);
@@ -156,13 +167,13 @@ void sauvegarderRdv(Rdv *rdv) {
 
     file = fopen(filename, "w");
 
-    int minuteFin = (rdv->minute + rdv->duration) % 60;
-    int heureFin = (rdv->hour * 60 + rdv->minute + rdv->duration) / 60;
+    int minuteFin = (rdv.minute + rdv.duration) % 60;
+    int heureFin = (rdv.hour * 60 + rdv.minute + rdv.duration) / 60;
 
     fwprintf(file, L"Date de rendez-vous: %02d/%02d/%04d\n"
                   "Heure de debut: %02d:%02d\n"
                   "Heure de fin: %02d:%02d\n",
-            rdv->day, rdv->month, rdv->year, rdv->hour, rdv->minute, heureFin, minuteFin);
+            rdv.day, rdv.month, rdv.year, rdv.hour, rdv.minute, heureFin, minuteFin);
 
     fclose(file);
 }

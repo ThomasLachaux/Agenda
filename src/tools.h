@@ -8,6 +8,13 @@
 #ifndef AGENDA_TOOLS_H
 #define AGENDA_TOOLS_H
 
+typedef struct Rdv Rdv;
+typedef struct User User;
+typedef struct Type Type;
+typedef struct Element Element;
+typedef struct Array Array;
+
+
 /**
  * @struct Rdv
  * @brief Structure rendez-vous
@@ -31,7 +38,7 @@
  * Personnes présentes au rendez-vous
  */
 
-typedef struct Rdv Rdv;
+
 struct Rdv {
     char label[100];
     int year;
@@ -55,11 +62,29 @@ struct Rdv {
  * Rendez-vous de l'utilisateur
  */
 
-typedef struct User User;
+
 struct User {
-    int nRdvs;
     char name[40];
-    Rdv rdvs[1000];
+    Array *rdvs;
+};
+
+
+struct Type {
+    Rdv rdv;
+    User user;
+    int integer;
+};
+
+struct Element {
+    Type value;
+    Element *previous;
+    Element *next;
+};
+
+
+struct Array {
+    Element *first;
+    int size;
 };
 
 void promptDate(int *day, int *month, int *year);
