@@ -4,4 +4,16 @@ $(function() {
     $('table.directory').wrap('<div class="table-border"></div>');
 
     //$('div.header, #nav-path ul').wrapInner('<div class="max-width"></div>');
+    $('.fragment .line:first-child').each(function(index) {
+        if($(this).text() == "mermaid") {
+
+            mermaid.initialize({theme: 'default'});
+            var parent = $(this).parent();
+
+            parent.removeClass('fragment');
+            parent.children().contents().unwrap();
+            parent.appendTo('body');
+            parent.addClass('mermaid');
+        }
+    });
 });

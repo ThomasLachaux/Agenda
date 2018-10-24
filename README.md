@@ -108,3 +108,13 @@ Le code principal est développé en C99. Pour le compiler, il vous faudra tél�
 
 
 ```
+
+```
+mermaid
+graph TD
+A[Christmas] -->|Get money| B(Go shopping)
+B --> C{Let me think}
+C -->|One| D[Laptop]
+C -->|Two| E[iPhone]
+C -->|Three| F[fa:fa-car Car]
+```
