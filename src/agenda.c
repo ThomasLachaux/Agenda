@@ -118,20 +118,26 @@ Rdv nouveauRdv() {
 
     promptDate(&newRdv.day, &newRdv.month, &newRdv.year);
 
-    printf("Heure du rendez-vous ? (Format hh:mm)\n");
-    scanf("%d%c%d", &newRdv.hour, &tmp, &newRdv.minute);
 
+    do {
+        printf("Heure du rendez-vous ? (Format hh:mm)\n");
+        scanf("%d%c%d", &newRdv.hour, &tmp, &newRdv.minute);
+    }
+    while (newRdv.hour >= 24 || newRdv.minute >= 60);
+
+    emptyBuffer();
     printf("Durée du rendez-vous ? (En minutes)\n");
-    scanf("%d", &newRdv.duration);
+    inputi(&newRdv.duration);
+
 
     printf("Nom du rendez-vous ?\n");
-    scanf("%s", newRdv.label);
+    input(newRdv.label, 99);
 
     printf("Lieu du rendez-vous ?\n");
-    scanf("%s", newRdv.place);
+    input(newRdv.place, 99);
 
     printf("Personnes présentes lors du rendez-vous ?\n");
-    scanf("%s", newRdv.with);
+    input(newRdv.with, 99);
 
     return newRdv;
 }

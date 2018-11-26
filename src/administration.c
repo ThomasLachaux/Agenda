@@ -68,7 +68,9 @@ void newUser() {
 /**
  * @brief liste les utilisateurs et affiche les options de gestion des utilisateurs
  */
+// todo ajouter free à la fin de main pour toutes les listes chaines
 
+// todo fgets remplacer les \n par \0
 void listUsers() {
 
     int i;

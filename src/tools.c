@@ -8,6 +8,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "tools.h"
 
 // Bug propre à CLion pour afficher printf dans le debugger
@@ -19,7 +20,7 @@
  * @param month mois
  * @param year année
  */
-
+// todo: atof atol atoi
 void promptDate(int *day, int *month, int *year) {
 
     // todo: source: http://www.cplusplus.com/reference/ctime/localtime, http://www.cplusplus.com/reference/ctime/tm/
@@ -34,9 +35,10 @@ void promptDate(int *day, int *month, int *year) {
 
     int choix = 1;
 
-    printf("1) Aujourd'hui\n2) Demain\n3) Autre chose\n");
-    scanf("%d", &choix);
-
+    do {
+        printf("1) Aujourd'hui\n2) Demain\n3) Autre chose\n");
+        scanf("%d", &choix);
+    } while (choix < 1 || choix > 3);
 
     switch (choix) {
 
@@ -85,3 +87,35 @@ int weekNumber(int day, int month, int year) {
 
 
 }
+
+void emptyBuffer() {
+    int c = 0;
+    while(c != '\n' && c != EOF) {
+        c = getchar();
+    }
+}
+// todo: ajouter free pour les listes chainées
+
+void input(char *string, int length) {
+    char *first = NULL;
+
+    if (fgets(string, length, stdin) != NULL) {
+        first = strchr(string, '\n');
+        if (first != NULL) {
+            *first = '\0';
+        } else {
+            emptyBuffer();
+        }
+
+    } else {
+        emptyBuffer();
+        printf("Erreur dans la saisie :/");
+    }
+}
+
+void inputi(int *integer) {
+    char tmp[10];
+    input(tmp, 9);
+    *integer = atoi(tmp);
+}
+
