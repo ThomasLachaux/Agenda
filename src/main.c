@@ -53,7 +53,7 @@ int main() {
         }
 
         printf("9) Quitter\n");
-        scanf("%d", &choix);
+        inputint(&choix);
 
         if(choix == 0) {
             administrator();
@@ -111,7 +111,7 @@ void normalUser(int userId) {
                "0) Ajouter un rendez-vous\n"
                "1) Lister les rendez-vous d'un jour\n"
                "9) Se déconnecter\n");
-        scanf("%d", &choice);
+        inputint(&choice);
 
 
         switch (choice) {

@@ -91,5 +91,5 @@ void promptDate(int *day, int *month, int *year);
 int weekNumber(int day, int month, int year);
 void emptyBuffer();
 void input(char *string, int length);
-void inputi(int *integer);
+void inputint(int *integer);
 #endif //AGENDA_TOOLS_H

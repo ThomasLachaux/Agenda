@@ -37,7 +37,7 @@ void promptDate(int *day, int *month, int *year) {
 
     do {
         printf("1) Aujourd'hui\n2) Demain\n3) Autre chose\n");
-        scanf("%d", &choix);
+        inputint(&choix);
     } while (choix < 1 || choix > 3);
 
     switch (choix) {
@@ -113,7 +113,7 @@ void input(char *string, int length) {
     }
 }
 
-void inputi(int *integer) {
+void inputint(int *integer) {
     char tmp[10];
     input(tmp, 9);
     *integer = atoi(tmp);

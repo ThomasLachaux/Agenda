@@ -74,12 +74,12 @@ void listerRdvParJour() {
                    "2) Supprimer un rendez-vous\n"
                    "3) Sauvegarder un rendez-vous\n"
                    "9) Menu principal\n");
-            scanf("%d", &choix);
+            inputint(&choix);
 
             if(choix == 1 || choix == 2 || choix == 3) {
                 int id;
                 printf("Identifiant du rendez-vous ? (Entre 1 et %d)\n", j);
-                scanf("%d", &id);
+                inputint(&id);
 
                 if(choix == 1) {
                     printf("Modification du rendez-vous...\n");
@@ -122,13 +122,12 @@ Rdv nouveauRdv() {
     do {
         printf("Heure du rendez-vous ? (Format hh:mm)\n");
         scanf("%d%c%d", &newRdv.hour, &tmp, &newRdv.minute);
+        emptyBuffer();
     }
     while (newRdv.hour >= 24 || newRdv.minute >= 60);
 
-    emptyBuffer();
     printf("Durée du rendez-vous ? (En minutes)\n");
-    inputi(&newRdv.duration);
-
+    inputint(&newRdv.duration);
 
     printf("Nom du rendez-vous ?\n");
     input(newRdv.label, 99);
@@ -168,7 +167,7 @@ void sauvegarderRdv(Rdv rdv) {
 
 
     printf("Nom du ficher ?");
-    scanf("%s", filename);
+    input(filename, 250);
     strcat(filename, ".txt");
 
     file = fopen(filename, "w");
