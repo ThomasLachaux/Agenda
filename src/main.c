@@ -23,7 +23,7 @@
  */
 
 void normalUser(int userId) ;
-void initGlobals() ;
+void initGlobals(int argc) ;
 
 /**
  * @fn int main()
@@ -31,20 +31,24 @@ void initGlobals() ;
  * @return Code d'erreur de l'application
  */
 int main(int argc, char *argv[]) {
+
     initGlobals(argc);
+
 
     int choix = 0;
     int i;
+    //setbuf(stdout, NULL);
 
     while (choix != 9) {
 
-        printf("Bienvenue sur votre agenda. Qui êtes-vous ?\n0) Administrateur\n");
-
+        printf("Bienvenue sur votre agenda. Qui êtes-vous ?\n");
+        printf("LALAAL %d", 1);
+        printChoice(0, "Administrateur");
         for (i = 0; i < getSize(newUsers); i++) {
-            printf("%d) %s\n", i + 1, get(newUsers, i).user.name);
+            printChoice(i + 1, get(newUsers, i).user.name);
         }
 
-        printf("9) Quitter\n");
+        printChoice(9, "Quitter");
         inputint(&choix);
 
         if(choix == 0) {

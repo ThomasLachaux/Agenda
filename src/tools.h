@@ -8,6 +8,8 @@
 #ifndef AGENDA_TOOLS_H
 #define AGENDA_TOOLS_H
 
+#define printf handlePrint
+
 typedef struct Rdv Rdv;
 typedef struct User User;
 typedef struct Type Type;
@@ -95,7 +97,7 @@ void emptyBuffer();
 void input(char *string, int length);
 void inputint(int *integer);
 
-void print(char *tag, char *attrs, const char * format, ...);
-void printlb(char *id, char *value)
-
+//void handlePrint(char *tag, char *attrs, const char * format, ...);
+void printChoice(int id, char *value);
+void handlePrint(const char *format, ...);
 #endif //AGENDA_TOOLS_H

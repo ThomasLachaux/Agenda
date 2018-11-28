@@ -19,9 +19,16 @@
                 $('#buffer').append(message);
             });
 
-            $('#submit').click(function() {
-                socket.emit('input', $('#input').val());
+            $('pre').on('click', 'button', function () {
+                socket.emit('input', $(this).val())
             });
+
+
+            $('#submit').click(function() {
+                socket.emit('input', $('#input').val().toString());
+            });
+
+
         </script>
     </body>
 </html>

@@ -10,8 +10,6 @@
 #include "administration.h"
 #include "tools.h"
 
-// Bug propre à CLion pour afficher printf dans le debugger
-#define printf setbuf(stdout, 0);printf
 
 /**
  * @brief Menu admnistrateur

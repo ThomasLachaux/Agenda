@@ -8,8 +8,9 @@
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 #include <stdarg.h>
+#include <string.h>
+#include <rpc.h>
 #include "tools.h"
 
 
@@ -116,26 +117,45 @@ void inputint(int *integer) {
     input(tmp, 9);
     *integer = atoi(tmp);
 }
-
-void print(char *tag, char *attrs, const char * format, ...) {
+/*
+void handlePrint(char *tag, char *attrs, const char * format, ...) {
 
     // Bug propre à CLion pour afficher printf dans le debugger
-    setbuf(stdout, 0);
 
-    if(usegui)
+
+    if(usegui) {
         printf("<%s %s>", tag, attrs);
+    }
+    va_list args;
+    va_start(args, format);
+    vprintf(format, args);
+    va_end(args);
+
+    if(usegui) {
+        printf("</%s>", tag);
+    }
+}*/
+
+void handlePrint(const char *format, ...) {
     va_list args;
     va_start(args, format);
     vprintf(format, args);
     va_end(args);
 
     if(usegui)
-        printf("</%s>", tag);
+        fflush(stdout);
 }
 
 /**
  * Print list of buttons
  */
-void printlb(char *id, char *value) {
-    printf("<button value=\"%s\">%s</button>", id, value);
+void printChoice(int id, char *value) {
+    if(usegui) {
+        //printf("<button value=\"%d\">%s</button>", id, value);
+        printf("<button value=\"%d\">%s</button>", id, value);
+    }
+
+    else {
+        printf("%d) %s\n", id, value);
+    }
 }
