@@ -29,8 +29,10 @@
                 socket.emit('input', $('#input').val().toString());
             });
 
+            $('form').submit(false);
             $('form').on('submit', function() {
                 socket.emit('input', $('#input').val().toString());
+                $('#input').val('');
             });
 
 
