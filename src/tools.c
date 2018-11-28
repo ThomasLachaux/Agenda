@@ -9,10 +9,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdarg.h>
 #include "tools.h"
 
-// Bug propre à CLion pour afficher printf dans le debugger
-#define printf setbuf(stdout, 0);printf
 
 /**
  * @brief Propose date de rendez-vous et éventuellement récupère la date d'aujourd'hui ou de demain
@@ -118,4 +117,25 @@ void inputint(int *integer) {
     *integer = atoi(tmp);
 }
 
+void print(char *tag, char *attrs, const char * format, ...) {
 
+    // Bug propre à CLion pour afficher printf dans le debugger
+    setbuf(stdout, 0);
+
+    if(usegui)
+        printf("<%s %s>", tag, attrs);
+    va_list args;
+    va_start(args, format);
+    vprintf(format, args);
+    va_end(args);
+
+    if(usegui)
+        printf("</%s>", tag);
+}
+
+/**
+ * Print list of buttons
+ */
+void printlb(char *id, char *value) {
+    printf("<button value=\"%s\">%s</button>", id, value);
+}

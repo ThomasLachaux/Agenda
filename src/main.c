@@ -15,17 +15,12 @@
 #include "tools.h"
 #include "array.h"
 
-// Bug propre à CLion pour afficher printf dans le debugger
-#define printf setbuf(stdout, 0);printf
-
-
 
 /*
  * todo: anglissisez les variables
  * todo: gerer les conflits
  * todo: ajouter un lieu, personnes
  */
-
 
 void normalUser(int userId) ;
 void initGlobals() ;

@@ -15,9 +15,6 @@
 
 
 
-// Bug propre à CLion pour afficher printf dans le debugger
-#define printf setbuf(stdout, 0);printf
-
 
 void listerRdvParJour() {
 
@@ -164,7 +161,6 @@ void sauvegarderRdv(Rdv rdv) {
 
     FILE *file = NULL;
     char filename[250];
-
 
     printf("Nom du ficher ?");
     input(filename, 250);

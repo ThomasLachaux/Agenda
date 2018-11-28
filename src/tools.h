@@ -87,11 +87,15 @@ struct Array {
     int size;
 };
 
-int usegui = 0;
+int usegui;
 
 void promptDate(int *day, int *month, int *year);
 int weekNumber(int day, int month, int year);
 void emptyBuffer();
 void input(char *string, int length);
 void inputint(int *integer);
+
+void print(char *tag, char *attrs, const char * format, ...);
+void printlb(char *id, char *value)
+
 #endif //AGENDA_TOOLS_H

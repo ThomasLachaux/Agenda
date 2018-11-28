@@ -16,14 +16,14 @@ app.use('/', express.static(__dirname));
 
 
 app.get('/', function(req, res) {
-    res.render('main.ejs', {name: 'TA RACE !!!!!'});
+    res.render('main.ejs', {});
 });
 
 
 io.sockets.on('connection', function(socket) {
     console.log('Connexion !!!!!!!');
 
-    child = spawn('cmake-build-debug/Agenda.exe');
+    child = spawn('cmake-build-debug/Agenda.exe', [0]);
 
     child.stdout.setEncoding('utf-8');
     child.stdin.setEncoding('utf-8');
