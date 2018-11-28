@@ -87,6 +87,8 @@ struct Array {
     int size;
 };
 
+int usegui = 0;
+
 void promptDate(int *day, int *month, int *year);
 int weekNumber(int day, int month, int year);
 void emptyBuffer();

@@ -23,9 +23,7 @@
 /*
  * todo: anglissisez les variables
  * todo: gerer les conflits
- * todo: gerer les heures +24
  * todo: ajouter un lieu, personnes
- * todo: gerer pb scanf espace
  */
 
 
@@ -37,13 +35,12 @@ void initGlobals() ;
  * @brief Lancement de l'application
  * @return Code d'erreur de l'application
  */
-int main() {
-    initGlobals();
+int main(int argc, char *argv[]) {
+    initGlobals(argc);
 
     int choix = 0;
     int i;
 
-    // todo: PASSER à DES DO WHILE
     while (choix != 9) {
 
         printf("Bienvenue sur votre agenda. Qui êtes-vous ?\n0) Administrateur\n");
@@ -71,7 +68,10 @@ int main() {
  * @fn void initGlobals()
  * @brief Initialisation variables globales
  */
-void initGlobals() {
+void initGlobals(int argc) {
+
+    usegui = argc > 1 ? 1 : 0;
+
     specialDaysNbr = 0;
     filterMode = 1;
 

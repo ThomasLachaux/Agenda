@@ -20,7 +20,6 @@
  * @param month mois
  * @param year année
  */
-// todo: atof atol atoi
 void promptDate(int *day, int *month, int *year) {
 
     // todo: source: http://www.cplusplus.com/reference/ctime/localtime, http://www.cplusplus.com/reference/ctime/tm/
@@ -118,4 +117,5 @@ void inputint(int *integer) {
     input(tmp, 9);
     *integer = atoi(tmp);
 }
+
 

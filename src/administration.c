@@ -70,7 +70,6 @@ void newUser() {
  */
 // todo ajouter free à la fin de main pour toutes les listes chaines
 
-// todo fgets remplacer les \n par \0
 void listUsers() {
 
     int i;

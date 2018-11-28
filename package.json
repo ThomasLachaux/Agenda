@@ -1,0 +1,19 @@
+{
+  "name": "Agenda",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:HerelAdrastel/NF05.git",
+  "author": "Thomas de Lachaux",
+  "license": "GPL3",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "socket.io": "^2.1.1"
+  },
+
+  "scripts": {
+    "start": "node utils/webserver/server.js",
+    "dev": "nodemon utils/webserver/server.js"
+  }
+}
