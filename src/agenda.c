@@ -66,11 +66,11 @@ void listerRdvParJour() {
         int choix = 0;
 
         while (choix != 9) {
-            printf("\n"
-                   "1) Modifier un rendez-vous\n"
-                   "2) Supprimer un rendez-vous\n"
-                   "3) Sauvegarder un rendez-vous\n"
-                   "9) Menu principal\n");
+            printChoice(1, "Modifier un rendez-vous");
+            printChoice(2, "Supprimer un rendez-vous");
+            printChoice(3, "Sauvegarder un rendez-vous");
+            printChoice(9, "Menu principal");
+            printf("\n");
             inputint(&choix);
 
             if(choix == 1 || choix == 2 || choix == 3) {

@@ -35,7 +35,10 @@ void promptDate(int *day, int *month, int *year) {
     int choix = 1;
 
     do {
-        printf("1) Aujourd'hui\n2) Demain\n3) Autre chose\n");
+        printChoice(1, "Aujourd'hui");
+        printChoice(2, "Demain");
+        printChoice(3, "Autre chose");
+        printf("\n");
         inputint(&choix);
     } while (choix < 1 || choix > 3);
 
@@ -96,6 +99,10 @@ void emptyBuffer() {
 // todo: ajouter free pour les listes chainées
 
 void input(char *string, int length) {
+
+    //if(usegui)
+      //  printf("<input type\"text\"/>");
+
     char *first = NULL;
 
     if (fgets(string, length, stdin) != NULL) {
@@ -117,24 +124,6 @@ void inputint(int *integer) {
     input(tmp, 9);
     *integer = atoi(tmp);
 }
-/*
-void handlePrint(char *tag, char *attrs, const char * format, ...) {
-
-    // Bug propre à CLion pour afficher printf dans le debugger
-
-
-    if(usegui) {
-        printf("<%s %s>", tag, attrs);
-    }
-    va_list args;
-    va_start(args, format);
-    vprintf(format, args);
-    va_end(args);
-
-    if(usegui) {
-        printf("</%s>", tag);
-    }
-}*/
 
 void handlePrint(const char *format, ...) {
     va_list args;
@@ -151,7 +140,6 @@ void handlePrint(const char *format, ...) {
  */
 void printChoice(int id, char *value) {
     if(usegui) {
-        //printf("<button value=\"%d\">%s</button>", id, value);
         printf("<button value=\"%d\">%s</button>", id, value);
     }
 

@@ -42,13 +42,13 @@ int main(int argc, char *argv[]) {
     while (choix != 9) {
 
         printf("Bienvenue sur votre agenda. Qui êtes-vous ?\n");
-        printf("LALAAL %d", 1);
         printChoice(0, "Administrateur");
         for (i = 0; i < getSize(newUsers); i++) {
             printChoice(i + 1, get(newUsers, i).user.name);
         }
 
         printChoice(9, "Quitter");
+        printf("\n");
         inputint(&choix);
 
         if(choix == 0) {
@@ -106,10 +106,11 @@ void normalUser(int userId) {
 
     while (choice != 9) {
 
-        printf("\nQuelle action voulez-vous effectuer ?\n"
-               "0) Ajouter un rendez-vous\n"
-               "1) Lister les rendez-vous d'un jour\n"
-               "9) Se déconnecter\n");
+        printf("\nQuelle action voulez-vous effectuer ?\n");
+        printChoice(0, "Ajouter un rendez-vous");
+        printChoice(1, "Lister les rendez-vous d'un jour");
+        printChoice(9, "Se déconnecter");
+        printf("\n");
         inputint(&choice);
 
 

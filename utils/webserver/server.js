@@ -29,7 +29,7 @@ io.sockets.on('connection', function(socket) {
     var child = spawn('cmake-build-debug/Agenda', ['0']);
 
     //child.stdout.setEncoding('utf-8');
-    //child.stdin.setEncoding('utf-8');
+    child.stdin.setEncoding('utf-8');
 
     child.stdout.on('data', function (data) {
         console.log(data.toString())
@@ -40,19 +40,11 @@ io.sockets.on('connection', function(socket) {
         console.error(data.toString());
     });
 
-
-    child.stdout.end();
-
     socket.on('input', function(input) {
         console.log('INPUT: ' + input);
         child.stdin.write(input + '\n');
     });
 
-    /*socket.on('disconnect', function () {
-        console.log('Deconnexion du navigateur');
-        console.log('Arrêt de l\'application...');
-        child.kill('SIGINT');
-    });*/
 
     console.log('Childprocess started');
 
