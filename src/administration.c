@@ -18,14 +18,15 @@
  */
 void administrator() {
     int choix = 0;
+    const int i = 4;
 
-    while (choix != 9) {
+    while (choix != i) {
         printf("Bienvenue sur l'interface d'administration\n"
                "0) Ajouter un utilisateur\n"
                "1) Lister les utilisateurs\n"
                "2) Ajouter un jour spécial\n"
                "3) Lister les jours spéciaux\n"
-               "9) Se déconnecter\n");
+               "%d) Se déconnecter\n", i);
         inputint(&choix);
 
         switch (choix) {

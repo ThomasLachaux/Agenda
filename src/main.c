@@ -41,10 +41,10 @@ int main() {
     initGlobals();
 
     int choix = 0;
-    int i;
+    int i = 1;
 
     // todo: PASSER à DES DO WHILE
-    while (choix != 9) {
+    while (choix != i+1) {
 
         printf("Bienvenue sur votre agenda. Qui êtes-vous ?\n0) Administrateur\n");
 
@@ -52,14 +52,14 @@ int main() {
             printf("%d) %s\n", i + 1, get(newUsers, i).user.name);
         }
 
-        printf("9) Quitter\n");
+        printf("%d) Quitter\n", i + 1);
         inputint(&choix);
 
         if(choix == 0) {
             administrator();
         }
 
-        else if (choix < 9 && choix <= getSize(newUsers)) {
+        else if (choix < i + 1 && choix <= getSize(newUsers)) {
             normalUser(choix - 1);
         }
     }
@@ -104,15 +104,15 @@ void normalUser(int userId) {
     printf("Agenda de %s\n", get(newUsers, currentUser).user.name);
 
     int choice = 0;
+    int i = 1;
 
-    while (choice != 9) {
+    while (choice != i + 1) {
 
         printf("\nQuelle action voulez-vous effectuer ?\n"
                "0) Ajouter un rendez-vous\n"
                "1) Lister les rendez-vous d'un jour\n"
-               "9) Se déconnecter\n");
+               "%d) Se déconnecter\n", i + 1);
         inputint(&choice);
-
 
         switch (choice) {
 
