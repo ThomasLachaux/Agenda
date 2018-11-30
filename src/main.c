@@ -21,7 +21,7 @@
  * todo: gerer les conflits
  * todo: ajouter un lieu, personnes
  */
-
+// todo: affichage du calendrier sur UI
 void normalUser(int userId);
 void initGlobals(int argc);
 void save();
@@ -38,10 +38,11 @@ int main(int argc, char *argv[]) {
     // todo: faire un executable chcp 850 et 33165
     // todo: choisir entre console et GUI
     int choix = 0;
-    int i;
-    //setbuf(stdout, NULL);
 
-    while (choix != 9) {
+    int i = 1;
+
+    // todo: PASSER à DES DO WHILE
+    while (choix != i+1) {
 
         printf("Bienvenue sur votre agenda. Qui êtes-vous ?\n");
         printChoice(0, "Administrateur");
@@ -49,15 +50,16 @@ int main(int argc, char *argv[]) {
             printChoice(i + 1, get(users, i).user.name);
         }
 
-        printChoice(9, "Quitter");
+        printChoice(i + 1, "Quitter");
         printf("\n");
         inputint(&choix, 0);
+
 
         if(choix == 0) {
             administrator();
         }
 
-        else if (choix < 9 && choix <= getSize(users)) {
+        else if (choix < i + 1 && choix <= getSize(users)) {
             normalUser(choix - 1);
         }
     }
@@ -118,16 +120,16 @@ void normalUser(int userId) {
     printf("Agenda de %s\n", get(users, currentUser).user.name);
 
     int choice = 0;
+    int i = 1;
 
-    while (choice != 9) {
+    while (choice != i + 1) {
 
         printf("\nQuelle action voulez-vous effectuer ?\n");
         printChoice(0, "Ajouter un rendez-vous");
         printChoice(1, "Lister les rendez-vous d'un jour");
-        printChoice(9, "Se déconnecter");
+        printChoice(i + 1, "Se déconnecter");
         printf("\n");
         inputint(&choice, 0);
-
 
         switch (choice) {
 

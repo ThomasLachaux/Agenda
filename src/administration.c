@@ -16,14 +16,15 @@
  */
 void administrator() {
     int choix = 0;
+    const int i = 4;
 
-    while (choix != 9) {
+    while (choix != i) {
         printf("Bienvenue sur l'interface d'administration\n"
                "0) Ajouter un utilisateur\n"
                "1) Lister les utilisateurs\n"
                "2) Ajouter un jour spécial\n"
                "3) Lister les jours spéciaux\n"
-               "9) Se déconnecter\n");
+               "%d) Se déconnecter\n", i);
         inputint(&choix, 0);
 
         switch (choix) {
@@ -56,7 +57,7 @@ void newUser() {
     User user;
 
     printf("Nom de l'utilisateur ?\n");
-    input(user.name, 39, 0);
+    input(user.name, 40, 1);
 
     user.rdvs = initArray();
 
@@ -79,8 +80,9 @@ void listUsers() {
     int choix = 0;
 
     while(choix != 9) {
-        printf("\n1) Renommer un utilisateur\n2) Supprimer un utilisateur\n9) Retour à l'interface d'administration");
+        printf("\n1) Renommer un utilisateur\n2) Supprimer un utilisateur\n3) Retour à l'interface d'administration");
         inputint(&choix, 0);
+
 
         if(choix == 1 || choix == 2) {
 
@@ -141,8 +143,8 @@ void listSpecialDays() {
         displaySpecialDay(i + 1, &specialDays[i]);
     }
 
-    while (choice != 9) {
-        printf("1) Modifier un jour spécial\n2) Supprimer un jour spécial\n9) Retour au menu\n");
+    while (choice != 3) {
+        printf("1) Modifier un jour spécial\n2) Supprimer un jour spécial\n3) Retour au menu\n");
         inputint(&choice, 0);
 
         if(choice == 1 || choice == 2) {
