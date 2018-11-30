@@ -149,10 +149,16 @@ void save() {
 
     file = fopen("save.bin", "w+b");
 
-    int i;
+    int i,j;
 
     for(i = 0; i < getSize(users); i++) {
+        User user = get(users, i).user;
 
+        fwrite(user.name, sizeof(char), strlen(user.name), file);
+
+        for(j = 0; j < getSize(user.rdvs); j++) {
+
+        }
     }
 
     if(file != NULL)
