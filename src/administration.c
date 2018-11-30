@@ -24,7 +24,7 @@ void administrator() {
                "2) Ajouter un jour spécial\n"
                "3) Lister les jours spéciaux\n"
                "9) Se déconnecter\n");
-        inputint(&choix);
+        inputint(&choix, 0);
 
         switch (choix) {
             case 0:
@@ -56,7 +56,7 @@ void newUser() {
     User user;
 
     printf("Nom de l'utilisateur ?\n");
-    input(user.name, 39);
+    input(user.name, 39, 0);
 
     user.rdvs = initArray();
 
@@ -80,21 +80,21 @@ void listUsers() {
 
     while(choix != 9) {
         printf("\n1) Renommer un utilisateur\n2) Supprimer un utilisateur\n9) Retour à l'interface d'administration");
-        inputint(&choix);
+        inputint(&choix, 0);
 
         if(choix == 1 || choix == 2) {
 
             int usrId;
 
             printf("Identifiant de l'utilisateur ? (Entre 1 et %d)\n", getSize(newUsers));
-            inputint(&usrId);
+            inputint(&usrId, 0);
 
             usrId--;
 
             if(choix == 1) {
                 printf("Nouveau nom de l'utilisateur ?\n");
                 char *new_name = getElement(newUsers, usrId)->value.user.name;
-                input(new_name, 39);
+                input(new_name, 39, 1);
                 printf("Le nouveau nom de l'utilisateur est %s\n", new_name);
             }
 
@@ -115,7 +115,7 @@ Rdv promptSpecialDay () {
     int day, month, year;
 
     printf("Nom du jour spécial ?\n");
-    input(specialDay.label, 99);
+    input(specialDay.label, 99, 1);
 
     promptDate(&day, &month, &year);
 
@@ -143,12 +143,12 @@ void listSpecialDays() {
 
     while (choice != 9) {
         printf("1) Modifier un jour spécial\n2) Supprimer un jour spécial\n9) Retour au menu\n");
-        inputint(&choice);
+        inputint(&choice, 0);
 
         if(choice == 1 || choice == 2) {
 
             printf("Identifiant du jour spécial ? (De 1 a %d)\n", specialDaysNbr);
-            inputint(&specialDayId);
+            inputint(&specialDayId, 0);
 
             specialDayId--;
 

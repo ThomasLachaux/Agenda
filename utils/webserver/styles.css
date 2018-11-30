@@ -1,0 +1,33 @@
+button {
+    margin-left: 10px;
+}
+
+html, body, .buffer, .instruction {
+    height: 100%;
+}
+
+.container {
+    border: 1px solid #d1d5da;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    height: 85%;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button-group button {
+    width: 100%;
+}
+
+.btn {
+    height: 100%;
+}
+
+.instruction-text {
+    text-align: center;
+}

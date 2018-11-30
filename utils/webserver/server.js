@@ -1,7 +1,8 @@
 var express = require('express');
 var http = require('http');
 var spawn = require('child_process').spawn;
-var exec = require('child_process').exec;
+var opn = require('opn');
+var path = require('path');
 
 var app = express();
 
@@ -17,37 +18,42 @@ app.use('/', express.static(__dirname));
 
 
 app.get('/', function(req, res) {
-    res.render('main.ejs', {});
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-
 io.sockets.on('connection', function(socket) {
-    console.log('Connexion !!!!!!!');
+    console.log('Navigateur connecté au serveur local');
 
-    //child = spawn('dir');
-    //
+    console.log('Démarrage du programme');
     var child = spawn('cmake-build-debug/Agenda', ['0']);
 
-    //child.stdout.setEncoding('utf-8');
     child.stdin.setEncoding('utf-8');
 
-    child.stdout.on('data', function (data) {
-        console.log(data.toString())
+    child.stdout.on('data', function (buffer) {
+
+        var data = buffer.toString();
+        console.log('Reception du programme: ' + data.toString())
+
+        var buff = "";
+
+        console.log(buff);
+
         socket.emit('message', data.toString());
     });
 
-    child.stderr.on('data', function (data) {
-        console.error(data.toString());
-    });
-
     socket.on('input', function(input) {
-        console.log('INPUT: ' + input);
+        console.log('Envoi au programme ' + input);
         child.stdin.write(input + '\n');
     });
 
-
-    console.log('Childprocess started');
-
+    socket.on('disconnect', function() {
+        console.log('Navigateur fermé. Arrêt du programme');
+        child.kill('SIGINT');
+    });
 });
 
+console.log("Bienvenue sur l'interface graphique...");
 server.listen(8080);
+console.log("Serveur local en écoute sur http://127.0.0.1:8080...");
+console.log("Ouverture du navigateur...");
+//opn("http://127.0.0.1:8080");

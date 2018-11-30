@@ -71,12 +71,12 @@ void listerRdvParJour() {
             printChoice(3, "Sauvegarder un rendez-vous");
             printChoice(9, "Menu principal");
             printf("\n");
-            inputint(&choix);
+            inputint(&choix, 0);
 
             if(choix == 1 || choix == 2 || choix == 3) {
                 int id;
                 printf("Identifiant du rendez-vous ? (Entre 1 et %d)\n", j);
-                inputint(&id);
+                inputint(&id, 0);
 
                 if(choix == 1) {
                     printf("Modification du rendez-vous...\n");
@@ -118,22 +118,23 @@ Rdv nouveauRdv() {
 
     do {
         printf("Heure du rendez-vous ? (Format hh:mm)\n");
+        printInputText();
         scanf("%d%c%d", &newRdv.hour, &tmp, &newRdv.minute);
         emptyBuffer();
     }
     while (newRdv.hour >= 24 || newRdv.minute >= 60);
 
     printf("Durée du rendez-vous ? (En minutes)\n");
-    inputint(&newRdv.duration);
+    inputint(&newRdv.duration, 1);
 
     printf("Nom du rendez-vous ?\n");
-    input(newRdv.label, 99);
+    input(newRdv.label, 99, 1);
 
     printf("Lieu du rendez-vous ?\n");
-    input(newRdv.place, 99);
+    input(newRdv.place, 99, 1);
 
     printf("Personnes présentes lors du rendez-vous ?\n");
-    input(newRdv.with, 99);
+    input(newRdv.with, 99, 1);
 
     return newRdv;
 }
@@ -163,7 +164,7 @@ void sauvegarderRdv(Rdv rdv) {
     char filename[250];
 
     printf("Nom du ficher ?");
-    input(filename, 250);
+    input(filename, 250, 1);
     strcat(filename, ".txt");
 
     file = fopen(filename, "w");

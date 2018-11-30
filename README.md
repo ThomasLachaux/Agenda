@@ -19,7 +19,13 @@ Le projet est divisé en plusieurs sous dossiers:
   
 ### Problématique  
   
-Par défaut, le code `printf("À bientôt !");` affichera`├Ç bient├┤t !`.  
+Par défaut, sur Windows, les consoles sont encodés avec la page de code 850. Cela correspond à la table ASCII Etendue. 
+Pour verifier la page de code sur votre console, taper `chcp`.
+
+Le code source est encodé en UTF-8 (chcp 65001). Par défaut, sur MacOS et Linux, les consoles sont encodées en UTF-8.
+Dans ce cas là, on aura un affichage correct.
+
+Mais sur Windows, le code `printf("À bientôt !");` affichera`├Ç bient├┤t !`.  
   
 On peut résoudre ce problème en exécutant l'instruction suivante: `printf("\267 bient\223t !");`  
 `\267` correspond au caractère `À` dans la table ASCII étendu en base octale. De même pour `\223` qui correspond au `ô`.   

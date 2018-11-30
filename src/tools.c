@@ -39,7 +39,7 @@ void promptDate(int *day, int *month, int *year) {
         printChoice(2, "Demain");
         printChoice(3, "Autre chose");
         printf("\n");
-        inputint(&choix);
+        inputint(&choix, 0);
     } while (choix < 1 || choix > 3);
 
     switch (choix) {
@@ -98,10 +98,10 @@ void emptyBuffer() {
 }
 // todo: ajouter free pour les listes chainées
 
-void input(char *string, int length) {
+void input(char *string, int length, int inputText) {
 
-    //if(usegui)
-      //  printf("<input type\"text\"/>");
+    if(inputText)
+        printInputText();
 
     char *first = NULL;
 
@@ -119,13 +119,14 @@ void input(char *string, int length) {
     }
 }
 
-void inputint(int *integer) {
+void inputint(int *integer, int inputText) {
     char tmp[10];
-    input(tmp, 9);
+    input(tmp, 9, inputText);
     *integer = atoi(tmp);
 }
 
 void handlePrint(const char *format, ...) {
+
     va_list args;
     va_start(args, format);
     vprintf(format, args);
@@ -146,4 +147,11 @@ void printChoice(int id, char *value) {
     else {
         printf("%d) %s\n", id, value);
     }
+}
+
+void printInputText() {
+    if(usegui)
+        printf("<form method=\"post\" action=\"\" class=\"form-group\">"
+                   "<input type=\"text\" class=\"input form-control\"/>"
+               "</form>");
 }

@@ -94,10 +94,11 @@ int usegui;
 void promptDate(int *day, int *month, int *year);
 int weekNumber(int day, int month, int year);
 void emptyBuffer();
-void input(char *string, int length);
-void inputint(int *integer);
+void input(char *string, int length, int inputText);
+void inputint(int *integer, int inputText);
 
 //void handlePrint(char *tag, char *attrs, const char * format, ...);
 void printChoice(int id, char *value);
 void handlePrint(const char *format, ...);
+void printInputText();
 #endif //AGENDA_TOOLS_H
