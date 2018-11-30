@@ -60,7 +60,7 @@ void newUser() {
 
     user.rdvs = initArray();
 
-    add(newUsers, fromUser(user));
+    add(users, fromUser(user));
 }
 
 /**
@@ -72,8 +72,8 @@ void listUsers() {
 
     int i;
 
-    for (i = 0; i < getSize(newUsers); i++) {
-        printf("%d) %s\n", i + 1, get(newUsers, i).user.name);
+    for (i = 0; i < getSize(users); i++) {
+        printf("%d) %s\n", i + 1, get(users, i).user.name);
     }
 
     int choix = 0;
@@ -86,21 +86,21 @@ void listUsers() {
 
             int usrId;
 
-            printf("Identifiant de l'utilisateur ? (Entre 1 et %d)\n", getSize(newUsers));
+            printf("Identifiant de l'utilisateur ? (Entre 1 et %d)\n", getSize(users));
             inputint(&usrId, 0);
 
             usrId--;
 
             if(choix == 1) {
                 printf("Nouveau nom de l'utilisateur ?\n");
-                char *new_name = getElement(newUsers, usrId)->value.user.name;
+                char *new_name = getElement(users, usrId)->value.user.name;
                 input(new_name, 39, 1);
                 printf("Le nouveau nom de l'utilisateur est %s\n", new_name);
             }
 
             else if(choix == 2) {
-                printf("Suppression de l'utilisateur %s...\n", get(newUsers, usrId).user.name);
-                pop(newUsers, usrId);
+                printf("Suppression de l'utilisateur %s...\n", get(users, usrId).user.name);
+                pop(users, usrId);
             }
         }
     }

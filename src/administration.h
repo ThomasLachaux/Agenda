@@ -11,7 +11,7 @@
 #include "tools.h"
 #include "array.h"
 
-Array *newUsers;
+Array *users;
 
 Rdv specialDays[1000];
 int specialDaysNbr;

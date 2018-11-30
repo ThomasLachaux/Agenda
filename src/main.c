@@ -22,8 +22,9 @@
  * todo: ajouter un lieu, personnes
  */
 
-void normalUser(int userId) ;
-void initGlobals(int argc) ;
+void normalUser(int userId);
+void initGlobals(int argc);
+void save();
 
 /**
  * @fn int main()
@@ -44,8 +45,8 @@ int main(int argc, char *argv[]) {
 
         printf("Bienvenue sur votre agenda. Qui êtes-vous ?\n");
         printChoice(0, "Administrateur");
-        for (i = 0; i < getSize(newUsers); i++) {
-            printChoice(i + 1, get(newUsers, i).user.name);
+        for (i = 0; i < getSize(users); i++) {
+            printChoice(i + 1, get(users, i).user.name);
         }
 
         printChoice(9, "Quitter");
@@ -56,11 +57,24 @@ int main(int argc, char *argv[]) {
             administrator();
         }
 
-        else if (choix < 9 && choix <= getSize(newUsers)) {
+        else if (choix < 9 && choix <= getSize(users)) {
             normalUser(choix - 1);
         }
     }
 
+    int choice = 0;
+
+    while (choice < 0 || choice > 1) {
+        printf("Voulez vous sauvegarder ?\n");
+        printChoice(0, "Sauvegarder");
+        printChoice(1, "Ne pas sauvegarder");
+        inputint(&choice, 1);
+
+        if(choice == 0) {
+            printf("Sauvegarde en cours...");
+            save();
+        }
+    }
     printf("À bientôt !");
     return 0;
 }
@@ -75,7 +89,7 @@ void initGlobals(int argc) {
     specialDaysNbr = 0;
     filterMode = 1;
 
-    newUsers = initArray();
+    users = initArray();
 
     User thomas, louis;
 
@@ -86,8 +100,8 @@ void initGlobals(int argc) {
     thomas.rdvs = initArray();
     louis.rdvs = initArray();
 
-    add(newUsers, fromUser(thomas));
-    add(newUsers, fromUser(louis));
+    add(users, fromUser(thomas));
+    add(users, fromUser(louis));
 
 }
 
@@ -99,9 +113,9 @@ void normalUser(int userId) {
     currentUser = userId;
 
     // Par soucis de lisibilité
-    rdvs = get(newUsers, currentUser).user.rdvs;
+    rdvs = get(users, currentUser).user.rdvs;
 
-    printf("Agenda de %s\n", get(newUsers, currentUser).user.name);
+    printf("Agenda de %s\n", get(users, currentUser).user.name);
 
     int choice = 0;
 
@@ -127,4 +141,20 @@ void normalUser(int userId) {
 
         }
     }
+}
+
+void save() {
+
+    FILE *file = NULL;
+
+    file = fopen("save.bin", "w+b");
+
+    int i;
+
+    for(i = 0; i < getSize(users); i++) {
+
+    }
+
+    if(file != NULL)
+        fclose(file);
 }
