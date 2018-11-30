@@ -59,7 +59,7 @@ void newUser() {
     User user;
 
     printf("Nom de l'utilisateur ?\n");
-    input(user.name, 39);
+    input(user.name, 40);
 
     user.rdvs = initArray();
 
@@ -82,8 +82,8 @@ void listUsers() {
 
     int choix = 0;
 
-    while(choix != 9) {
-        printf("\n1) Renommer un utilisateur\n2) Supprimer un utilisateur\n9) Retour à l'interface d'administration");
+    while(choix != 3) {
+        printf("\n1) Renommer un utilisateur\n2) Supprimer un utilisateur\n3) Retour à l'interface d'administration");
         inputint(&choix);
 
         if(choix == 1 || choix == 2) {
@@ -145,8 +145,8 @@ void listSpecialDays() {
         displaySpecialDay(i + 1, &specialDays[i]);
     }
 
-    while (choice != 9) {
-        printf("1) Modifier un jour spécial\n2) Supprimer un jour spécial\n9) Retour au menu\n");
+    while (choice != 3) {
+        printf("1) Modifier un jour spécial\n2) Supprimer un jour spécial\n3) Retour au menu\n");
         inputint(&choice);
 
         if(choice == 1 || choice == 2) {
