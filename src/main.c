@@ -24,7 +24,9 @@
 // todo: affichage du calendrier sur UI
 void normalUser(int userId);
 void initGlobals(int argc);
-void save();
+void saveAgenda();
+void generateUsers();
+int loadAgenda();
 
 /**
  * @fn int main()
@@ -66,7 +68,7 @@ int main(int argc, char *argv[]) {
 
     int choice = 0;
 
-    while (choice < 0 || choice > 1) {
+    do {
         printf("Voulez vous sauvegarder ?\n");
         printChoice(0, "Sauvegarder");
         printChoice(1, "Ne pas sauvegarder");
@@ -74,9 +76,9 @@ int main(int argc, char *argv[]) {
 
         if(choice == 0) {
             printf("Sauvegarde en cours...");
-            save();
+            saveAgenda();
         }
-    }
+    } while (choice < 0 || choice > 1);
     printf("À bientôt !");
     return 0;
 }
@@ -93,19 +95,13 @@ void initGlobals(int argc) {
 
     users = initArray();
 
-    User thomas, louis;
+    if(loadAgenda())
+        printf("Chargement des données...\n");
 
-    strcpy(thomas.name, "Thomas");
-    strcpy(louis.name, "Louis");
-
-    // todo: creer un fonction createUser
-    thomas.rdvs = initArray();
-    louis.rdvs = initArray();
-
-    add(users, fromUser(thomas));
-    add(users, fromUser(louis));
-
+    else
+        printf("Il semblerait que cela soit votre première utilisation.\nPour commmencer, veuillez créer un utilisateur en tant qu'administrateur\n\n\n");
 }
+// todo: ajouter lieux, personenes dans sauverade sous ficher texte
 
 /**
  * @brief Menu agenda
@@ -145,7 +141,7 @@ void normalUser(int userId) {
     }
 }
 
-void save() {
+void saveAgenda() {
 
     FILE *file = NULL;
 
@@ -153,16 +149,81 @@ void save() {
 
     int i,j;
 
+    fwrite(&(users->size), sizeof(int), 1, file);
+
     for(i = 0; i < getSize(users); i++) {
         User user = get(users, i).user;
 
-        fwrite(user.name, sizeof(char), strlen(user.name), file);
+        // toute la structure est sauvegardé. Il faut faire attention de ne pas utiliser les pointeurs lors de la reouverture
+        fwrite(&user, sizeof(user), 1, file);
 
+        fwrite(&(user.rdvs->size), sizeof(int), 1, file);
         for(j = 0; j < getSize(user.rdvs); j++) {
-
+            Rdv rdv = get(user.rdvs, j).rdv;
+            fwrite(&rdv, sizeof(rdv), 1, file);
         }
     }
 
     if(file != NULL)
         fclose(file);
+}
+
+
+int loadAgenda() {
+    FILE *file = NULL;
+
+    file = fopen("save.bin", "rb");
+
+    if(file != NULL) {
+
+        int i, j, userSize, rdvSize;
+
+        // Lecture du nombre d'utilisateurs
+        fread(&userSize, sizeof(int), 1, file);
+        printf("%d", userSize);
+
+
+
+        for(i = 0; i < userSize; i++) {
+            User user;
+
+            // Lecture de l'utilisateur
+            fread(&user, sizeof(user), 1, file);
+            printf("%s\n", user.name);
+
+            // Lecture du nombre de rendez-vous
+            fread(&rdvSize, sizeof(int), 1, file);
+            Array *rdvs = initArray();
+            user.rdvs = rdvs;
+
+            add(users, fromUser(user));
+
+            for(j = 0; j < rdvSize; j++) {
+                Rdv rdv;
+                // Lecture du rendez-vous
+                fread(&rdv, sizeof(rdv), 1, file);
+                add(rdvs, fromRdv(rdv));
+            }
+        }
+
+        fclose(file);
+
+        return 1;
+    }
+
+    return 0;
+}
+// todo: ajouter journéee speciales
+void generateUsers() {
+    User thomas, louis;
+
+    strcpy(thomas.name, "Thomas");
+    strcpy(louis.name, "Louis");
+
+    // todo: creer un fonction createUser
+    thomas.rdvs = initArray();
+    louis.rdvs = initArray();
+
+    add(users, fromUser(thomas));
+    add(users, fromUser(louis));
 }
