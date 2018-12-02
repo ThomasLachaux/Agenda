@@ -4,6 +4,14 @@
 
 // todo: passer du camel case a f_f_ pour vars
 
+/**
+ * @file array.c
+ * @brief Répertorie toutes les fonctions pour gérer des listes chainés de différents types
+ * @authors Thomas de Lachaux
+ * @authors Louis Bichet
+ * @copyright GNU Public License
+ */
+
 // ===== INIT =======
 Array *initArray() {
 
