@@ -14,8 +14,6 @@
 #include "tools.h"
 
 
-
-
 void listerRdvParJour() {
 
     int jour, mois, annee;
@@ -47,15 +45,16 @@ void listerRdvParJour() {
     printf("=============================");
     printf("\nJournées spéciales:\n");
     // Filtrage des journées spéciales
-    for (i = 0; i < specialDaysNbr; i++) {
-        if(specialDays[i].day == jour && specialDays[i].month == mois && specialDays[i].year == annee) {
-            displaySpecialDay(k + 1, &specialDays[i]);
+    for (i = 0; i < getSize(specialDays); i++) {
+        Rdv specialDay = get(specialDays, i).rdv;
+        if(specialDay.day == jour && specialDay.month == mois && specialDay.year == annee) {
+            displaySpecialDay(k + 1, specialDay);
             k++;
         }
     }
 
     if(k == 0) {
-        printf("Aucune journée spéciale aujourd'hui");
+        printf("Aucune journée spéciale aujourd'hui\n");
     }
 
     if(j == 0) {
@@ -66,6 +65,7 @@ void listerRdvParJour() {
         int choix = 0;
 
         while (choix != 9) {
+            printf("\n");
             printChoice(1, "Modifier un rendez-vous");
             printChoice(2, "Supprimer un rendez-vous");
             printChoice(3, "Sauvegarder un rendez-vous");

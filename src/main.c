@@ -90,10 +90,10 @@ void initGlobals(int argc) {
 
     usegui = argc > 1 ? 1 : 0;
 
-    specialDaysNbr = 0;
     filterMode = 1;
 
     users = initArray();
+    specialDays = initArray();
 
     if(loadAgenda())
         printf("Chargement des données...\n");
@@ -163,6 +163,14 @@ void saveAgenda() {
         }
     }
 
+    // Ecriture des journées spéciales
+    fwrite(&(specialDays->size), sizeof(int), 1, file);
+
+    for(i = 0; i < getSize(specialDays); i++) {
+        Rdv specialDay = get(specialDays, i).rdv;
+        fwrite(&specialDay, sizeof(specialDay), 1, file);
+    }
+
     if(file != NULL)
         fclose(file);
 }
@@ -175,11 +183,10 @@ int loadAgenda() {
 
     if(file != NULL) {
 
-        int i, j, userSize, rdvSize;
+        int i, j, userSize, rdvSize, specialDaysSize;
 
         // Lecture du nombre d'utilisateurs
         fread(&userSize, sizeof(int), 1, file);
-        printf("%d", userSize);
 
 
 
@@ -188,7 +195,6 @@ int loadAgenda() {
 
             // Lecture de l'utilisateur
             fread(&user, sizeof(user), 1, file);
-            printf("%s\n", user.name);
 
             // Lecture du nombre de rendez-vous
             fread(&rdvSize, sizeof(int), 1, file);
@@ -203,6 +209,16 @@ int loadAgenda() {
                 fread(&rdv, sizeof(rdv), 1, file);
                 add(rdvs, fromRdv(rdv));
             }
+        }
+
+        fread(&specialDaysSize, sizeof(int), 1, file);
+
+        for(i = 0; i < specialDaysSize; i++) {
+            Rdv specialDay;
+
+            // Lecture du jour spécial
+            fread(&specialDay, sizeof(specialDay), 1, file);
+            add(specialDays, fromRdv(specialDay));
         }
 
         fclose(file);

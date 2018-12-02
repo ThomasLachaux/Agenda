@@ -37,8 +37,7 @@ void administrator() {
                 break;
 
             case 2:
-                specialDays[specialDaysNbr] = promptSpecialDay();
-                specialDaysNbr++;
+                add(specialDays, fromRdv(promptSpecialDay()));
                 break;
 
             case 3:
@@ -139,8 +138,8 @@ void listSpecialDays() {
     int choice = 0;
     int specialDayId;
 
-    for(i = 0; i < specialDaysNbr; i++) {
-        displaySpecialDay(i + 1, &specialDays[i]);
+    for(i = 0; i < getSize(specialDays); i++) {
+        displaySpecialDay(i + 1, get(specialDays, i).rdv);
     }
 
     while (choice != 3) {
@@ -149,18 +148,17 @@ void listSpecialDays() {
 
         if(choice == 1 || choice == 2) {
 
-            printf("Identifiant du jour spécial ? (De 1 a %d)\n", specialDaysNbr);
+            printf("Identifiant du jour spécial ? (De 1 a %d)\n", getSize(specialDays));
             inputint(&specialDayId, 0);
 
             specialDayId--;
 
             if(choice == 1)
-                specialDays[specialDayId] = promptSpecialDay();
+                set(specialDays, specialDayId, fromRdv(promptSpecialDay()));
 
             else if(choice == 2) {
-                printf("Suppression du jour spécial %s\n", specialDays[specialDayId].label);
-                specialDays[specialDayId] = specialDays[specialDaysNbr - 1];
-                specialDaysNbr--;
+                printf("Suppression du jour spécial %s\n", get(specialDays, specialDayId).rdv.label);
+                pop(specialDays, specialDayId);
             }
         }
     }
@@ -173,6 +171,6 @@ void listSpecialDays() {
  */
 
 
-void displaySpecialDay(int id, Rdv *specialDay) {
-    printf("%d) %02d/%02d/%04d: %s\n", id, specialDay->day, specialDay->month, specialDay->year, specialDay->label);
+void displaySpecialDay(int id, Rdv specialDay) {
+    printf("%d) %02d/%02d/%04d: %s\n", id, specialDay.day, specialDay.month, specialDay.year, specialDay.label);
 }

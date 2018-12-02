@@ -12,9 +12,7 @@
 #include "array.h"
 
 Array *users;
-
-Rdv specialDays[1000];
-int specialDaysNbr;
+Array *specialDays;
 
 
 // todo: passer en enumeration
@@ -25,5 +23,5 @@ void newUser();
 void listUsers();
 Rdv promptSpecialDay();
 void listSpecialDays();
-void displaySpecialDay(int id, Rdv *specialDay);
+void displaySpecialDay(int id, Rdv specialDay);
 #endif //AGENDA_ADMINISTRATION_H
