@@ -101,7 +101,6 @@ void initGlobals(int argc) {
     else
         printf("Il semblerait que cela soit votre première utilisation.\nPour commmencer, veuillez créer un utilisateur en tant qu'administrateur\n\n\n");
 }
-// todo: ajouter lieux, personenes dans sauverade sous ficher texte
 
 /**
  * @brief Menu agenda

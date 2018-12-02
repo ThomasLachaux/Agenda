@@ -173,9 +173,12 @@ void sauvegarderRdv(Rdv rdv) {
     int heureFin = (rdv.hour * 60 + rdv.minute + rdv.duration) / 60;
 
     fwprintf(file, L"Date de rendez-vous: %02d/%02d/%04d\n"
-                  "Heure de debut: %02d:%02d\n"
-                  "Heure de fin: %02d:%02d\n",
-            rdv.day, rdv.month, rdv.year, rdv.hour, rdv.minute, heureFin, minuteFin);
+                   "Heure de début: %02d:%02d\n"
+                   "Heure de fin: %02d:%02d\n"
+                   "Label: %s\n"
+                   "Lieu: %s\n"
+                   "Personnes présentes: %s\n",
+            rdv.day, rdv.month, rdv.year, rdv.hour, rdv.minute, heureFin, minuteFin, rdv.label, rdv.place, rdv.with);
 
     fclose(file);
 }
