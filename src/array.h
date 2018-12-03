@@ -17,6 +17,7 @@ int getSize(Array *array);
 void set(Array *array, int index, Type new_value);
 void add(Array *array, Type new_value);
 void pop(Array *array, int index);
+void freeArray(Array *array);
 void debugArray(Array *liste);
 
 

@@ -15,7 +15,7 @@
 
 
 /**
- * @brief Propose date de rendez-vous et éventuellement récupère la date d'aujourd'hui ou de demain
+ * Propose date de rendez-vous et éventuellement récupère la date d'aujourd'hui ou de demain
  * @param day jour
  * @param month mois
  * @param year année
@@ -90,14 +90,22 @@ int weekNumber(int day, int month, int year) {
 
 }
 
+/**
+ * Vide le buffer du stdin
+ */
 void emptyBuffer() {
     int c = 0;
     while(c != '\n' && c != EOF) {
         c = getchar();
     }
 }
-// todo: ajouter free pour les listes chainées
 
+/**
+ * Assigne à une variable par référence les données entrées par le clavier
+ * @param string variable par référence
+ * @param length longueur de la variable
+ * @param inputText 1 si il faut faire apparaitre un champ en mode graphique. Sinon 0
+ */
 void input(char *string, int length, int inputText) {
 
     if(inputText)
@@ -119,12 +127,23 @@ void input(char *string, int length, int inputText) {
     }
 }
 
+/**
+ * Récupère les données entrée au clavier en tant que nombre
+ * @param integer valeur par référence
+ * @param inputText 1 si il faut faire apparaitre un champ en mode graphique. Sinon 0
+ */
 void inputint(int *integer, int inputText) {
     char tmp[10];
     input(tmp, 9, inputText);
     *integer = atoi(tmp);
 }
 
+/**
+ * Grace au define, les appels de printf sont remplacés par l'appel de cette fonction.
+ * Vide le buffer en cas d'uilisation en interface après l'appel du printf.
+ * @param format format des données
+ * @param ... arguments
+ */
 void handlePrint(const char *format, ...) {
 
     va_list args;
@@ -137,18 +156,20 @@ void handlePrint(const char *format, ...) {
 }
 
 /**
- * Print list of buttons
+ * En mode console: affiche un choix de façon formatée
+ * En mode interface: affiche un choix sous forme de bouton
  */
 void printChoice(int id, char *value) {
-    if(usegui) {
+    if(usegui)
         printf("<button value=\"%d\">%s</button>", id, value);
-    }
 
-    else {
+    else
         printf("%d) %s\n", id, value);
-    }
 }
 
+/**
+ * En mode interface: affiche un champ
+ */
 void printInputText() {
     if(usegui)
         printf("<form method=\"post\" action=\"\" class=\"form-group\">"

@@ -1,5 +1,5 @@
 /**
- * @file administration.h
+ * @file
  * @authors Thomas de Lachaux
  * @authors Louis Bichet
  * @copyright GNU Public License

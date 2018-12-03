@@ -1,5 +1,5 @@
 /**
- * @file main.c
+ * @file
  * @brief Point d'entrée de l'application. L'utilisateur choisit entre le mode admin et utilisateur
  * @authors Thomas de Lachaux
  * @authors Louis Bichet
@@ -27,9 +27,9 @@ void initGlobals(int argc);
 void saveAgenda();
 void generateUsers();
 int loadAgenda();
+void garbage();
 
 /**
- * @fn int main()
  * @brief Lancement de l'application
  * @return Code d'erreur de l'application
  */
@@ -80,11 +80,26 @@ int main(int argc, char *argv[]) {
         }
     } while (choice < 0 || choice > 1);
     printf("À bientôt !");
+
+    garbage();
     return 0;
 }
+
+void garbage() {
+    int i;
+
+    for(i = 0; i < getSize(users); i++) {
+        User user = get(users, i).user;
+        freeArray(user.rdvs);
+    }
+
+    freeArray(specialDays);
+    freeArray(users);
+}
+
 /**
- * @fn void initGlobals()
  * @brief Initialisation variables globales
+ * @param argc Nombre d'arguments lors du lancement du programme
  */
 void initGlobals(int argc) {
 
@@ -140,6 +155,9 @@ void normalUser(int userId) {
     }
 }
 
+/**
+ * @brief Sauvegarde toutes les données de l'agenda dans un binaire save.bin
+ */
 void saveAgenda() {
 
     FILE *file = NULL;
@@ -175,7 +193,10 @@ void saveAgenda() {
         fclose(file);
 }
 
-
+/**
+ * @brief recupère toutes les données de l'agenda depuis save.bin
+ * @return 1 si le fichier existe. Sinon 0.
+ */
 int loadAgenda() {
     FILE *file = NULL;
 
@@ -228,7 +249,11 @@ int loadAgenda() {
 
     return 0;
 }
-// todo: ajouter journéee speciales
+
+/**
+ * @brief Genère des utilisateurs
+ * @deprecated Utilisée pour faciliter le developpement avant les sauvegardes
+ */
 void generateUsers() {
     User thomas, louis;
 

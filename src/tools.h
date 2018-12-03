@@ -1,5 +1,5 @@
 /**
- * @file tools.h
+ * @file
  * @brief Toutes les fonctions annexes aux projet
  * @authors Thomas de Lachaux
  * @authors Louis Bichet

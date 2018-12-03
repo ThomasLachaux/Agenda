@@ -5,7 +5,7 @@
 // todo: passer du camel case a f_f_ pour vars
 
 /**
- * @file array.c
+ * @file
  * @brief Répertorie toutes les fonctions pour gérer des listes chainés de différents types
  * @authors Thomas de Lachaux
  * @authors Louis Bichet
@@ -13,6 +13,11 @@
  */
 
 // ===== INIT =======
+
+/**
+ * Crée un tableau dynamique vide
+ * @return tableau dynamique vide
+ */
 Array *initArray() {
 
     Array *array = malloc(sizeof(*array));
@@ -28,12 +33,22 @@ Type fromInt(int integer) {
     return type;
 }
 
+/**
+ * Convertie un type Rdv en type Type, pour pouvoir manipuler les listes chainées
+ * @param rdv Rendez-vous
+ * @return type
+ */
 Type fromRdv(Rdv rdv) {
     Type type;
     type.rdv = rdv;
     return type;
 }
 
+/**
+ * Convertie un type User en type Type, pour pouvoir manipuler les listes chainées
+ * @param user Utilisateur
+ * @return Type
+ */
 Type fromUser(User user) {
     Type type;
     type.user = user;
@@ -42,10 +57,22 @@ Type fromUser(User user) {
 
 // ===== GETTERS =====
 
+/**
+ * Renvoie un type à l'index donné du tableau
+ * @param array Tableau dynamique
+ * @param index Index donné
+ * @return Type
+ */
 Type get(Array *array, int index) {
     return getElement(array, index)->value;
 }
 
+/**
+ * Renvoie un élément à l'index donné du tableau
+ * @param array Tableau dynamique
+ * @param index Index donné
+ * @return Element
+ */
 Element *getElement(Array *array, int index) {
     Element *elt = array->first;
     int i = 0;
@@ -63,6 +90,11 @@ Element *getElement(Array *array, int index) {
     return elt;
 }
 
+/**
+ * Renvoie le dernier élement du tableau
+ * @param array Tableau dynamique
+ * @return Element
+ */
 Element *getLastElement(Array *array) {
 
     Element *elt = array->first;
@@ -80,11 +112,22 @@ int getSize(Array *array) {
 
 // ===== SETTERS =====
 
+/**
+ * Modifie un element à l'index donné du tableau
+ * @param array Tableau dynamique
+ * @param index Index donné
+ * @param new_value Nouvelle valeur
+ */
 void set(Array *array, int index, Type new_value) {
     Element *element = getElement(array, index);
     element->value = new_value;
 }
 
+/**
+ * Ajoute un element en fin du tableau
+ * @param array Tableau dynamique
+ * @param new_value Nouvelle valeur
+ */
 void add(Array *array, Type new_value) {
 
     Element *new_elt = malloc(sizeof(*new_elt));
@@ -107,6 +150,11 @@ void add(Array *array, Type new_value) {
     array->size++;
 }
 
+/**
+ * Supprime un élément à l'index donné
+ * @param array Tableau dynamique
+ * @param index Index donné
+ */
 void pop(Array *array, int index) {
     Element *to_delete = getElement(array, index);
     Element *previous = to_delete->previous;
@@ -127,6 +175,28 @@ void pop(Array *array, int index) {
     free(to_delete);
 }
 
+/**
+ * Libère le tableau de la RAM
+ * @param array Tableau dynamique
+ */
+void freeArray(Array *array) {
+    Element *current = array->first;
+
+    while (current->next != NULL) {
+        current = current->next;
+        free(current);
+    }
+
+    free(array->first);
+    free(array);
+}
+
+
+/**
+ * Debug un tableau (dans le cas d'un tableau d'entiers
+ * @param liste Tableau dynamique
+ * @deprecated Utilisé seulement pour le développement
+ */
 void debugArray(Array *liste) {
 
     Element *elt = liste->first;

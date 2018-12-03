@@ -1,10 +1,9 @@
 # coding: utf8
 
 ##
-# @file accents.py
+# @file
 # @brief Encode et décode les accents du projet en ASCII Etendu
 # @authors Thomas de Lachaux
-# @authors Louis Bichet
 # @copyright GNU Public License
 # @warning Le dossier courant du terminal doit être celui du script python.
 # @warning Il faut pouvoir executer dans le terminal python accents.py

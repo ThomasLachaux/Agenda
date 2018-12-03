@@ -1,5 +1,5 @@
 /**
- * @file agenda.c
+ * @file
  * @brief Répertorie toutes les méthodes pour gérer la prise, modification et supression de rendez-vous
  * @authors Thomas de Lachaux
  * @authors Louis Bichet
