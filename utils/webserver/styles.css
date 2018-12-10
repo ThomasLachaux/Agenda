@@ -11,7 +11,7 @@ html, body, .buffer, .instruction {
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 3px;
-    height: 85%;
+    min-height: 85%;
 }
 
 .button-group {

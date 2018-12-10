@@ -172,7 +172,7 @@ void printChoice(int id, char *value) {
  */
 void printInputText() {
     if(usegui)
-        printf("<form method=\"post\" action=\"\" class=\"form-group\">"
+        printf("<form method=\"get\" action=\"\" class=\"form-group\">"
                    "<input type=\"text\" class=\"input form-control\"/>"
                "</form>");
 }

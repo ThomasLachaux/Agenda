@@ -25,7 +25,7 @@ io.sockets.on('connection', function(socket) {
     console.log('Navigateur connecté au serveur local');
 
     console.log('Démarrage du programme');
-    var child = spawn('cmake-build-debug/Agenda', ['0']);
+    var child = spawn('Agenda', ['0'], {'cwd': 'cmake-build-debug/'});
 
     child.stdin.setEncoding('utf-8');
 

@@ -35,6 +35,8 @@ void garbage();
  */
 int main(int argc, char *argv[]) {
 
+    // todo :NE PAS COMMI1T. BUG DU FORMULAIRE. Revenir au commit 5c96e725ce2dc0fab26dc9ec70a6a01d4385f562 puis deplacer le forumaire
+
     initGlobals(argc);
 
     // todo: faire un executable chcp 850 et 33165
@@ -110,9 +112,10 @@ void initGlobals(int argc) {
     users = initArray();
     specialDays = initArray();
 
-    if(loadAgenda())
-        printf("Chargement des données...\n");
-
+    if(loadAgenda()) {
+        if (!usegui)
+            printf("Chargement des données depuis la sauvegarde...\n");
+    }
     else
         printf("Il semblerait que cela soit votre première utilisation.\nPour commmencer, veuillez créer un utilisateur en tant qu'administrateur\n\n\n");
 }

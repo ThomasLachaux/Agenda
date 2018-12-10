@@ -19,12 +19,14 @@ void administrator() {
     const int i = 4;
 
     while (choix != i) {
-        printf("Bienvenue sur l'interface d'administration\n"
-               "0) Ajouter un utilisateur\n"
-               "1) Lister les utilisateurs\n"
-               "2) Ajouter un jour spécial\n"
-               "3) Lister les jours spéciaux\n"
-               "%d) Se déconnecter\n", i);
+        printf("Bienvenue sur l'interface d'administration\n");
+
+        printChoice(0, "Ajouter un utilisateur");
+        printChoice(1, "Lister les utilisateurs");
+        printChoice(2, "Ajouter un jour spécial");
+        printChoice(3, "Lister les jours spéciaux");
+        printChoice(i, "Se déconnecter");
+
         inputint(&choix, 0);
 
         switch (choix) {

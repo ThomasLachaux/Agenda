@@ -28,17 +28,18 @@ function controlOutput(socket) {
         $('.instruction button').wrapAll('<div class="button-group"/>')
         $('button').addClass('btn btn-outline-primary btn-lg');
 
+        // Gestions des champs
+        $('form').submit(false);
+        $('form input[type=text]').focus();
+        $('form').on('submit', function(e) {
+            e.preventDefault();
+            socket.emit('input', $('.input').val().toString());
+        });
 
     });
 }
 
 function controlInput(socket) {
-
-    // Gestions des champs
-    $('form').submit(false);
-    $('form').on('submit', function() {
-        socket.emit('input', $('.input').val().toString());
-    });
 
 
     // Gestions des boutons
