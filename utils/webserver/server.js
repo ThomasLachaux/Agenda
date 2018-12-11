@@ -10,11 +10,18 @@ var server = http.createServer(app);
 
 var io = require('socket.io').listen(server);
 
+// Detecté par pkg comme assets et les ajouter à l'executable
+path.join(__dirname, 'bootstrap.min.css');
+path.join(__dirname, 'index.html');
+path.join(__dirname, 'jquery.min.js');
+path.join(__dirname, 'script.js');
+path.join(__dirname, 'styles.css');
+
 // Modification du dossier par défaut des templates
-app.set('views', __dirname);
+app.set('views', __dirname, '/');
 
 // Lisaison des fichiers js et css
-app.use('/', express.static(__dirname));
+app.use('/', express.static(__dirname, '/'));
 
 
 app.get('/', function(req, res) {
@@ -56,4 +63,4 @@ console.log("Bienvenue sur l'interface graphique...");
 server.listen(8080);
 console.log("Serveur local en écoute sur http://127.0.0.1:8080...");
 console.log("Ouverture du navigateur...");
-//opn("http://127.0.0.1:8080");
+opn("http://127.0.0.1:8080");
