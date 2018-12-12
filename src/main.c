@@ -28,6 +28,7 @@ void saveAgenda();
 void generateUsers();
 int loadAgenda();
 void garbage();
+void menu();
 
 /**
  * @brief Lancement de l'application
@@ -35,20 +36,45 @@ void garbage();
  */
 int main(int argc, char *argv[]) {
 
-    // todo :NE PAS COMMI1T. BUG DU FORMULAIRE. Revenir au commit 5c96e725ce2dc0fab26dc9ec70a6a01d4385f562 puis deplacer le forumaire
 
     initGlobals(argc);
 
     // todo: faire un executable chcp 850 et 33165
     // todo: choisir entre console et GUI
-    int choix = 0;
 
+    printf("Bienvenue sur votre agenda.\n");
+
+    int choice = 0;
+
+    if(!usegui) {
+        do {
+            printf("Un mode graphique est disponible. Voulez-vous l'utilisez ?\n");
+            printChoice(0, "Rester sur console");
+            printChoice(1, "Passer en interface graphique");
+            inputint(&choice, 0);
+        } while (choice < 0 || choice > 1);
+
+        if(choice == 1) {
+
+            exit(EXIT_SUCCESS);
+        }
+    }
+
+    menu();
+
+
+    return 0;
+}
+
+void menu() {
+
+    int choix = 0;
     int i = 1;
 
     // todo: PASSER à DES DO WHILE
     while (choix != i+1) {
 
-        printf("Bienvenue sur votre agenda. Qui êtes-vous ?\n");
+        printf("Qui êtes-vous ?\n");
         printChoice(0, "Administrateur");
         for (i = 0; i < getSize(users); i++) {
             printChoice(i + 1, get(users, i).user.name);
@@ -84,7 +110,6 @@ int main(int argc, char *argv[]) {
     printf("À bientôt !");
 
     garbage();
-    return 0;
 }
 
 void garbage() {
