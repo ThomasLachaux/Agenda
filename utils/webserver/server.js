@@ -21,7 +21,7 @@ path.join(__dirname, 'styles.css');
 app.set('views', __dirname, '/');
 
 // Lisaison des fichiers js et css
-app.use('/', express.static(__dirname, '/'));
+app.use('/', express.static(__dirname));
 
 
 app.get('/', function(req, res) {
@@ -32,7 +32,7 @@ io.sockets.on('connection', function(socket) {
     console.log('Navigateur connecté au serveur local');
 
     console.log('Démarrage du programme');
-    var child = spawn('Agenda', ['0'], {'cwd': 'cmake-build-debug/'});
+    var child = spawn('Agenda', ['0']);
 
     child.stdin.setEncoding('utf-8');
 

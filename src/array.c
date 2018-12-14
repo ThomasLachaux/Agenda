@@ -182,9 +182,11 @@ void pop(Array *array, int index) {
 void freeArray(Array *array) {
     Element *current = array->first;
 
-    while (current->next != NULL) {
-        current = current->next;
-        free(current);
+    if(current != NULL) {
+        while (current->next != NULL) {
+            current = current->next;
+            free(current);
+        }
     }
 
     free(array->first);

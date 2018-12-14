@@ -1,0 +1,8 @@
+Build en console:
+
+Compiler en mode accents
+
+Build en interface
+
+Compiler sans mode accents
+Lancer pkg

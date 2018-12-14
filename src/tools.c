@@ -100,7 +100,7 @@ void emptyBuffer() {
     }
 }
 
-/**
+/**à
  * Assigne à une variable par référence les données entrées par le clavier
  * @param string variable par référence
  * @param length longueur de la variable

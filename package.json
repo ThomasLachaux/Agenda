@@ -21,6 +21,6 @@
     "start": "node utils/webserver/server.js",
     "dev": "nodemon utils/webserver/server.js",
     "builddev": "pkg -t node10-win-x86 utils/webserver/server.js",
-    "build": "echo 'pkg -t node10-win-x86,node10-mac-x86,node10-linux-x86 package.json'"
+    "build": "pkg -t node10-win-x86,node10-mac-x86,node10-linux-x86 utils/webserver/server.js"
   }
 }
