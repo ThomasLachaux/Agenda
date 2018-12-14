@@ -68,12 +68,11 @@ void newUser() {
 /**
  * @brief liste les utilisateurs et affiche les options de gestion des utilisateurs
  */
-// todo ajouter free à la fin de main pour toutes les listes chaines
-
 void listUsers() {
 
     int i;
 
+    // Affichage des utilisateurs
     for (i = 0; i < getSize(users); i++) {
         printf("%d) %s\n", i + 1, get(users, i).user.name);
     }
@@ -140,6 +139,7 @@ void listSpecialDays() {
     int choice = 0;
     int specialDayId;
 
+    // Affichage des jours spéciaux
     for(i = 0; i < getSize(specialDays); i++) {
         displaySpecialDay(i + 1, get(specialDays, i).rdv);
     }

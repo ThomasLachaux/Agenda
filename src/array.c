@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include "array.h"
 
-// todo: passer du camel case a f_f_ pour vars
 
 /**
  * @file

@@ -16,9 +16,6 @@
 #include "array.h"
 
 /*
- * todo: anglissisez les variables
- * todo: gerer les conflits
- * todo: ajouter un lieu, personnes
  */
 // todo: affichage du calendrier sur UI
 void normalUser(int userId);
@@ -38,8 +35,6 @@ int main(int argc, char *argv[]) {
 
     initGlobals(argc);
 
-    // todo: faire un executable chcp 850 et 33165
-    // todo: choisir entre console et GUI
 
     printf("Bienvenue sur votre agenda.\n");
 
@@ -70,7 +65,6 @@ void menu() {
     int choix = 0;
     int i = 1;
 
-    // todo: PASSER à DES DO WHILE
     while (choix != i+1) {
 
         printf("Qui êtes-vous ?\n");
@@ -296,7 +290,6 @@ void generateUsers() {
     strcpy(thomas.name, "Thomas");
     strcpy(louis.name, "Louis");
 
-    // todo: creer un fonction createUser
     thomas.rdvs = initArray();
     louis.rdvs = initArray();
 

@@ -14,7 +14,9 @@
 #include "administration.h"
 #include "tools.h"
 
-
+/**
+ * @brief: Affiche les rendez-vous et les journées spéciales d'une journée selectionnée
+ */
 void listerRdvParJour() {
 
     int jour, mois, annee;
@@ -28,6 +30,7 @@ void listerRdvParJour() {
     int j = 0;
     int k = 0;
 
+    // Affiche les rendez-vous filtrées et le stock dans un tableau temporaire
     for (i = 0; i < getSize(rdvs); i++) {
         if(filterRdv(get(rdvs, i).rdv, jour, mois, annee)) {
             
@@ -109,6 +112,10 @@ void ajouterUnRdv() {
     add(rdvs, fromRdv(nouveauRdv()));
 }
 
+/**
+ * Ajoute un nouveau rendez-vous
+ * @return Nouveau rendez-vous
+ */
 Rdv nouveauRdv() {
 
     char tmp;
@@ -140,6 +147,11 @@ Rdv nouveauRdv() {
     return newRdv;
 }
 
+/**
+ * @brief Affiche un rendez-vous dans les détails
+ * @param id Variable unique par rendez-vous par jour
+ * @param rdv Rendez-vous
+ */
 // todo: faire téléscopation rdv
 void afficherRdv(int id, Rdv rdv) {
 
@@ -159,6 +171,11 @@ void afficherRdv(int id, Rdv rdv) {
            rdv.place, rdv.with);
 }
 
+
+/**
+ * @brief Sauvegarde un rendez-vous au format txt. Le nom est demandé par l'utilisateur
+ * @param rdv Rendez-vous
+ */
 void sauvegarderRdv(Rdv rdv) {
 
     FILE *file = NULL;
@@ -184,7 +201,15 @@ void sauvegarderRdv(Rdv rdv) {
     fclose(file);
 }
 
-// todo: tout passer en anglais
+/**
+ * @brief Décide si un rendez-vous fait partie du filtre correspondant
+ * @param rdv Rendez-vous
+ * @param day Jour du rendez-vous
+ * @param month Mois du rendez-vous
+ * @param year Année du rendez-vous
+ * @return 1 si ça correspond, sinon 0.
+ */
+ // todo: passer filtermode en paramètre
 int filterRdv(Rdv rdv, int day, int month, int year) {
 
     switch (filterMode) {
