@@ -15,7 +15,6 @@
 #include "tools.h"
 #include "array.h"
 
-
 /*
  * todo: anglissisez les variables
  * todo: gerer les conflits
@@ -112,6 +111,10 @@ void menu() {
     garbage();
 }
 
+
+/**
+ * @brief Libère la mémoire non utilisée
+ */
 void garbage() {
     int i;
 
@@ -137,12 +140,17 @@ void initGlobals(int argc) {
     users = initArray();
     specialDays = initArray();
 
-    if(loadAgenda()) {
-        if (!usegui)
-            printf("Chargement des données depuis la sauvegarde...\n");
+
+    if(!loadAgenda()) {
+        printf("Il semblerait que cela soit votre première utilisation.\nPour commmencer, veuillez créer un utilisateur en tant qu'administrateur\n");
+
+        if(!usegui) {
+            printf("Si votre console affiche mal les charactères spéciaux: veuillez executer Agenda-encode.exe si vous êtes sur Agenda.exe et inversement.\n");
+            printf("Vous pouvez aussi afficher votre Agenda en interface graphique en executant GUI.exe");
+        }
+
+        printf("Vous pouvez conserver vos donnéees en sélectionnant Quitter puis Sauvegarder.\n\n");
     }
-    else
-        printf("Il semblerait que cela soit votre première utilisation.\nPour commmencer, veuillez créer un utilisateur en tant qu'administrateur\n\n\n");
 }
 
 /**

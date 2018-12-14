@@ -2,7 +2,15 @@
 # Agenda Développé par Thomas de Lachaux et Louis Bichet    
     
     
-# Mode d'emploi    
+# Mode d'emploi
+
+3 executables sont disponibles à la racine du projet: 
+- *Agenda.exe*: Programme par défaut. Affiche correctement les accents des consoles récentes de Windows comme Powershell ou Cmder.
+- *Agenda-encode.exe*: Exactement le même programme que ci-dessus, mais les accents sont compatibles l'affichage sur le cmd.exe de Windows.
+- *GUI.exe*: Interface graphique
+
+Pour les autres plateformes. Vous sûr compiler le projet depuis les sources.
+
  # Structure du projet    
  Le projet est divisé en plusieurs sous dossiers:    
 - *src/*: Les source du programme principal    
@@ -22,16 +30,31 @@ sequenceDiagram
     participant A as Programme C
     participant B as Serveur NodeJS
     participant C as Client Web
-    A->>B: Lancement du serveur
-    A-XA: Arret du programme
-    B->>C: Lancement du navigateur
-    B->>A: Lancement du processus enfant
+    A->>A: Démarre un serveur local
+    B->>C: Ouvre le navigateur
+    B->>A: Crée un processus enfant
     A->B: Communication via stream
-    B->C: Communication via socket
+    B->C: Communication via websocket
 ```
 Le serveur NodeJS joue le rôle de messager entre le programme et le client Web. Le programme est executé avec des arguments différents qu'un lancement sous console pour avoir une sortie formatée en HTML. La sortie est récupérée par NodeJS qui l'envoie au client web via des sockets.
 
 Le chemin est effectué dans le sens inverse quand un bouton est cliqué sur le client Web, ou qu'un texte est entré.
+
+### Executer depuis les sources
+
+**Prérequis**: Avoir NodeJS installé
+
+Commandes pour installer les outils nécessaires:
+```
+npm install -g yarn pkg nodemon
+yarn
+```
+
+Pour executer l'interface : `yarn start`
+Pour executer l'interface en live-reload: `yarn dev`
+Pour compiler l'interface pour Windows: `yarn builddev`
+Pour compiler l'interface pour Windows, Mac et Linux: `yarn build`
+
 
 ## Accents    
  ### Problématique    
