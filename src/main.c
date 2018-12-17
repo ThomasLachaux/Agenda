@@ -32,35 +32,9 @@ void menu();
  */
 int main(int argc, char *argv[]) {
 
-
     initGlobals(argc);
 
-
     printf("Bienvenue sur votre agenda.\n");
-
-    int choice = 0;
-
-    if(!usegui) {
-        do {
-            printf("Un mode graphique est disponible. Voulez-vous l'utilisez ?\n");
-            printChoice(0, "Rester sur console");
-            printChoice(1, "Passer en interface graphique");
-            inputint(&choice, 0);
-        } while (choice < 0 || choice > 1);
-
-        if(choice == 1) {
-
-            exit(EXIT_SUCCESS);
-        }
-    }
-
-    menu();
-
-
-    return 0;
-}
-
-void menu() {
 
     int choix = 0;
     int i = 1;
@@ -103,7 +77,10 @@ void menu() {
     printf("À bientôt !");
 
     garbage();
+
+    return 0;
 }
+
 
 
 /**
