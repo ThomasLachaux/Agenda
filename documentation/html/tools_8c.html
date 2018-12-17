@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<!-- HTML header for doxygen 1.8.14-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="generator" content="Doxygen 1.8.14"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Agenda: Référence du fichier src/tools.c</title>
+    <link href="tabs.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="dynsections.js"></script>
+    <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <link href="doxygen.css" rel="stylesheet" type="text/css"/>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script>
+         mermaid.initialize({theme: 'default'});
+    </script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+    <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr style="height: 56px;">
+                <td id="projectalign" style="padding-left: 0.5em;">
+                    <div id="projectname">Agenda
+                    </div>
+                    <div id="projectbrief">Un agenda pour prendre des rendez-vous</div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier tools.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;time.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdarg.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;rpc.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="tools_8h_source.html">tools.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a40e7a9c288d88087297e1c72467148fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tools_8c.html#a40e7a9c288d88087297e1c72467148fa">promptDate</a> (int *day, int *month, int *year)</td></tr>
+<tr class="separator:a40e7a9c288d88087297e1c72467148fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6101634e90b4fa620519a3b0fb6d6949"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tools_8c.html#a6101634e90b4fa620519a3b0fb6d6949">weekNumber</a> (int day, int month, int year)</td></tr>
+<tr class="memdesc:a6101634e90b4fa620519a3b0fb6d6949"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion données horaires en numéro de semaine.  <a href="#a6101634e90b4fa620519a3b0fb6d6949">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6101634e90b4fa620519a3b0fb6d6949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1793ab69ec199b96bae50c64468377b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tools_8c.html#ae1793ab69ec199b96bae50c64468377b">emptyBuffer</a> ()</td></tr>
+<tr class="separator:ae1793ab69ec199b96bae50c64468377b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafcc26c1afd505daf17511133974e18f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tools_8c.html#aafcc26c1afd505daf17511133974e18f">input</a> (char *string, int length, int inputText)</td></tr>
+<tr class="separator:aafcc26c1afd505daf17511133974e18f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe04b4adb01f11983f8661a8378b0028"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tools_8c.html#afe04b4adb01f11983f8661a8378b0028">inputint</a> (int *integer, int inputText)</td></tr>
+<tr class="separator:afe04b4adb01f11983f8661a8378b0028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae773e6903e196ddd985e148c8854a7da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tools_8c.html#ae773e6903e196ddd985e148c8854a7da">handlePrint</a> (const char *format,...)</td></tr>
+<tr class="separator:ae773e6903e196ddd985e148c8854a7da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a6c1ef9ebf873b613955f0e90186771"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tools_8c.html#a2a6c1ef9ebf873b613955f0e90186771">printChoice</a> (int id, char *value)</td></tr>
+<tr class="separator:a2a6c1ef9ebf873b613955f0e90186771"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e0e2301c2811be0362df145c1984cf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tools_8c.html#a7e0e2301c2811be0362df145c1984cf6">printInputText</a> ()</td></tr>
+<tr class="separator:a7e0e2301c2811be0362df145c1984cf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><dl class="section author"><dt>Auteurs</dt><dd>Thomas de Lachaux </dd>
+<dd>
+Louis Bichet </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ae1793ab69ec199b96bae50c64468377b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1793ab69ec199b96bae50c64468377b">&#9670;&nbsp;</a></span>emptyBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void emptyBuffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Vide le buffer du stdin </p>
+
+</div>
+</div>
+<a id="ae773e6903e196ddd985e148c8854a7da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae773e6903e196ddd985e148c8854a7da">&#9670;&nbsp;</a></span>handlePrint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void handlePrint </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Grace au define, les appels de printf sont remplacés par l'appel de cette fonction. Vide le buffer en cas d'uilisation en interface après l'appel du printf. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">format</td><td>format des données </td></tr>
+    <tr><td class="paramname">...</td><td>arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aafcc26c1afd505daf17511133974e18f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafcc26c1afd505daf17511133974e18f">&#9670;&nbsp;</a></span>input()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void input </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>string</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>inputText</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>à Assigne à une variable par référence les données entrées par le clavier </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>variable par référence </td></tr>
+    <tr><td class="paramname">length</td><td>longueur de la variable </td></tr>
+    <tr><td class="paramname">inputText</td><td>1 si il faut faire apparaitre un champ en mode graphique. Sinon 0 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afe04b4adb01f11983f8661a8378b0028"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe04b4adb01f11983f8661a8378b0028">&#9670;&nbsp;</a></span>inputint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inputint </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>integer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>inputText</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Récupère les données entrée au clavier en tant que nombre </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">integer</td><td>valeur par référence </td></tr>
+    <tr><td class="paramname">inputText</td><td>1 si il faut faire apparaitre un champ en mode graphique. Sinon 0 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2a6c1ef9ebf873b613955f0e90186771"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a6c1ef9ebf873b613955f0e90186771">&#9670;&nbsp;</a></span>printChoice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printChoice </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>En mode console: affiche un choix de façon formatée En mode interface: affiche un choix sous forme de bouton </p>
+
+</div>
+</div>
+<a id="a7e0e2301c2811be0362df145c1984cf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e0e2301c2811be0362df145c1984cf6">&#9670;&nbsp;</a></span>printInputText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printInputText </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>En mode interface: affiche un champ </p>
+
+</div>
+</div>
+<a id="a40e7a9c288d88087297e1c72467148fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40e7a9c288d88087297e1c72467148fa">&#9670;&nbsp;</a></span>promptDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void promptDate </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>day</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>month</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>year</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Propose date de rendez-vous et éventuellement récupère la date d'aujourd'hui ou de demain </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">day</td><td>jour </td></tr>
+    <tr><td class="paramname">month</td><td>mois </td></tr>
+    <tr><td class="paramname">year</td><td>année </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6101634e90b4fa620519a3b0fb6d6949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6101634e90b4fa620519a3b0fb6d6949">&#9670;&nbsp;</a></span>weekNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int weekNumber </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>day</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>month</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>year</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Conversion données horaires en numéro de semaine. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">day</td><td>jour </td></tr>
+    <tr><td class="paramname">month</td><td>mois </td></tr>
+    <tr><td class="paramname">year</td><td>année </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>le numéro de semaine </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

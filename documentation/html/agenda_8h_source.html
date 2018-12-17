@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- HTML header for doxygen 1.8.14-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="generator" content="Doxygen 1.8.14"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Agenda:  Fichier source de src/agenda.h</title>
+    <link href="tabs.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="dynsections.js"></script>
+    <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <link href="doxygen.css" rel="stylesheet" type="text/css"/>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script>
+         mermaid.initialize({theme: 'default'});
+    </script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+    <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr style="height: 56px;">
+                <td id="projectalign" style="padding-left: 0.5em;">
+                    <div id="projectname">Agenda
+                    </div>
+                    <div id="projectbrief">Un agenda pour prendre des rendez-vous</div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">agenda.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef AGENDA_AGENDA_H</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define AGENDA_AGENDA_H</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tools_8h.html">tools.h</a>&quot;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;array.h&quot;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">int</span> currentUser;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<a class="code" href="struct_array.html">Array</a> *rdvs;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">void</span> ajouterUnRdv();</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> <a class="code" href="agenda_8c.html#aa930bd50100938bff1eab5f180a98fab">listerRdvParJour</a>();</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> <a class="code" href="agenda_8c.html#aef6d50ccfc2c1ac4eacc44e6e2730201">afficherRdv</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <a class="code" href="struct_rdv.html">Rdv</a> rdv);</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<a class="code" href="struct_rdv.html">Rdv</a> <a class="code" href="agenda_8c.html#a4f5cb76a4bebd207970843232daf35a9">nouveauRdv</a>();</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> <a class="code" href="agenda_8c.html#a57d2244618d78875e7521d35b6e19ee5">sauvegarderRdv</a>(<a class="code" href="struct_rdv.html">Rdv</a> rdv);</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">int</span> <a class="code" href="agenda_8c.html#aad24c597a4d4385375a5372380f80c71">filterRdv</a>(<a class="code" href="struct_rdv.html">Rdv</a> rdv, <span class="keywordtype">int</span> day, <span class="keywordtype">int</span> month, <span class="keywordtype">int</span> year);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif //AGENDA_AGENDA_H</span></div><div class="ttc" id="agenda_8c_html_aef6d50ccfc2c1ac4eacc44e6e2730201"><div class="ttname"><a href="agenda_8c.html#aef6d50ccfc2c1ac4eacc44e6e2730201">afficherRdv</a></div><div class="ttdeci">void afficherRdv(int id, Rdv rdv)</div><div class="ttdoc">Affiche un rendez-vous dans les détails. </div><div class="ttdef"><b>Definition:</b> agenda.c:156</div></div>
+<div class="ttc" id="agenda_8c_html_aa930bd50100938bff1eab5f180a98fab"><div class="ttname"><a href="agenda_8c.html#aa930bd50100938bff1eab5f180a98fab">listerRdvParJour</a></div><div class="ttdeci">void listerRdvParJour()</div><div class="ttdoc">: Affiche les rendez-vous et les journées spéciales d&amp;#39;une journée selectionnée </div><div class="ttdef"><b>Definition:</b> agenda.c:20</div></div>
+<div class="ttc" id="struct_rdv_html"><div class="ttname"><a href="struct_rdv.html">Rdv</a></div><div class="ttdoc">Structure rendez-vous. </div><div class="ttdef"><b>Definition:</b> tools.h:45</div></div>
+<div class="ttc" id="struct_array_html"><div class="ttname"><a href="struct_array.html">Array</a></div><div class="ttdef"><b>Definition:</b> tools.h:88</div></div>
+<div class="ttc" id="agenda_8c_html_a57d2244618d78875e7521d35b6e19ee5"><div class="ttname"><a href="agenda_8c.html#a57d2244618d78875e7521d35b6e19ee5">sauvegarderRdv</a></div><div class="ttdeci">void sauvegarderRdv(Rdv rdv)</div><div class="ttdoc">Sauvegarde un rendez-vous au format txt. Le nom est demandé par l&amp;#39;utilisateur. </div><div class="ttdef"><b>Definition:</b> agenda.c:179</div></div>
+<div class="ttc" id="tools_8h_html"><div class="ttname"><a href="tools_8h.html">tools.h</a></div><div class="ttdoc">Toutes les fonctions annexes aux projet. </div></div>
+<div class="ttc" id="agenda_8c_html_a4f5cb76a4bebd207970843232daf35a9"><div class="ttname"><a href="agenda_8c.html#a4f5cb76a4bebd207970843232daf35a9">nouveauRdv</a></div><div class="ttdeci">Rdv nouveauRdv()</div><div class="ttdef"><b>Definition:</b> agenda.c:119</div></div>
+<div class="ttc" id="agenda_8c_html_aad24c597a4d4385375a5372380f80c71"><div class="ttname"><a href="agenda_8c.html#aad24c597a4d4385375a5372380f80c71">filterRdv</a></div><div class="ttdeci">int filterRdv(Rdv rdv, int day, int month, int year)</div><div class="ttdoc">Décide si un rendez-vous fait partie du filtre correspondant. </div><div class="ttdef"><b>Definition:</b> agenda.c:213</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

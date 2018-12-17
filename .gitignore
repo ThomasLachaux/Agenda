@@ -1,6 +1,5 @@
 cmake-build-debug/
 .idea
-documentation/
 compile.bat
 build/
 dist/

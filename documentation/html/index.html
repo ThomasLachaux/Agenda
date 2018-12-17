@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!-- HTML header for doxygen 1.8.14-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="generator" content="Doxygen 1.8.14"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Agenda: Agenda Développé par Thomas de Lachaux et Louis Bichet</title>
+    <link href="tabs.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="dynsections.js"></script>
+    <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <link href="doxygen.css" rel="stylesheet" type="text/css"/>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script>
+         mermaid.initialize({theme: 'default'});
+    </script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+    <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr style="height: 56px;">
+                <td id="projectalign" style="padding-left: 0.5em;">
+                    <div id="projectname">Agenda
+                    </div>
+                    <div id="projectbrief">Un agenda pour prendre des rendez-vous</div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Agenda Développé par Thomas de Lachaux et Louis Bichet </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h1>Mode d'emploi</h1>
+<p>3 executables sont disponibles à la racine du projet: <br />
+- <em>Agenda.exe</em>: Programme par défaut. Affiche correctement les accents des consoles récentes de Windows comme Powershell ou Cmder. <br />
+- <em>Agenda-encode.exe</em>: Exactement le même programme que ci-dessus, mais les accents sont compatibles l'affichage sur le cmd.exe de Windows. <br />
+- <em>GUI.exe</em>: Interface graphique <br />
+ Pour les autres plateformes. Vous sûr compiler le projet depuis les sources. <br />
+ </p><h1>Structure du projet</h1>
+<p>Le projet est divisé en plusieurs sous dossiers: <br />
+- <em>src/</em>: Les source du programme principal <br />
+- <em>utils/</em>: Des plugins que nous avons développé pour faciliter le développement de l'application. <br />
+ - <em>Accents/</em> Encode et décode les fichiers sources en ASCII Etendu en base octale <br />
+ - <em>Doxystyle/</em>: Modernise le visuel de la documentation <br />
+</p>
+<h1>Outils accessoires crées</h1>
+<h2>Interface utilisateur</h2>
+<p>Une interface utilisateur est disponible pour augmenter l'ergonomie du programme. Voici un schéma expliquant le fonctionnement de l'interface graphique. <br />
+ </p><div class="fragment"><div class="line">sequenceDiagram  </div><div class="line">participant A as Programme C </div><div class="line">participant B as Serveur NodeJS </div><div class="line">participant C as Client Web </div><div class="line">A-&gt;&gt;A: Démarre un serveur local </div><div class="line">B-&gt;&gt;C: Ouvre le navigateur </div><div class="line">B-&gt;&gt;A: Crée un processus enfant </div><div class="line">A-&gt;B: Communication via stream </div><div class="line">B-&gt;C: Communication via websocket</div></div><!-- fragment --><p> Le serveur NodeJS joue le rôle de messager entre le programme et le client Web. Le programme est executé avec des arguments différents qu'un lancement sous console pour avoir une sortie formatée en HTML. La sortie est récupérée par NodeJS qui l'envoie au client web via des sockets. <br />
+ Le chemin est effectué dans le sens inverse quand un bouton est cliqué sur le client Web, ou qu'un texte est entré. <br />
+ </p><h3>Executer depuis les sources</h3>
+<p><b>Prérequis</b>: Avoir NodeJS installé <br />
+ Commandes pour installer les outils nécessaires: </p><div class="fragment"><div class="line">npm install -g yarn pkg nodemon  </div><div class="line">yarn  </div></div><!-- fragment --><p>Pour executer l'interface : <code>yarn start</code> <br />
+Pour executer l'interface en live-reload: <code>yarn dev</code> <br />
+Pour compiler l'interface pour Windows: <code>yarn builddev</code> <br />
+Pour compiler l'interface pour Windows, Mac et Linux: <code>yarn build</code> <br />
+</p>
+<h2>Accents</h2>
+<h3>Problématique Par défaut, sur Windows, les consoles sont encodés avec la page de code 850. Cela correspond à la table ASCII Etendue.</h3>
+<p>Pour verifier la page de code sur votre console, taper <code>chcp</code>. <br />
+ Le code source est encodé en UTF-8 (chcp 65001). Par défaut, sur MacOS et Linux, les consoles sont encodées en UTF-8. <br />
+Dans ce cas là, on aura un affichage correct. <br />
+ Mais sur Windows, le code <code>printf("À bientôt !");</code> affichera<code>├Ç bient├┤t !</code>. <br />
+ On peut résoudre ce problème en exécutant l'instruction suivante: <code>printf("\267 bient\223t !");</code> <code>\267</code> correspond au caractère <code>À</code> dans la table ASCII étendu en base octale. De même pour <code>\223</code> qui correspond au <code>ô</code>. <br />
+ Cependant, cette phrase n'est pas très lisible et peut gêner lors du développement de l'application. <br />
+ </p><h3>Résolution Pour résoudre ce problème nous avons développé un script en Python. Cet algorithme, en agira en fonction du premier argument donné:</h3>
+<ul>
+<li>Si le premier argument est <code>encode</code>, le script convertie tous les caractères spéciaux dans les fichiers sources en caractères octaux de la base ASCII. <br />
+- Si le premier argument est <code>decode</code>, le script convertie tous les caractères octaux de la base ASCII dans les fichiers sources en caractères spéciaux. <br />
+ Ainsi, quand nous lançons la compilation, l'ordinateur exécute d'abord le script en mode d'encodage, puis compile le programme, puis exécute le script de décodage. <br />
+</li>
+</ul>
+<div class="fragment"><div class="line">graph LR; </div><div class="line">A(&quot;printf(&amp;quot;À bientôt !&amp;quot;);&quot;); </div><div class="line">B[&quot;&lt;strong&gt;Compilation&lt;/strong&gt;.....&lt;/br&gt;printf(&amp;quot;\267 bient\223t !&amp;quot;);&quot;]; </div><div class="line">C(&quot;printf(&amp;quot;À bientôt !&amp;quot;);&quot;); </div><div class="line">A-- Encode --&gt;B; </div><div class="line">B-- Décode --&gt;C;</div></div><!-- fragment --><h3>Exécuter le script</h3>
+<p>Le script est situé dans le dossier <em>utils/accents</em>. Il est disponible au format <code>.py</code> et <code>.exe</code>. <br />
+ Tout d'abord, il vous faut ouvrir un terminal <b>et de bien vérifier que le dossier courant du terminal soit celui du script</b>, des exceptions seront levés dans le cas contraire. <br />
+ </p><h3>Exécuter le script à partir de l'exécutable <b>Prérequis</b>: avoir un système d'exploitation Windows.</h3>
+<ul>
+<li>Pour encoder les fichiers sources, tapez <code>accents.exe encode</code> - Pour décoder les fichiers sources, tapez <code>accents.exe decode</code> <br />
+<h3>Exécuter le script à partir des sources</h3>
+</li>
+</ul>
+<p><b>Prérequis</b>: <a href="https://www.python.org">Python 3.x</a> (Testé avec Python 3.7) <br />
+- Pour encoder les fichiers sources, tapez <code>python <a class="el" href="accents_8py.html" title="Encode et décode les accents du projet en ASCII Etendu. ">accents.py</a> encode</code> - Pour décoder les fichiers sources, tapez <code>python <a class="el" href="accents_8py.html" title="Encode et décode les accents du projet en ASCII Etendu. ">accents.py</a> decode</code> <br />
+</p><h3>Convertir le <code>.py</code> en <code>.exe</code></h3>
+<p><b>Prérequis</b>: <a href="https://www.python.org">Python 3.x</a> (Testé avec Python 3.7) <br />
+Il vous faudra aussi <a href="https://www.pyinstaller.org">PyInstaller</a> installable via la commande <code>pip install pyinstaller</code>. <br />
+ Entrez ensuite <code>pyinstaller accents.spec</code> <br />
+</p><h2>Doxystyle</h2>
+<h3>Problématique</h3>
+<p>En utilisant Doxygen, nous avons constaté que le design du site est assez vieux. <br />
+ </p><h3>Résolution Cependant nous avons pu résoudre ce problème car Doxygen nous offre la possibilité de modifier les entêtes HTML ainsi que d'ajouter des fichiers supplémentaires comme des feuilles de styles, des scripts ou des images.</h3>
+<p>Le développement est principalement basé sur le fichier <code>styles.less</code>. Pour nous aider dans la modification du design, nous somme inspiré de celui proposé par <a href="https://getbootstrap.com">Bootstrap</a>. <br />
+ Nous avons modifiés les propriétés de nombreuses classes du code. A chaque modification, il fallait suffixer la ligne par <code>!important</code> pour être sûr que notre propriété soit prioritaire par rapport à celle par défaut. Au lieu de le faire manuellement, nous avons utilisé le language <a href="http://lesscss.org">LESS</a>. La commande <a href="https://www.npmjs.com/package/less">lessc</a> compile <code>styles.less</code> vers <code>styles.css</code>. <br />
+ Quand il était impossible de styliser ou sélectionner un élément avec des règles précises en CSS, nous avons utilisé du javascript avec le framework jQuery (déjà inclus par Doxygen). Par exemple, pour ajouter des graphiques dans le README.md rapidement, nous avons utilisé <a href="https://mermaidjs.github.io">mermaid</a>. Il a fallu utiliser jQuery pour modifier le DOM et implémenter correctement cette bibliothèque. <br />
+ </p><h3>Compiler le LESS en CSS</h3>
+<p><b>Prérequis</b>: <a href="https://nodejs.org">Node.js</a> <br />
+Installer less via la commande <code>npm install -g less</code>. <br />
+Pour compiler <code>styles.less</code>, ouvrez un terminal, placez-vous le dossier Doxystyle et entrez <code>lessc styles.less styles.css</code>. <br />
+ </p><h2>Compiler le projet à partir des sources Le code principal est développé en C99. Pour le compiler, il vous faudra télécharger CMake ainsi qu'un compilateur C.</h2>
+<h2>Outils externes utilisés</h2>
+<ul>
+<li>Interface graphique <br />
+ - <a href="https://nodejs.org">NodeJS</a> <br />
+ - <a href="https://expressjs.com">ExpressJS</a> <br />
+ - <a href="https://yarnpkg.com">Yarn</a> <br />
+ - <a href="https://socket.io">socket.io</a> <br />
+ - <a href="https://github.com/sindresorhus/opn">opn</a> <br />
+ - <a href="https://nodemon.io">nodemon</a> <br />
+ - <a href="https://github.com/zeit/pkg">pkg</a> <br />
+ - <a href="https://getbootstrap.com">Bootstrap</a> <br />
+ - <a href="https://jquery.com">jQuery</a> <br />
+- Accents <br />
+ - <a href="https://www.python.org">Python 3.7</a> <br />
+ - <a href="https://www.pyinstaller.org">PyInstaller</a> <br />
+- Doxystyle <br />
+ - <a href="http://lesscss.org">LESS</a> <br />
+</li>
+</ul>
+<h2>Structure du projet</h2>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

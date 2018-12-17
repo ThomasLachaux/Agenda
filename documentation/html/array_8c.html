@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<!-- HTML header for doxygen 1.8.14-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="generator" content="Doxygen 1.8.14"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Agenda: Référence du fichier src/array.c</title>
+    <link href="tabs.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="dynsections.js"></script>
+    <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <link href="doxygen.css" rel="stylesheet" type="text/css"/>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script>
+         mermaid.initialize({theme: 'default'});
+    </script>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+    <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr style="height: 56px;">
+                <td id="projectalign" style="padding-left: 0.5em;">
+                    <div id="projectname">Agenda
+                    </div>
+                    <div id="projectbrief">Un agenda pour prendre des rendez-vous</div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier array.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Répertorie toutes les fonctions pour gérer des listes chainés de différents types.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &quot;array.h&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:af95f708a233640235379dbe3dc408946"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_array.html">Array</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array_8c.html#af95f708a233640235379dbe3dc408946">initArray</a> ()</td></tr>
+<tr class="separator:af95f708a233640235379dbe3dc408946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad77980a6df38bd847c2fcdda2cc413f2"><td class="memItemLeft" align="right" valign="top"><a id="ad77980a6df38bd847c2fcdda2cc413f2"></a>
+<a class="el" href="struct_type.html">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>fromInt</b> (int integer)</td></tr>
+<tr class="separator:ad77980a6df38bd847c2fcdda2cc413f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a707837cf2ed0352b7cef0221b023e3a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_type.html">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array_8c.html#a707837cf2ed0352b7cef0221b023e3a6">fromRdv</a> (<a class="el" href="struct_rdv.html">Rdv</a> rdv)</td></tr>
+<tr class="separator:a707837cf2ed0352b7cef0221b023e3a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6ff3026619f160b6a1927795b3a77e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_type.html">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array_8c.html#af6ff3026619f160b6a1927795b3a77e0">fromUser</a> (<a class="el" href="struct_user.html">User</a> user)</td></tr>
+<tr class="separator:af6ff3026619f160b6a1927795b3a77e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44320b4b263ac13029fabb1c1b9b0713"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_type.html">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array_8c.html#a44320b4b263ac13029fabb1c1b9b0713">get</a> (<a class="el" href="struct_array.html">Array</a> *array, int index)</td></tr>
+<tr class="separator:a44320b4b263ac13029fabb1c1b9b0713"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a118017ba2827b46977b384df85922475"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_element.html">Element</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array_8c.html#a118017ba2827b46977b384df85922475">getElement</a> (<a class="el" href="struct_array.html">Array</a> *array, int index)</td></tr>
+<tr class="separator:a118017ba2827b46977b384df85922475"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa623578c2c99d865fb9135de87ff9a41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_element.html">Element</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array_8c.html#aa623578c2c99d865fb9135de87ff9a41">getLastElement</a> (<a class="el" href="struct_array.html">Array</a> *array)</td></tr>
+<tr class="separator:aa623578c2c99d865fb9135de87ff9a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac89ef0323cb6af9406aea6ade8773294"><td class="memItemLeft" align="right" valign="top"><a id="ac89ef0323cb6af9406aea6ade8773294"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getSize</b> (<a class="el" href="struct_array.html">Array</a> *array)</td></tr>
+<tr class="separator:ac89ef0323cb6af9406aea6ade8773294"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a505550171b9139460e80a03bc2c88144"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array_8c.html#a505550171b9139460e80a03bc2c88144">set</a> (<a class="el" href="struct_array.html">Array</a> *array, int index, <a class="el" href="struct_type.html">Type</a> new_value)</td></tr>
+<tr class="separator:a505550171b9139460e80a03bc2c88144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3cba0dfb1adbb71eeeeabf3786bd5ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array_8c.html#ac3cba0dfb1adbb71eeeeabf3786bd5ac">add</a> (<a class="el" href="struct_array.html">Array</a> *array, <a class="el" href="struct_type.html">Type</a> new_value)</td></tr>
+<tr class="separator:ac3cba0dfb1adbb71eeeeabf3786bd5ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17fff68031f51812e2c73c7dedeced7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array_8c.html#a17fff68031f51812e2c73c7dedeced7f">pop</a> (<a class="el" href="struct_array.html">Array</a> *array, int index)</td></tr>
+<tr class="separator:a17fff68031f51812e2c73c7dedeced7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf0ca5962f4f121e27b209bf06155b2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array_8c.html#acf0ca5962f4f121e27b209bf06155b2a">freeArray</a> (<a class="el" href="struct_array.html">Array</a> *array)</td></tr>
+<tr class="separator:acf0ca5962f4f121e27b209bf06155b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b4edaeca518f8d7a8cdc42506d46be0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array_8c.html#a0b4edaeca518f8d7a8cdc42506d46be0">debugArray</a> (<a class="el" href="struct_array.html">Array</a> *liste)</td></tr>
+<tr class="separator:a0b4edaeca518f8d7a8cdc42506d46be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Répertorie toutes les fonctions pour gérer des listes chainés de différents types. </p>
+<dl class="section author"><dt>Auteurs</dt><dd>Thomas de Lachaux </dd>
+<dd>
+Louis Bichet </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ac3cba0dfb1adbb71eeeeabf3786bd5ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3cba0dfb1adbb71eeeeabf3786bd5ac">&#9670;&nbsp;</a></span>add()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_array.html">Array</a> *&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_type.html">Type</a>&#160;</td>
+          <td class="paramname"><em>new_value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ajoute un element en fin du tableau </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>Tableau dynamique </td></tr>
+    <tr><td class="paramname">new_value</td><td>Nouvelle valeur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0b4edaeca518f8d7a8cdc42506d46be0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b4edaeca518f8d7a8cdc42506d46be0">&#9670;&nbsp;</a></span>debugArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void debugArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_array.html">Array</a> *&#160;</td>
+          <td class="paramname"><em>liste</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Debug un tableau (dans le cas d'un tableau d'entiers </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">liste</td><td>Tableau dynamique </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Obsolète:</a></b></dt><dd>Utilisé seulement pour le développement </dd></dl>
+
+</div>
+</div>
+<a id="acf0ca5962f4f121e27b209bf06155b2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf0ca5962f4f121e27b209bf06155b2a">&#9670;&nbsp;</a></span>freeArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void freeArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_array.html">Array</a> *&#160;</td>
+          <td class="paramname"><em>array</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Libère le tableau de la RAM </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>Tableau dynamique </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a707837cf2ed0352b7cef0221b023e3a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a707837cf2ed0352b7cef0221b023e3a6">&#9670;&nbsp;</a></span>fromRdv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_type.html">Type</a> fromRdv </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_rdv.html">Rdv</a>&#160;</td>
+          <td class="paramname"><em>rdv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Convertie un type <a class="el" href="struct_rdv.html" title="Structure rendez-vous. ">Rdv</a> en type <a class="el" href="struct_type.html">Type</a>, pour pouvoir manipuler les listes chainées </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rdv</td><td>Rendez-vous </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>type </dd></dl>
+
+</div>
+</div>
+<a id="af6ff3026619f160b6a1927795b3a77e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6ff3026619f160b6a1927795b3a77e0">&#9670;&nbsp;</a></span>fromUser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_type.html">Type</a> fromUser </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_user.html">User</a>&#160;</td>
+          <td class="paramname"><em>user</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Convertie un type <a class="el" href="struct_user.html" title="Structure utilisateur. ">User</a> en type <a class="el" href="struct_type.html">Type</a>, pour pouvoir manipuler les listes chainées </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">user</td><td>Utilisateur </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="struct_type.html">Type</a> </dd></dl>
+
+</div>
+</div>
+<a id="a44320b4b263ac13029fabb1c1b9b0713"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44320b4b263ac13029fabb1c1b9b0713">&#9670;&nbsp;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_type.html">Type</a> get </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_array.html">Array</a> *&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Renvoie un type à l'index donné du tableau </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>Tableau dynamique </td></tr>
+    <tr><td class="paramname">index</td><td>Index donné </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="struct_type.html">Type</a> </dd></dl>
+
+</div>
+</div>
+<a id="a118017ba2827b46977b384df85922475"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a118017ba2827b46977b384df85922475">&#9670;&nbsp;</a></span>getElement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_element.html">Element</a>* getElement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_array.html">Array</a> *&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Renvoie un élément à l'index donné du tableau </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>Tableau dynamique </td></tr>
+    <tr><td class="paramname">index</td><td>Index donné </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="struct_element.html">Element</a> </dd></dl>
+
+</div>
+</div>
+<a id="aa623578c2c99d865fb9135de87ff9a41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa623578c2c99d865fb9135de87ff9a41">&#9670;&nbsp;</a></span>getLastElement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_element.html">Element</a>* getLastElement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_array.html">Array</a> *&#160;</td>
+          <td class="paramname"><em>array</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Renvoie le dernier élement du tableau </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>Tableau dynamique </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="struct_element.html">Element</a> </dd></dl>
+
+</div>
+</div>
+<a id="af95f708a233640235379dbe3dc408946"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af95f708a233640235379dbe3dc408946">&#9670;&nbsp;</a></span>initArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_array.html">Array</a>* initArray </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Crée un tableau dynamique vide </p><dl class="section return"><dt>Renvoie</dt><dd>tableau dynamique vide </dd></dl>
+
+</div>
+</div>
+<a id="a17fff68031f51812e2c73c7dedeced7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17fff68031f51812e2c73c7dedeced7f">&#9670;&nbsp;</a></span>pop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_array.html">Array</a> *&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Supprime un élément à l'index donné </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>Tableau dynamique </td></tr>
+    <tr><td class="paramname">index</td><td>Index donné </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a505550171b9139460e80a03bc2c88144"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a505550171b9139460e80a03bc2c88144">&#9670;&nbsp;</a></span>set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_array.html">Array</a> *&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_type.html">Type</a>&#160;</td>
+          <td class="paramname"><em>new_value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Modifie un element à l'index donné du tableau </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>Tableau dynamique </td></tr>
+    <tr><td class="paramname">index</td><td>Index donné </td></tr>
+    <tr><td class="paramname">new_value</td><td>Nouvelle valeur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>
