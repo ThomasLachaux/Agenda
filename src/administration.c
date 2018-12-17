@@ -79,7 +79,7 @@ void listUsers() {
 
     int choix = 0;
 
-    while(choix != 9) {
+    while(choix != 3) {
         printf("\n1) Renommer un utilisateur\n2) Supprimer un utilisateur\n3) Retour à l'interface d'administration");
         inputint(&choix, 0);
 
