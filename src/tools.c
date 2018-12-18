@@ -146,8 +146,7 @@ void inputint(int *integer, int inputText) {
  */
 void handlePrint(const char *format, ...) {
 
-    // todo: bug propre à CLion. A supprimer
-
+    // todo: bug propre à CLion (je pense ^^) pour gerer le debugger. A supprimer
     if(!usegui)
         setbuf(stdout, NULL);
 

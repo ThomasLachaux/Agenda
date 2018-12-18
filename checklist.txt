@@ -6,3 +6,5 @@ Build en interface
 
 Compiler sans mode accents
 Lancer pkg
+
+Ajouter releases sur github

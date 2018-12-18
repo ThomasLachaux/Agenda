@@ -25,21 +25,21 @@ void listerRdvParJour() {
     // todo: passer en dynamique
     int corresps[1000];
     int ncorr = 0;
-    
+
     int i = 0;
     int j = 0;
     int k = 0;
 
     // Affiche les rendez-vous filtrées et le stock dans un tableau temporaire
     for (i = 0; i < getSize(rdvs); i++) {
-        if(filterRdv(get(rdvs, i).rdv, jour, mois, annee)) {
-            
+        if (filterRdv(get(rdvs, i).rdv, jour, mois, annee)) {
+
             corresps[ncorr] = i;
             ncorr++;
-            
+
             Rdv rdv = get(rdvs, i).rdv;
             afficherRdv(j + 1, rdv);
-            
+
             j++;
         }
     }
@@ -51,21 +51,19 @@ void listerRdvParJour() {
     // Filtrage des journées spéciales
     for (i = 0; i < getSize(specialDays); i++) {
         Rdv specialDay = get(specialDays, i).rdv;
-        if(specialDay.day == jour && specialDay.month == mois && specialDay.year == annee) {
+        if (specialDay.day == jour && specialDay.month == mois && specialDay.year == annee) {
             displaySpecialDay(k + 1, specialDay);
             k++;
         }
     }
 
-    if(k == 0) {
+    if (k == 0) {
         printf("Aucune journée spéciale aujourd'hui\n");
     }
 
-    if(j == 0) {
+    if (j == 0) {
         printf("Aucun rendez-vous ce jour-ci\n");
-    }
-
-    else {
+    } else {
         int choix = 0;
 
         while (choix != 9) {
@@ -77,26 +75,22 @@ void listerRdvParJour() {
             printf("\n");
             inputint(&choix, 0);
 
-            if(choix == 1 || choix == 2 || choix == 3) {
+            if (choix == 1 || choix == 2 || choix == 3) {
                 int id;
                 printf("Identifiant du rendez-vous ? (Entre 1 et %d)\n", j);
                 inputint(&id, 0);
 
-                if(choix == 1) {
+                if (choix == 1) {
                     printf("Modification du rendez-vous...\n");
                     //newRdvDuJour[id - 1]->value.rdv = nouveauRdv();
                     set(rdvs, corresps[id - 1], fromRdv(nouveauRdv()));
 
-                }
-
-                else if (choix == 2) {
+                } else if (choix == 2) {
                     printf("Suppression du rendez-vous...\n");
                     //*rdvDuJour[id - 1] = rdvs[*nRdvs - 1];
                     //(*nRdvs)--;
                     pop(rdvs, corresps[id - 1]);
-                }
-
-                else if (choix == 3) {
+                } else if (choix == 3) {
                     printf("Sauvegarde du rendez-vous...\n");
                     Rdv save = get(rdvs, corresps[id - 1]).rdv;
                     saveRdv(save);
@@ -106,6 +100,7 @@ void listerRdvParJour() {
         }
     }
 }
+
 
 
 void ajouterUnRdv() {
@@ -121,19 +116,23 @@ Rdv nouveauRdv() {
     char tmp;
     Rdv newRdv;
 
-    promptDate(&newRdv.day, &newRdv.month, &newRdv.year);
-
-
     do {
-        printf("Heure du rendez-vous ? (Format hh:mm)\n");
-        printInputText();
-        scanf("%d%c%d", &newRdv.hour, &tmp, &newRdv.minute);
-        emptyBuffer();
-    }
-    while (newRdv.hour >= 24 || newRdv.minute >= 60);
+        promptDate(&newRdv.day, &newRdv.month, &newRdv.year);
 
-    printf("Durée du rendez-vous ? (En minutes)\n");
-    inputint(&newRdv.duration, 1);
+
+        do {
+            printf("Heure du rendez-vous ? (Format hh:mm)\n");
+            printInputText();
+            scanf("%d%c%d", &newRdv.hour, &tmp, &newRdv.minute);
+            emptyBuffer();
+        } while (newRdv.hour >= 24 || newRdv.minute >= 60);
+
+
+        printf("Durée du rendez-vous ? (En minutes)\n");
+        inputint(&newRdv.duration, 1);
+
+    } while (collision(newRdv));
+
 
     printf("Nom du rendez-vous ?\n");
     input(newRdv.label, 99, 1);
@@ -143,6 +142,7 @@ Rdv nouveauRdv() {
 
     printf("Personnes présentes lors du rendez-vous ?\n");
     input(newRdv.with, 99, 1);
+
 
     return newRdv;
 }
@@ -199,6 +199,7 @@ void saveRdv(Rdv rdv) {
                    "Personnes présentes: %s\n",
                    rdv.label, rdv.day, rdv.month, rdv.year, rdv.hour, rdv.minute, heureFin, minuteFin, rdv.place, rdv.with);
 
+
     fclose(file);
 }
 
@@ -210,7 +211,7 @@ void saveRdv(Rdv rdv) {
  * @param year Année du rendez-vous
  * @return 1 si ça correspond, sinon 0.
  */
- // todo: passer filtermode en paramètre
+// todo: passer filtermode en paramètre
 int filterRdv(Rdv rdv, int day, int month, int year) {
 
     switch (filterMode) {
@@ -219,13 +220,89 @@ int filterRdv(Rdv rdv, int day, int month, int year) {
         case 1:
             return rdv.day == day && rdv.month == month && rdv.year == year;
 
-        // Filtrage par semaine
-        // Le test de l'année est utilisé dans le cas la semaine se chevauche avec une annee
+            // Filtrage par semaine
+            // Le test de l'année est utilisé dans le cas la semaine se chevauche avec une annee
         case 2:
-            return weekNumber(rdv.day, rdv.month, rdv.year) == weekNumber(day, month, year) && abs(rdv.year - year) <= 1;
+            return weekNumber(rdv.day, rdv.month, rdv.year) == weekNumber(day, month, year) &&
+                   abs(rdv.year - year) <= 1;
 
-        // Filtrage par mois
+            // Filtrage par mois
         default:
             return rdv.month == month && rdv.year == year;
     }
+}
+
+
+/**
+ * Renvoie le nombre de minutes écoulées depuis le début de la journée jusqu'au début du rendez-vous
+ * @param rdv Rendez-vous
+ * @return Nombre de minutes écoulées depuis le début de la journée jusqu'au début du rendez-vous
+ */
+
+int StartMinute(Rdv rdv) {
+    return rdv.hour * 60 + rdv.minute;
+}
+
+/**
+ * Renvoie le nombre de minutes écoulées depuis le début de la journée jusqu'à la fin du rendez-vous
+ * @param rdv Rendez-vous
+ * @return Nombre de minutes écoulées depuis le début de la journée jusqu'à la fin du rendez-vous
+ */
+
+int EndMinute(Rdv rdv) {
+    int minuteFin = (rdv.minute + rdv.duration) % 60;
+    int heureFin = (rdv.hour * 60 + rdv.minute + rdv.duration) / 60;
+
+    return heureFin * 60 + minuteFin;
+}
+
+/**
+ * Vérifie s'il y a une superposition de rendez-vous et propose différentes solutions à l'utilisateurs
+ * @param newRdv Rendez-vous
+ * @return 0 (si le nouveau rendez-vous n'est pas modifié) ou 1 (dans le cas contraire)
+ */
+
+int collision(Rdv newRdv) {
+    int i, choice;
+    Rdv current;
+    for (i = 0; i < getSize(rdvs); i++) {
+        current = get(rdvs, i).rdv;
+        if (newRdv.day == current.day && newRdv.month == current.month && newRdv.year == current.year &&
+            //Cas décalé
+            ((StartMinute(newRdv) <= EndMinute(current) && EndMinute(newRdv) >= StartMinute(current)) ||
+             //current dans rdv
+             (StartMinute(newRdv) >= StartMinute(current) && EndMinute(newRdv) <= EndMinute(current)) ||
+             //rdv dans current
+             (StartMinute(newRdv) <= StartMinute(current) && EndMinute(newRdv) >= EndMinute(current)))) {
+
+            printf("Vous avez déjà un rendez-vous : \n");
+            afficherRdv(0, current);
+            printf("\nQue voulez-vous faire ?\n");
+            do {
+                printChoice(1, "Modifier le nouveau rendez-vous");
+                printChoice(2, "Modifier l'ancien rendez-vous");
+                printChoice(3, "Supprimer l'ancien rendez-vous");
+
+                inputint(&choice, 1);
+
+            }while(choice < 1 || choice  > 3);
+
+            switch (choice){
+                case 1 :
+                    return 1;
+
+                case 2:
+                    set(rdvs, i, fromRdv(nouveauRdv()));
+                    printf("\nAncien rendez-vous modifié...\nFinalisation du nouveau rendez-vous...\n");
+                    return 0;
+
+                case 3:
+                    pop(rdvs, i);
+                    printf("\nAncien rendez-vous supprimé...\nFinalisation du nouveau rendez-vous...\n");
+                    return 0;
+            }
+        }
+
+    }
+    return 0;
 }
