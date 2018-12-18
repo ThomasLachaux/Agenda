@@ -82,7 +82,13 @@ void listerRdvParJour() {
 
                 if (choix == 1) {
                     printf("Modification du rendez-vous...\n");
-                    // todo: passer heure manuellement
+
+                    // Modification un peu bourrinne, mais permet d'éviter un bug de collision non existant
+                    Rdv tmp = get(rdvs, correctId).rdv;
+                    tmp.year = 0;
+                    set(rdvs, correctId, fromRdv(tmp));
+
+                    // Vrai modificaition du rendez-vous
                     set(rdvs, correctId, fromRdv(nouveauRdv()));
 
                 } else if (choix == 2) {
