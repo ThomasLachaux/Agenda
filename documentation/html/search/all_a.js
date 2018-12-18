@@ -2,6 +2,7 @@ var searchData=
 [
   ['place',['place',['../struct_rdv.html#a65850d8c26f7ebb5cc8930cb813f81e2',1,'Rdv']]],
   ['pop',['pop',['../array_8c.html#a17fff68031f51812e2c73c7dedeced7f',1,'array.c']]],
+  ['previous',['previous',['../struct_element.html#af1966d7084d2373905ae510e8f04a581',1,'Element']]],
   ['printchoice',['printChoice',['../tools_8c.html#a2a6c1ef9ebf873b613955f0e90186771',1,'printChoice(int id, char *value):&#160;tools.c'],['../tools_8h.html#a2a6c1ef9ebf873b613955f0e90186771',1,'printChoice(int id, char *value):&#160;tools.c']]],
   ['printinputtext',['printInputText',['../tools_8c.html#a7e0e2301c2811be0362df145c1984cf6',1,'printInputText():&#160;tools.c'],['../tools_8h.html#a7e0e2301c2811be0362df145c1984cf6',1,'printInputText():&#160;tools.c']]],
   ['promptdate',['promptDate',['../tools_8c.html#a40e7a9c288d88087297e1c72467148fa',1,'promptDate(int *day, int *month, int *year):&#160;tools.c'],['../tools_8h.html#a40e7a9c288d88087297e1c72467148fa',1,'promptDate(int *day, int *month, int *year):&#160;tools.c']]],

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['srcdirectory',['srcDirectory',['../accents_8py.html#ad27a939f6a419140f1961c2c69f9d5b1',1,'accents']]]
+  ['rdv',['rdv',['../struct_type.html#a47983f89f07cd6fe872c40313756964a',1,'Type']]],
+  ['rdvs',['rdvs',['../struct_user.html#aee0126041ea7a8a8e7630d17585ed5a1',1,'User']]]
 ];

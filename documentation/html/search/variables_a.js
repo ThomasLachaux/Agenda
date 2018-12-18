@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['year',['year',['../struct_rdv.html#ae0489283a56946bd2d49b032e07b93c1',1,'Rdv']]]
+  ['usegui',['usegui',['../tools_8h.html#a6d52c4b5a2fa39250d940411a06562f2',1,'tools.h']]],
+  ['user',['user',['../struct_type.html#a5cc32e366c87c4cb49e4309b75f57d64',1,'Type']]]
 ];

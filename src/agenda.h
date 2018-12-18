@@ -18,6 +18,6 @@ void ajouterUnRdv();
 void listerRdvParJour();
 void afficherRdv(int id, Rdv rdv);
 Rdv nouveauRdv();
-void sauvegarderRdv(Rdv rdv);
+void saveRdv(Rdv rdv);
 int filterRdv(Rdv rdv, int day, int month, int year);
 #endif //AGENDA_AGENDA_H

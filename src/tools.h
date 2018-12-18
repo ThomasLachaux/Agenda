@@ -57,10 +57,8 @@ struct Rdv {
 /**
  * @struct User
  * @brief Structure utilisateur
- * @var User::nRdvs
- * Nombre de rendez-vous
  * @var User::name
- * Nom de l'utilisateur
+ * Nom de l'util    isateur
  * @var User::rdvs
  * Rendez-vous de l'utilisateur
  */
@@ -71,25 +69,56 @@ struct User {
     Array *rdvs;
 };
 
-
+/**
+ * @struct Type
+ * @brief Types supportés pour la manipulation de listes chainées
+ * @var Type::rdv
+ * Rendez-vous
+ * @var Type::user
+ * Utilisateur
+ * @var Type::integer
+ * Nombre
+ */
 struct Type {
     Rdv rdv;
     User user;
     int integer;
 };
 
+
+/**
+ * @struct Element
+ * @brief Element d'une liste chainée
+ * @var Element::value
+ * Valeur de l'element
+ * @var Element::previous
+ * Pointeur vers l'element précédent
+ * @var Element::next
+ * Pointeur vers l'element suivant
+ */
 struct Element {
     Type value;
     Element *previous;
     Element *next;
 };
 
-
+/**
+ * @struct Array
+ * @brief Liste chainée
+ * @var Array::first
+ * Pointeur vers le premier element
+ * @var Array::size
+ * Taille du tableau
+ */
 struct Array {
     Element *first;
     int size;
 };
 
+/**
+ * 0 si en mode console
+ * 1 si en mode graphique
+ */
 int usegui;
 
 void promptDate(int *day, int *month, int *year);
