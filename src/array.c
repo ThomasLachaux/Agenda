@@ -150,6 +150,30 @@ void add(Array *array, Type new_value) {
 }
 
 /**
+ * Ajoute un element à un certain endroit de la liste
+ * @param array Liste chaine
+ * @param index Endroit de la liste
+ * @param newValue Nouvelle valeur
+ */
+void addAt(Array *array, int index, Type newValue) {
+
+    Element *newElt = malloc(sizeof(Element));
+
+    newElt->value = newValue;
+
+    Element *previous = getElement(array, index);
+
+    newElt->previous = previous;
+    newElt->next = NULL;
+
+    if(previous != NULL) {
+        previous->next = newElt;
+        newElt->next = previous->next;
+    }
+
+}
+
+/**
  * Supprime un élément à l'index donné
  * @param array Tableau dynamique
  * @param index Index donné
