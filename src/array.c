@@ -168,7 +168,9 @@ void pop(Array *array, int index) {
     // Si il est premier de la liste
     else {
         array->first = next;
-        next->previous = NULL;
+
+        if(next != NULL)
+            next->previous = NULL;
     }
 
     free(to_delete);

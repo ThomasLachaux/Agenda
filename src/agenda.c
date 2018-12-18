@@ -87,7 +87,6 @@ void listerRdvParJour() {
 
                 } else if (choix == 2) {
                     printf("Suppression du rendez-vous...\n");
-                    // todo: enorme bug: plante
                     pop(rdvs, correctId);
                 } else if (choix == 3) {
                     printf("Sauvegarde du rendez-vous...\n");
@@ -95,7 +94,6 @@ void listerRdvParJour() {
                     saveRdv(save);
                 }
             }
-
         }
     }
 }
