@@ -8,6 +8,7 @@
 #include "tools.h"
 
 Array *initArray();
+Type fromInt(int integer);
 Type fromRdv(Rdv rdv);
 Type fromUser(User user);
 Type get(Array *array, int index);

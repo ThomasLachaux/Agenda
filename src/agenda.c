@@ -23,8 +23,7 @@ void listerRdvParJour() {
     promptDate(&jour, &mois, &annee);
 
     // todo: passer en dynamique
-    int corresps[1000];
-    int ncorr = 0;
+    Array *newCorresp = initArray();
 
     int i = 0;
     int j = 0;
@@ -34,8 +33,7 @@ void listerRdvParJour() {
     for (i = 0; i < getSize(rdvs); i++) {
         if (filterRdv(get(rdvs, i).rdv, jour, mois, annee)) {
 
-            corresps[ncorr] = i;
-            ncorr++;
+            add(newCorresp, fromInt(i));
 
             Rdv rdv = get(rdvs, i).rdv;
             afficherRdv(j + 1, rdv);
@@ -80,19 +78,20 @@ void listerRdvParJour() {
                 printf("Identifiant du rendez-vous ? (Entre 1 et %d)\n", j);
                 inputint(&id, 0);
 
+                int correctId = get(newCorresp, id - 1).integer;
+
                 if (choix == 1) {
                     printf("Modification du rendez-vous...\n");
-                    //newRdvDuJour[id - 1]->value.rdv = nouveauRdv();
-                    set(rdvs, corresps[id - 1], fromRdv(nouveauRdv()));
+                    // todo: passer heure manuellement
+                    set(rdvs, correctId, fromRdv(nouveauRdv()));
 
                 } else if (choix == 2) {
                     printf("Suppression du rendez-vous...\n");
-                    //*rdvDuJour[id - 1] = rdvs[*nRdvs - 1];
-                    //(*nRdvs)--;
-                    pop(rdvs, corresps[id - 1]);
+                    // todo: enorme bug: plante
+                    pop(rdvs, correctId);
                 } else if (choix == 3) {
                     printf("Sauvegarde du rendez-vous...\n");
-                    Rdv save = get(rdvs, corresps[id - 1]).rdv;
+                    Rdv save = get(rdvs, correctId).rdv;
                     saveRdv(save);
                 }
             }
