@@ -25,7 +25,7 @@ void listerRdvParJour() {
     // todo: passer en dynamique
     int corresps[1000];
     int ncorr = 0;
-    
+
     int i = 0;
     int j = 0;
     int k = 0;
@@ -33,13 +33,13 @@ void listerRdvParJour() {
     // Affiche les rendez-vous filtrées et le stock dans un tableau temporaire
     for (i = 0; i < getSize(rdvs); i++) {
         if(filterRdv(get(rdvs, i).rdv, jour, mois, annee)) {
-            
+
             corresps[ncorr] = i;
             ncorr++;
-            
+
             Rdv rdv = get(rdvs, i).rdv;
             afficherRdv(j + 1, rdv);
-            
+
             j++;
         }
     }
@@ -132,8 +132,13 @@ Rdv nouveauRdv() {
     }
     while (newRdv.hour >= 24 || newRdv.minute >= 60);
 
+
     printf("Durée du rendez-vous ? (En minutes)\n");
     inputint(&newRdv.duration, 1);
+
+
+    collision();
+
 
     printf("Nom du rendez-vous ?\n");
     input(newRdv.label, 99, 1);
@@ -143,6 +148,7 @@ Rdv nouveauRdv() {
 
     printf("Personnes présentes lors du rendez-vous ?\n");
     input(newRdv.with, 99, 1);
+
 
     return newRdv;
 }
@@ -226,5 +232,34 @@ int filterRdv(Rdv rdv, int day, int month, int year) {
         // Filtrage par mois
         default:
             return rdv.month == month && rdv.year == year;
+    }
+}
+
+int StartMinute(Rdv rdv) {
+    return rdv.hour * 60 + rdv.minute;
+}
+
+int EndMinute(Rdv rdv) {
+    int minuteFin = (rdv.minute + rdv.duration) % 60;
+    int heureFin = (rdv.hour * 60 + rdv.minute + rdv.duration) / 60;
+
+    return heureFin * 60 + minuteFin;
+}
+
+int collision(Rdv newRdv) {
+    int i;
+    Rdv current;
+    for(i = 0 ; i < getSize(rdvs) ; i++) {
+        current = get(rdvs, i).rdv;
+        if(newRdv.day == current.day && newRdv.month==current.month && newRdv.year==current.year &&
+        //Cas décalé
+        ((StartMinute(newRdv)<= EndMinute(current) && EndMinute(newRdv)>=StartMinute(current)) ||
+        //current dans rdv
+        (StartMinute(newRdv)>=StartMinute(current) && EndMinute(newRdv)>=EndMinute(current))||
+        //rdv dans current
+        (StartMinute(newRdv)<=StartMinute(current) && EndMinute(newRdv)<=EndMinute(current)) ) ) {
+
+        }
+
     }
 }
