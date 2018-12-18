@@ -20,5 +20,5 @@ void afficherRdv(int id, Rdv rdv);
 Rdv nouveauRdv();
 void sauvegarderRdv(Rdv rdv);
 int filterRdv(Rdv rdv, int day, int month, int year);
-int collision();
+int collision(Rdv newRdv);
 #endif //AGENDA_AGENDA_H

@@ -146,6 +146,9 @@ void inputint(int *integer, int inputText) {
  */
 void handlePrint(const char *format, ...) {
 
+    if(!usegui)
+        setbuf(stdout, NULL);
+
     va_list args;
     va_start(args, format);
     vprintf(format, args);
