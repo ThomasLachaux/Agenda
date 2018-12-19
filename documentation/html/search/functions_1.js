@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['debugarray',['debugArray',['../array_8c.html#a0b4edaeca518f8d7a8cdc42506d46be0',1,'array.c']]],
-  ['displayspecialday',['displaySpecialDay',['../administration_8c.html#a44a86d4b6e4f6f008d0c5b999e71e633',1,'displaySpecialDay(int id, Rdv specialDay):&#160;administration.c'],['../administration_8h.html#a44a86d4b6e4f6f008d0c5b999e71e633',1,'displaySpecialDay(int id, Rdv specialDay):&#160;administration.c']]]
+  ['collision',['collision',['../agenda_8c.html#ad75fb3bf5331bfca1d1036a75bf5b41a',1,'agenda.c']]]
 ];

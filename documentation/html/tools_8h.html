@@ -150,6 +150,10 @@ Fonctions</h2></td></tr>
 <tr class="separator:ae773e6903e196ddd985e148c8854a7da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e0e2301c2811be0362df145c1984cf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tools_8h.html#a7e0e2301c2811be0362df145c1984cf6">printInputText</a> ()</td></tr>
 <tr class="separator:a7e0e2301c2811be0362df145c1984cf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88641d2ca3a2db948b75345a8ddd712e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tools_8h.html#a88641d2ca3a2db948b75345a8ddd712e">getMinutesStart</a> (<a class="el" href="struct_rdv.html">Rdv</a> rdv)</td></tr>
+<tr class="separator:a88641d2ca3a2db948b75345a8ddd712e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bd1889f786eff2e89bc4be54f7b1e1c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tools_8h.html#a0bd1889f786eff2e89bc4be54f7b1e1c">getMintesEnd</a> (<a class="el" href="struct_rdv.html">Rdv</a> rdv)</td></tr>
+<tr class="separator:a0bd1889f786eff2e89bc4be54f7b1e1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -178,6 +182,56 @@ Louis Bichet </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>Vide le buffer du stdin </p>
+
+</div>
+</div>
+<a id="a0bd1889f786eff2e89bc4be54f7b1e1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bd1889f786eff2e89bc4be54f7b1e1c">&#9670;&nbsp;</a></span>getMintesEnd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getMintesEnd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_rdv.html">Rdv</a>&#160;</td>
+          <td class="paramname"><em>rdv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Renvoie le nombre de minutes écoulées depuis le début de la journée jusqu'à la fin du rendez-vous </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rdv</td><td>Rendez-vous </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nombre de minutes écoulées depuis le début de la journée jusqu'à la fin du rendez-vous </dd></dl>
+
+</div>
+</div>
+<a id="a88641d2ca3a2db948b75345a8ddd712e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88641d2ca3a2db948b75345a8ddd712e">&#9670;&nbsp;</a></span>getMinutesStart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getMinutesStart </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_rdv.html">Rdv</a>&#160;</td>
+          <td class="paramname"><em>rdv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Renvoie le nombre de minutes écoulées depuis le début de la journée jusqu'au début du rendez-vous </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rdv</td><td>Rendez-vous </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nombre de minutes écoulées depuis le début de la journée jusqu'au début du rendez-vous </dd></dl>
 
 </div>
 </div>

@@ -110,6 +110,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getSize</b> (<a class=
 <tr class="separator:a505550171b9139460e80a03bc2c88144"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3cba0dfb1adbb71eeeeabf3786bd5ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array_8c.html#ac3cba0dfb1adbb71eeeeabf3786bd5ac">add</a> (<a class="el" href="struct_array.html">Array</a> *array, <a class="el" href="struct_type.html">Type</a> new_value)</td></tr>
 <tr class="separator:ac3cba0dfb1adbb71eeeeabf3786bd5ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4a84ab179138df58e42906128e7a964"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array_8c.html#af4a84ab179138df58e42906128e7a964">addAt</a> (<a class="el" href="struct_array.html">Array</a> *array, int index, <a class="el" href="struct_type.html">Type</a> newValue)</td></tr>
+<tr class="separator:af4a84ab179138df58e42906128e7a964"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4f5a60acb2d5647a59396eb24449e56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array_8c.html#af4f5a60acb2d5647a59396eb24449e56">sortArrayByStartHour</a> (<a class="el" href="struct_array.html">Array</a> *array)</td></tr>
+<tr class="separator:af4f5a60acb2d5647a59396eb24449e56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17fff68031f51812e2c73c7dedeced7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array_8c.html#a17fff68031f51812e2c73c7dedeced7f">pop</a> (<a class="el" href="struct_array.html">Array</a> *array, int index)</td></tr>
 <tr class="separator:a17fff68031f51812e2c73c7dedeced7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf0ca5962f4f121e27b209bf06155b2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="array_8c.html#acf0ca5962f4f121e27b209bf06155b2a">freeArray</a> (<a class="el" href="struct_array.html">Array</a> *array)</td></tr>
@@ -153,6 +157,48 @@ Louis Bichet </dd></dl>
   <table class="params">
     <tr><td class="paramname">array</td><td>Tableau dynamique </td></tr>
     <tr><td class="paramname">new_value</td><td>Nouvelle valeur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af4a84ab179138df58e42906128e7a964"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4a84ab179138df58e42906128e7a964">&#9670;&nbsp;</a></span>addAt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addAt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_array.html">Array</a> *&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_type.html">Type</a>&#160;</td>
+          <td class="paramname"><em>newValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ajoute un element à un certain endroit de la liste </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>Liste chaine </td></tr>
+    <tr><td class="paramname">index</td><td>Endroit de la liste </td></tr>
+    <tr><td class="paramname">newValue</td><td>Nouvelle valeur </td></tr>
   </table>
   </dd>
 </dl>
@@ -444,6 +490,30 @@ Louis Bichet </dd></dl>
     <tr><td class="paramname">array</td><td>Tableau dynamique </td></tr>
     <tr><td class="paramname">index</td><td>Index donné </td></tr>
     <tr><td class="paramname">new_value</td><td>Nouvelle valeur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af4f5a60acb2d5647a59396eb24449e56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4f5a60acb2d5647a59396eb24449e56">&#9670;&nbsp;</a></span>sortArrayByStartHour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sortArrayByStartHour </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_array.html">Array</a> *&#160;</td>
+          <td class="paramname"><em>array</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tri du tableau de rendez-vous en fonction de l'heure du début (tri par positionnement) </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>Tableau </td></tr>
   </table>
   </dd>
 </dl>

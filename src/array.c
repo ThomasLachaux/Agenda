@@ -150,6 +150,40 @@ void add(Array *array, Type new_value) {
 }
 
 /**
+ * Tri du tableau de rendez-vous en fonction de l'heure du début (tri par positionnement)
+ * @param array Tableau
+ */
+void sortArrayByStartHour(Array *array) {
+
+    int i,j, min;
+
+    for(i = 0; i < getSize(array) - 1; i++) {
+
+        min = i;
+
+        for(j = i + 1; j < getSize(array); j++) {
+
+            Rdv rdvJ = get(array, j).rdv;
+            Rdv rdvMin = get(array, min).rdv;
+
+            if(getTimestamp(rdvJ) < getTimestamp(rdvMin))
+                min = j;
+        }
+
+        if(min != i) {
+
+            // Echange des rendez-vous
+
+            Rdv rdvI = get(array, i).rdv;
+            Rdv rdvMin = get(array, min).rdv;
+
+            set(array, i, fromRdv(rdvMin));
+            set(array, min, fromRdv(rdvI));
+        }
+    }
+}
+
+/**
  * Supprime un élément à l'index donné
  * @param array Tableau dynamique
  * @param index Index donné
@@ -168,7 +202,9 @@ void pop(Array *array, int index) {
     // Si il est premier de la liste
     else {
         array->first = next;
-        next->previous = NULL;
+
+        if(next != NULL)
+            next->previous = NULL;
     }
 
     free(to_delete);
