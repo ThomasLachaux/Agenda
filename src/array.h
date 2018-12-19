@@ -1,7 +1,3 @@
-//
-// Created by Thomas on 21-Oct-18.
-//
-
 #ifndef AGENDA_ARRAYS_H
 #define AGENDA_ARRAYS_H
 
@@ -18,7 +14,7 @@ int getSize(Array *array);
 void set(Array *array, int index, Type new_value);
 void add(Array *array, Type new_value);
 void pop(Array *array, int index);
-void addAt(Array *array, int index, Type newValue)
+void sortArrayByStartHour(Array *array);
 void freeArray(Array *array);
 void debugArray(Array *liste);
 

@@ -150,36 +150,6 @@ void add(Array *array, Type new_value) {
 }
 
 /**
- * Ajoute un element à un certain endroit de la liste
- * @param array Liste chaine
- * @param index Endroit de la liste
- * @param newValue Nouvelle valeur
- */
-void addAt(Array *array, int index, Type newValue) {
-
-    if(array->first == NULL) {
-        add(array, newValue);
-    }
-
-    else {
-
-        Element *newElt = malloc(sizeof(Element));
-
-        newElt->value = newValue;
-
-        Element *previous = getElement(array, index);
-
-        newElt->previous = previous;
-        newElt->next = NULL;
-
-        if (previous != NULL) {
-            previous->next = newElt;
-            newElt->next = previous->next;
-        }
-    }
-}
-
-/**
  * Tri du tableau de rendez-vous en fonction de l'heure du début (tri par positionnement)
  * @param array Tableau
  */
@@ -196,7 +166,7 @@ void sortArrayByStartHour(Array *array) {
             Rdv rdvJ = get(array, j).rdv;
             Rdv rdvMin = get(array, min).rdv;
 
-            if(getMinutesStart(rdvJ) < getMinutesStart(rdvMin))
+            if(getTimestamp(rdvJ) < getTimestamp(rdvMin))
                 min = j;
         }
 

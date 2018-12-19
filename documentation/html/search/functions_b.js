@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['saveagenda',['saveAgenda',['../main_8c.html#a299c5c3f5746871d07285a4a6192873d',1,'main.c']]],
-  ['saverdv',['saveRdv',['../agenda_8c.html#ac844048fe7630d2e799a99b502b0b373',1,'agenda.c']]],
-  ['set',['set',['../array_8c.html#a505550171b9139460e80a03bc2c88144',1,'array.c']]]
+  ['pop',['pop',['../array_8c.html#a17fff68031f51812e2c73c7dedeced7f',1,'array.c']]],
+  ['printchoice',['printChoice',['../tools_8c.html#a2a6c1ef9ebf873b613955f0e90186771',1,'printChoice(int id, char *value):&#160;tools.c'],['../tools_8h.html#a2a6c1ef9ebf873b613955f0e90186771',1,'printChoice(int id, char *value):&#160;tools.c']]],
+  ['printinputtext',['printInputText',['../tools_8c.html#a7e0e2301c2811be0362df145c1984cf6',1,'printInputText():&#160;tools.c'],['../tools_8h.html#a7e0e2301c2811be0362df145c1984cf6',1,'printInputText():&#160;tools.c']]],
+  ['promptdate',['promptDate',['../tools_8c.html#a40e7a9c288d88087297e1c72467148fa',1,'promptDate(int *day, int *month, int *year):&#160;tools.c'],['../tools_8h.html#a40e7a9c288d88087297e1c72467148fa',1,'promptDate(int *day, int *month, int *year):&#160;tools.c']]],
+  ['promptspecialday',['promptSpecialDay',['../administration_8c.html#ae3cb674332aeb2b76d82b95ffef56399',1,'promptSpecialDay():&#160;administration.c'],['../administration_8h.html#ae3cb674332aeb2b76d82b95ffef56399',1,'promptSpecialDay():&#160;administration.c']]]
 ];

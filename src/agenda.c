@@ -29,6 +29,8 @@ void listerRdvParJour() {
     int j = 0;
     int k = 0;
 
+    sortArrayByStartHour(rdvs);
+
     // Affiche les rendez-vous filtrées et le stock dans un tableau temporaire
     for (i = 0; i < getSize(rdvs); i++) {
         if (filterRdv(get(rdvs, i).rdv, jour, mois, annee)) {

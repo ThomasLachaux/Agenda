@@ -133,4 +133,5 @@ void handlePrint(const char *format, ...);
 void printInputText();
 int getMinutesStart(Rdv rdv);
 int getMintesEnd(Rdv rdv);
+long getTimestamp(Rdv rdv);
 #endif //AGENDA_TOOLS_H

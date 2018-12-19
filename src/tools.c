@@ -183,6 +183,16 @@ void printInputText() {
 
 
 /**
+ * Retourne le nombre de minutes écoulées depuis 1970. Utilisé pour trier le tableau de rendez-vous
+ * @param rdv Rendez-vous
+ * @return Nombre de secondes écoulées depuis 1970
+ */
+long getTimestamp(Rdv rdv) {
+    return rdv.minute + 60 * (rdv.hour + 24 * (rdv.day + 30 * (rdv.month + 12 * (rdv.year - 1970))));
+}
+
+
+/**
  * Renvoie le nombre de minutes écoulées depuis le début de la journée jusqu'au début du rendez-vous
  * @param rdv Rendez-vous
  * @return Nombre de minutes écoulées depuis le début de la journée jusqu'au début du rendez-vous
