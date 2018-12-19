@@ -16,7 +16,7 @@
  */
 void administrator() {
     int choix = 0;
-    const int i = 4;
+    const int i = 5;
 
     while (choix != i) {
         printf("Bienvenue sur l'interface d'administration\n");
@@ -25,6 +25,7 @@ void administrator() {
         printChoice(1, "Lister les utilisateurs");
         printChoice(2, "Ajouter un jour spécial");
         printChoice(3, "Lister les jours spéciaux");
+        printChoice(4, "Modifier le mode d'affichage");
         printChoice(i, "Se déconnecter");
 
         inputint(&choix, 0);
@@ -44,6 +45,10 @@ void administrator() {
 
             case 3:
                 listSpecialDays();
+                break;
+
+            case 4:
+                setFilterMode();
                 break;
         }
     }
@@ -80,7 +85,11 @@ void listUsers() {
     int choix = 0;
 
     while(choix != 3) {
-        printf("\n1) Renommer un utilisateur\n2) Supprimer un utilisateur\n3) Retour à l'interface d'administration");
+        printf("\n");
+        printChoice(1, "Renommer un utilisateur");
+        printChoice(2, "Supprimer un utilisateur");
+        printChoice(3, "Retour à l'interface d'administration");
+
         inputint(&choix, 0);
 
 
@@ -175,4 +184,24 @@ void listSpecialDays() {
 
 void displaySpecialDay(int id, Rdv specialDay) {
     printf("%d) %02d/%02d/%04d: %s\n", id, specialDay.day, specialDay.month, specialDay.year, specialDay.label);
+}
+
+/**
+ * Change le mode de filtrage
+ */
+void setFilterMode() {
+
+    int choice;
+    do {
+        printf("Nouveau mode de filtrage ?\n");
+        printChoice(1, "Filtrage par jour");
+        printChoice(2, "Filtrage par semaine");
+        printChoice(3, "Filtrage par mois");
+
+        inputint(&choice, 0);
+    } while (choice < 1 || choice > 3);
+
+    filterMode = choice;
+
+    printf("Mode de filtrage modifié\n");
 }

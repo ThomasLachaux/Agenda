@@ -173,6 +173,9 @@ void saveAgenda() {
 
     int i,j;
 
+    // Ecriture du mode de fitrage
+    fwrite(&filterMode, sizeof(int), 1, file);
+
     fwrite(&(users->size), sizeof(int), 1, file);
 
     for(i = 0; i < getSize(users); i++) {
@@ -213,10 +216,11 @@ int loadAgenda() {
 
         int i, j, userSize, rdvSize, specialDaysSize;
 
+        // Lecture du mode de filtrage
+        fread(&filterMode, sizeof(int), 1, file);
+
         // Lecture du nombre d'utilisateurs
         fread(&userSize, sizeof(int), 1, file);
-
-
 
         for(i = 0; i < userSize; i++) {
             User user;

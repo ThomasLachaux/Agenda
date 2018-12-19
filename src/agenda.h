@@ -11,7 +11,14 @@
 #include "tools.h"
 #include "array.h"
 
+/**
+ * Index de l'utilisateur courant dans la liste des utilisateurs
+ */
 int currentUser;
+
+/**
+ * Liste contenant les rendez-vous de l'utilisateur courant
+ */
 Array *rdvs;
 
 void ajouterUnRdv();
