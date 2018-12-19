@@ -131,4 +131,6 @@ void inputint(int *integer, int inputText);
 void printChoice(int id, char *value);
 void handlePrint(const char *format, ...);
 void printInputText();
+int getMinutesStart(Rdv rdv);
+int getMintesEnd(Rdv rdv);
 #endif //AGENDA_TOOLS_H

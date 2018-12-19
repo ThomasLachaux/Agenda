@@ -157,20 +157,60 @@ void add(Array *array, Type new_value) {
  */
 void addAt(Array *array, int index, Type newValue) {
 
-    Element *newElt = malloc(sizeof(Element));
-
-    newElt->value = newValue;
-
-    Element *previous = getElement(array, index);
-
-    newElt->previous = previous;
-    newElt->next = NULL;
-
-    if(previous != NULL) {
-        previous->next = newElt;
-        newElt->next = previous->next;
+    if(array->first == NULL) {
+        add(array, newValue);
     }
 
+    else {
+
+        Element *newElt = malloc(sizeof(Element));
+
+        newElt->value = newValue;
+
+        Element *previous = getElement(array, index);
+
+        newElt->previous = previous;
+        newElt->next = NULL;
+
+        if (previous != NULL) {
+            previous->next = newElt;
+            newElt->next = previous->next;
+        }
+    }
+}
+
+/**
+ * Tri du tableau de rendez-vous en fonction de l'heure du début (tri par positionnement)
+ * @param array Tableau
+ */
+void sortArrayByStartHour(Array *array) {
+
+    int i,j, min;
+
+    for(i = 0; i < getSize(array) - 1; i++) {
+
+        min = i;
+
+        for(j = i + 1; j < getSize(array); j++) {
+
+            Rdv rdvJ = get(array, j).rdv;
+            Rdv rdvMin = get(array, min).rdv;
+
+            if(getMinutesStart(rdvJ) < getMinutesStart(rdvMin))
+                min = j;
+        }
+
+        if(min != i) {
+
+            // Echange des rendez-vous
+
+            Rdv rdvI = get(array, i).rdv;
+            Rdv rdvMin = get(array, min).rdv;
+
+            set(array, i, fromRdv(rdvMin));
+            set(array, min, fromRdv(rdvI));
+        }
+    }
 }
 
 /**

@@ -235,30 +235,6 @@ int filterRdv(Rdv rdv, int day, int month, int year) {
     }
 }
 
-
-/**
- * Renvoie le nombre de minutes écoulées depuis le début de la journée jusqu'au début du rendez-vous
- * @param rdv Rendez-vous
- * @return Nombre de minutes écoulées depuis le début de la journée jusqu'au début du rendez-vous
- */
-
-int StartMinute(Rdv rdv) {
-    return rdv.hour * 60 + rdv.minute;
-}
-
-/**
- * Renvoie le nombre de minutes écoulées depuis le début de la journée jusqu'à la fin du rendez-vous
- * @param rdv Rendez-vous
- * @return Nombre de minutes écoulées depuis le début de la journée jusqu'à la fin du rendez-vous
- */
-
-int EndMinute(Rdv rdv) {
-    int minuteFin = (rdv.minute + rdv.duration) % 60;
-    int heureFin = (rdv.hour * 60 + rdv.minute + rdv.duration) / 60;
-
-    return heureFin * 60 + minuteFin;
-}
-
 /**
  * Vérifie s'il y a une superposition de rendez-vous et propose différentes solutions à l'utilisateurs
  * @param newRdv Rendez-vous
@@ -272,11 +248,11 @@ int collision(Rdv newRdv) {
         current = get(rdvs, i).rdv;
         if (newRdv.day == current.day && newRdv.month == current.month && newRdv.year == current.year &&
             //Cas décalé
-            ((StartMinute(newRdv) <= EndMinute(current) && EndMinute(newRdv) >= StartMinute(current)) ||
+            ((getMinutesStart(newRdv) <= getMintesEnd(current) && getMintesEnd(newRdv) >= getMinutesStart(current)) ||
              //current dans rdv
-             (StartMinute(newRdv) >= StartMinute(current) && EndMinute(newRdv) <= EndMinute(current)) ||
+             (getMinutesStart(newRdv) >= getMinutesStart(current) && getMintesEnd(newRdv) <= getMintesEnd(current)) ||
              //rdv dans current
-             (StartMinute(newRdv) <= StartMinute(current) && EndMinute(newRdv) >= EndMinute(current)))) {
+             (getMinutesStart(newRdv) <= getMinutesStart(current) && getMintesEnd(newRdv) >= getMintesEnd(current)))) {
 
             printf("Vous avez déjà un rendez-vous : \n");
             afficherRdv(0, current);

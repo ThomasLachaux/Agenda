@@ -180,3 +180,27 @@ void printInputText() {
                    "<input type=\"text\" class=\"input form-control\"/>"
                "</form>");
 }
+
+
+/**
+ * Renvoie le nombre de minutes écoulées depuis le début de la journée jusqu'au début du rendez-vous
+ * @param rdv Rendez-vous
+ * @return Nombre de minutes écoulées depuis le début de la journée jusqu'au début du rendez-vous
+ */
+
+int getMinutesStart(Rdv rdv) {
+    return rdv.hour * 60 + rdv.minute;
+}
+
+/**
+ * Renvoie le nombre de minutes écoulées depuis le début de la journée jusqu'à la fin du rendez-vous
+ * @param rdv Rendez-vous
+ * @return Nombre de minutes écoulées depuis le début de la journée jusqu'à la fin du rendez-vous
+ */
+
+int getMintesEnd(Rdv rdv) {
+    int minuteFin = (rdv.minute + rdv.duration) % 60;
+    int heureFin = (rdv.hour * 60 + rdv.minute + rdv.duration) / 60;
+
+    return heureFin * 60 + minuteFin;
+}
