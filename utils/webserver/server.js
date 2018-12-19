@@ -40,7 +40,6 @@ io.sockets.on('connection', function(socket) {
     child.stdin.setEncoding('utf-8');
 
     child.stdout.on('data', function (buffer) {
-
         var data = buffer.toString();
         console.log('Reception du programme: ' + data.toString())
 
@@ -49,6 +48,16 @@ io.sockets.on('connection', function(socket) {
         console.log(buff);
 
         socket.emit('message', data.toString());
+    });
+
+    child.on('error', (err) => {
+
+        var error = "Erreur: impossible d'executer le programme !\n" +
+            "Verifiez-bien que Agenda.exe est dans le même dossier que ce programme";
+
+        // Ecriture de l'erreur sur console et dans le navigateur
+        console.error(error);
+        socket.emit('message', error);
     });
 
     // Lors d'un clic d'un bouton ou d'une validation de texte
