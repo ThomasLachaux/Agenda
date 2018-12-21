@@ -122,20 +122,20 @@ Pour compiler `styles.less`, ouvrez un terminal, placez-vous le dossier Doxystyl
   
 ## Outils externes utilisés  
 - Interface graphique  
-   - [NodeJS](https://nodejs.org)  
-   - [ExpressJS](https://expressjs.com)  
-   - [Yarn](https://yarnpkg.com)  
-   - [socket.io](https://socket.io)  
-   - [opn](https://github.com/sindresorhus/opn)  
-   - [nodemon](https://nodemon.io)  
-   - [pkg](https://github.com/zeit/pkg)  
-   - [Bootstrap](https://getbootstrap.com)  
-   - [jQuery](https://jquery.com)  
+   - [NodeJS](https://nodejs.org)  Pour lancer un serveur en JavaScript
+   - [ExpressJS](https://expressjs.com)  Pour gerer facilement les requêtes/réponses du serveur
+   - [Yarn](https://yarnpkg.com)  Pour gérer plus facilement les dépendances que NPM
+   - [socket.io](https://socket.io)  Pour communiquer avec le client web
+   - [opn](https://github.com/sindresorhus/opn)  Pour lancer le navigateur par défaut
+   - [nodemon](https://nodemon.io)  Pour live-reload le code serveur
+   - [pkg](https://github.com/zeit/pkg)  Pour portabiliser le code sur Windows, Mac et Linux
+   - [Bootstrap](https://getbootstrap.com)  Pour ne pas s'embêter avec la stylisation de l'interface
+   - [jQuery](https://jquery.com)  Pour faire des dernières retouches du texte facilement
 - Accents  
-   - [Python 3.7](https://www.python.org)  
-   - [PyInstaller](https://www.pyinstaller.org)  
+   - [Python 3.7](https://www.python.org)  Pour coder un petit script utilitaire rapidement
+   - [PyInstaller](https://www.pyinstaller.org)  Pour portabiliser le code sur Windows
 - Doxystyle  
-   - [LESS](http://lesscss.org)  
+   - [LESS](http://lesscss.org)  Pour éviter la redondance du CSS
   
       
 ## Structure du projet
