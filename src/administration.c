@@ -15,10 +15,10 @@
  * @brief Menu admnistrateur
  */
 void administrator() {
-    int choix = 0;
+    int choice = 0;
     const int i = 5;
 
-    while (choix != i) {
+    while (choice != i) {
         printf("Bienvenue sur l'interface d'administration\n");
 
         printChoice(0, "Ajouter un utilisateur");
@@ -28,9 +28,9 @@ void administrator() {
         printChoice(4, "Modifier le mode d'affichage");
         printChoice(i, "Se déconnecter");
 
-        inputint(&choix, 0);
+        inputint(&choice, 0);
 
-        switch (choix) {
+        switch (choice) {
             case 0:
                 newUser();
                 break;
@@ -98,7 +98,7 @@ void listUsers() {
             int usrId;
 
             printf("Identifiant de l'utilisateur ? (Entre 1 et %d)\n", getSize(users));
-            inputint(&usrId, 0);
+            inputint(&usrId, 1);
 
             usrId--;
 
@@ -154,7 +154,9 @@ void listSpecialDays() {
     }
 
     while (choice != 3) {
-        printf("1) Modifier un jour spécial\n2) Supprimer un jour spécial\n3) Retour au menu\n");
+        printChoice(1, "Modifier un jour spécial");
+        printChoice(2, "Supprimer un jour spécial");
+        printChoice(3, "Retour au menu");
         inputint(&choice, 0);
 
         if(choice == 1 || choice == 2) {

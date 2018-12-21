@@ -25,8 +25,13 @@ function controlOutput(socket) {
             .wrap('<h1 class="display-4 instruction-text"/>');
 
         // Alignement et mise en forme des boutons
-        $('.instruction button').wrapAll('<div class="button-group"/>')
+        $('.instruction button').wrapAll('<div class="button-group"/>');
+
         $('button').addClass('btn btn-outline-primary btn-lg');
+        alert($('.button-group button').length);
+        if($('.button-group button').length >= 5)
+            $('.button-group button').removeClass('btn-lg');
+
 
         // Gestions des champs
         $('form').submit(false);

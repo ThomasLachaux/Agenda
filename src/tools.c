@@ -58,7 +58,9 @@ void promptDate(int *day, int *month, int *year) {
 
         default:
             printf("Date ? (Format : jj/mm/aaaa)\n");
+            printInputText();
             scanf("%d%c%d%c%d", day, &tmp, month, &tmp, year);
+            emptyBuffer();
 
     }
 }

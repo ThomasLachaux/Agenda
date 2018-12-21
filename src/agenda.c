@@ -77,7 +77,7 @@ void listerRdvParJour() {
             if (choix == 1 || choix == 2 || choix == 3) {
                 int id;
                 printf("Identifiant du rendez-vous ? (Entre 1 et %d)\n", j);
-                inputint(&id, 0);
+                inputint(&id, 1);
 
                 int correctId = get(newCorresp, id - 1).integer;
 
