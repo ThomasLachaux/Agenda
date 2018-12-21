@@ -15,9 +15,6 @@
 #include "tools.h"
 #include "array.h"
 
-/*
- */
-// todo: affichage du calendrier sur UI
 void normalUser(int userId);
 void initGlobals(int argc);
 void saveAgenda();
