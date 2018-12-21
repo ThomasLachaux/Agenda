@@ -1,6 +1,6 @@
-﻿
-    
-# Agenda Développé par Thomas de Lachaux et Louis Bichet      
+﻿# Agenda Développé par Thomas de Lachaux et Louis Bichet      
+      
+[Télécharger l'executable](https://github.com/HerelAdrastel/NF05/releases/tag/v1.0)
       
  # Mode d'emploi  
   
@@ -138,5 +138,4 @@ Pour compiler `styles.less`, ouvrez un terminal, placez-vous le dossier Doxystyl
    - [LESS](http://lesscss.org)  Pour éviter la redondance du CSS
    
   
-      
-## Structure du projet
+    
