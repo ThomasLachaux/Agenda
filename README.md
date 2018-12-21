@@ -136,6 +136,7 @@ Pour compiler `styles.less`, ouvrez un terminal, placez-vous le dossier Doxystyl
    - [PyInstaller](https://www.pyinstaller.org)  Pour portabiliser le code sur Windows
 - Doxystyle  
    - [LESS](http://lesscss.org)  Pour éviter la redondance du CSS
+   
   
       
 ## Structure du projet
