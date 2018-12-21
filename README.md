@@ -7,9 +7,8 @@
 3 executables sont disponibles à la racine du projet:   
 - *Agenda.exe*: Programme par défaut. Affiche correctement les accents des consoles récentes de Windows comme Powershell ou Cmder.  
 - *Agenda-encode.exe*: Exactement le même programme que ci-dessus, mais les accents sont compatibles l'affichage sur le cmd.exe de Windows.  
-- *GUI.exe*: Interface graphique  
-  
-Pour les autres plateformes. Vous sûr compiler le projet depuis les sources.  
+- *GUI.exe*: Interface graphique (disponible aussi pour mac et linux)
+
   
  # Structure du projet      
  Le projet est divisé en plusieurs sous dossiers:      
